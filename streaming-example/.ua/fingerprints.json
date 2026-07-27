@@ -1,0 +1,361 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "d273571ca860950958f7a923e74d4959c81f3139",
+  "generatedAt": "2026-07-27T21:58:20.090Z",
+  "files": {
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "1b9243fc43b0017207979b5ba68d36503c71a32a299c95d85fd97b591aa2bcc4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "ccf5d8cfb9b4c0842b2e12e4b1c1f23b7957e5cff5c840972a46d8e410345fb3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "angular.json": {
+      "filePath": "angular.json",
+      "contentHash": "ddcb251ae984edfb2198e98d757814f17f9328aa55a7b3e61a39ab7c31e8c674",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 109,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "037fc8e177af6b96ab1c5a6216287e98314518bb16a191fbf4f7485bfe592c56",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.component.ts": {
+      "filePath": "src/app/app.component.ts",
+      "contentHash": "c5f93598cfe8f5a4e9e38d0d9a8f668e09e72ffb1d7baa1461ffce192dea3b92",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppComponent",
+          "methods": [],
+          "properties": [
+            "url",
+            "decoder",
+            "characters"
+          ],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "resource",
+            "signal"
+          ]
+        }
+      ],
+      "exports": [
+        "AppComponent"
+      ],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.server.ts": {
+      "filePath": "src/app/app.config.server.ts",
+      "contentHash": "f8978441ad3ace962ddd0fd02d309b39497554ba5034b8730cc0d604f2cdeb2f",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "mergeApplicationConfig",
+            "ApplicationConfig"
+          ]
+        },
+        {
+          "source": "@angular/platform-server",
+          "specifiers": [
+            "provideServerRendering"
+          ]
+        },
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "provideServerRouting"
+          ]
+        },
+        {
+          "source": "./app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app.routes.server",
+          "specifiers": [
+            "serverRoutes"
+          ]
+        }
+      ],
+      "exports": [
+        "config"
+      ],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.ts": {
+      "filePath": "src/app/app.config.ts",
+      "contentHash": "b52c8bb3d13af5d1ec6589d5f9398982d227e85dda8cef94d6cb8ff5547a9a69",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ApplicationConfig",
+            "provideZoneChangeDetection"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "provideRouter"
+          ]
+        },
+        {
+          "source": "./app.routes",
+          "specifiers": [
+            "routes"
+          ]
+        },
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "provideClientHydration",
+            "withEventReplay"
+          ]
+        },
+        {
+          "source": "@angular/common/http",
+          "specifiers": [
+            "provideHttpClient",
+            "withFetch"
+          ]
+        }
+      ],
+      "exports": [
+        "appConfig"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.server.ts": {
+      "filePath": "src/app/app.routes.server.ts",
+      "contentHash": "bcfe0305bca065f00589bbc137d5a42c3a677ed7515a4c1e6f307c73b60fd117",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "RenderMode",
+            "ServerRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "serverRoutes"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.ts": {
+      "filePath": "src/app/app.routes.ts",
+      "contentHash": "e2ef74b4c1f7f52a30a417c6808f01b2a29e69bb0d20302527ae5001607f7180",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "Routes"
+          ]
+        }
+      ],
+      "exports": [
+        "routes"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.html": {
+      "filePath": "src/index.html",
+      "contentHash": "7328bda5ac592583e7dadb8d2f41628f0bc126f8d9cbb040950f2b089a2fce97",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "src/main.server.ts": {
+      "filePath": "src/main.server.ts",
+      "contentHash": "185b2a171da126f5c6c53ce0812588d3ba46575eeba352368c5414b6e5c0f1de",
+      "functions": [
+        {
+          "name": "bootstrap",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        },
+        {
+          "source": "./app/app.config.server",
+          "specifiers": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "src/main.ts": {
+      "filePath": "src/main.ts",
+      "contentHash": "98f31b67b543962dfae3f3e55e5fbd56c77d1bc6835a5c317dd92fa7d4a022c8",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app/app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "src/server.ts": {
+      "filePath": "src/server.ts",
+      "contentHash": "a16ad1b96032e9bb7b44d59df408d21c3fa7c54f4e046b322f5600af79ddf80b",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr/node",
+          "specifiers": [
+            "AngularNodeAppEngine",
+            "createNodeRequestHandler",
+            "isMainModule",
+            "writeResponseToNodeResponse"
+          ]
+        },
+        {
+          "source": "express",
+          "specifiers": [
+            "express"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "dirname",
+            "resolve"
+          ]
+        },
+        {
+          "source": "node:url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "@google/genai",
+          "specifiers": [
+            "GoogleGenAI"
+          ]
+        }
+      ],
+      "exports": [
+        "reqHandler"
+      ],
+      "totalLines": 80,
+      "hasStructuralAnalysis": true
+    },
+    "src/styles.css": {
+      "filePath": "src/styles.css",
+      "contentHash": "c7295b915b6a250b910d30ff3b9d1991b6f43c9474d3afafc6cba59eee44383e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.app.json": {
+      "filePath": "tsconfig.app.json",
+      "contentHash": "279f4735365415de3cd27268f36a8acfc99d39475721f7fc4793decb50331afe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "f88ab782788a0ee32d04c10e89e276c00deb9228b5d21a9e4086932c56e9b5c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    }
+  }
+}
