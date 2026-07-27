@@ -1,0 +1,657 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "1a87667205bd11f1b37df6ec0a8a32c38a44aab3",
+  "generatedAt": "2026-07-27T06:45:16.422Z",
+  "files": {
+    ".browserslistrc": {
+      "filePath": ".browserslistrc",
+      "contentHash": "4d917afcae808de480b3f540909d6f0a40ea6650bf6376a72d9708c8b8330640",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": false
+    },
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "e99fcaa928cfb6e857df991c2e8bdb7153ddb73da82a44f9ca67cd5af4241d73",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 88,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "af238d2d615360a2de3f5768cd62925bc7ad08516e24b1e205d1dc7e4912ce53",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "angular.json": {
+      "filePath": "angular.json",
+      "contentHash": "1a6d635d1aec8f03cb78144b617a44c5964122def46d5b6ba67e21528741dd54",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 110,
+      "hasStructuralAnalysis": true
+    },
+    "karma.conf.js": {
+      "filePath": "karma.conf.js",
+      "contentHash": "cfe1e163829c12571742cc7ae74ada2af6a2b16c0842e84e7f5e9e78fb2bf92a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "b91e6642c0a91116e2b2e6c9c5c1cb7496fd45c2c251c79fc4418ef2fdd42042",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app-routing.module.ts": {
+      "filePath": "src/app/app-routing.module.ts",
+      "contentHash": "81d0a91538f4a5d1303fb176633cdb06ae57f9cd4eba81d6f996d4c0127e1052",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppRoutingModule",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "NgModule"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "RouterModule",
+            "Routes"
+          ]
+        },
+        {
+          "source": "./dogs-list.component",
+          "specifiers": [
+            "DogsListComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "AppRoutingModule"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.component.spec.ts": {
+      "filePath": "src/app/app.component.spec.ts",
+      "contentHash": "99ca057346dccf4934975574105781dca86829f378f7aad8f39c07a1707f064a",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "TestBed"
+          ]
+        },
+        {
+          "source": "@angular/router/testing",
+          "specifiers": [
+            "RouterTestingModule"
+          ]
+        },
+        {
+          "source": "./app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.component.ts": {
+      "filePath": "src/app/app.component.ts",
+      "contentHash": "65df428ec2c57339bd12361b756795088d3018b0fbe9534b4d45071b7a9ab2ae",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppComponent",
+          "methods": [],
+          "properties": [
+            "title"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component"
+          ]
+        }
+      ],
+      "exports": [
+        "AppComponent"
+      ],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.module.ts": {
+      "filePath": "src/app/app.module.ts",
+      "contentHash": "ce7a11ba83d68fe2c9fc509046165598c6ef2e7dbc739dd0ef1e69288e5cff24",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppModule",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "NgModule"
+          ]
+        },
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "BrowserModule"
+          ]
+        },
+        {
+          "source": "./app-routing.module",
+          "specifiers": [
+            "AppRoutingModule"
+          ]
+        },
+        {
+          "source": "./app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "AppModule"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/dog-view.component.spec.ts": {
+      "filePath": "src/app/dog-view.component.spec.ts",
+      "contentHash": "d33b1d7a7f5713091b76314b10abdb0e6aca0610f7fc6d238660f143f6680895",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "ComponentFixture",
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./dog-view.component",
+          "specifiers": [
+            "DogViewComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/dog-view.component.ts": {
+      "filePath": "src/app/dog-view.component.ts",
+      "contentHash": "2303c826a78d180d0ec23b01376d341b6eff13528f2fccbabd344525dd09f488",
+      "functions": [],
+      "classes": [
+        {
+          "name": "DogViewComponent",
+          "methods": [
+            "constructor",
+            "ngOnInit"
+          ],
+          "properties": [
+            "dog$"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "OnInit"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "rxjs",
+          "specifiers": [
+            "map",
+            "Observable"
+          ]
+        },
+        {
+          "source": "./dogs.service",
+          "specifiers": [
+            "Dog",
+            "DogsService"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "ActivatedRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "DogViewComponent"
+      ],
+      "totalLines": 64,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/dogs-list-card.component.spec.ts": {
+      "filePath": "src/app/dogs-list-card.component.spec.ts",
+      "contentHash": "230558b3fee52051c882c3ffb98a8f3e2225de4bdc00523651aa8e8fb94dd81e",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "ComponentFixture",
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./dogs-list-card.component",
+          "specifiers": [
+            "DogsListCardComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/dogs-list-card.component.ts": {
+      "filePath": "src/app/dogs-list-card.component.ts",
+      "contentHash": "574fa3f0a2718155e1956d56e45432cbc6132135a12a384a31dfbc0e4faf8d24",
+      "functions": [],
+      "classes": [
+        {
+          "name": "DogsListCardComponent",
+          "methods": [
+            "constructor",
+            "ngOnInit"
+          ],
+          "properties": [
+            "dog",
+            "index"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "Input",
+            "OnInit"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "./dogs.service",
+          "specifiers": [
+            "Dog"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "RouterModule"
+          ]
+        }
+      ],
+      "exports": [
+        "DogsListCardComponent"
+      ],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/dogs-list.component.spec.ts": {
+      "filePath": "src/app/dogs-list.component.spec.ts",
+      "contentHash": "5d38dc14f04b21e01e6c1e945b77147037679517570239debf812d837506fb94",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "ComponentFixture",
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./dogs-list.component",
+          "specifiers": [
+            "DogsListComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/dogs-list.component.ts": {
+      "filePath": "src/app/dogs-list.component.ts",
+      "contentHash": "daa1e57e6736443a2b4d9660eca45fd830519c81255e4511af2bdd4d3fe43c15",
+      "functions": [],
+      "classes": [
+        {
+          "name": "DogsListComponent",
+          "methods": [
+            "constructor",
+            "ngOnInit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "OnInit"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "./dogs.service",
+          "specifiers": [
+            "DogsService"
+          ]
+        },
+        {
+          "source": "./dogs-list-card.component",
+          "specifiers": [
+            "DogsListCardComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "DogsListComponent"
+      ],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/dogs.service.spec.ts": {
+      "filePath": "src/app/dogs.service.spec.ts",
+      "contentHash": "82c24bc44f36ffcfa3a5914bb80a9bbb39bee9fb45c5db0ad6a70ad1989b5046",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./dogs.service",
+          "specifiers": [
+            "DogsService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/dogs.service.ts": {
+      "filePath": "src/app/dogs.service.ts",
+      "contentHash": "4259bc07fb4e9234e725561f7de69e6f5b0f540fbb96e9c15004ba6c3363bed4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "DogsService",
+          "methods": [],
+          "properties": [
+            "dogs"
+          ],
+          "exported": true,
+          "lineCount": 60
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Injectable"
+          ]
+        }
+      ],
+      "exports": [
+        "DogsService"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "src/assets/.gitkeep": {
+      "filePath": "src/assets/.gitkeep",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "src/environments/environment.prod.ts": {
+      "filePath": "src/environments/environment.prod.ts",
+      "contentHash": "4e5879539444410c55303a7b4fbd36884d077a22871aa3b2a0a79f0c8b7db3f2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "environment"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "src/environments/environment.ts": {
+      "filePath": "src/environments/environment.ts",
+      "contentHash": "574e62bbfc8827dcb7e26b1c8dc242ebeffb6c331453f549b7ca992c8810cb12",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "environment"
+      ],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.html": {
+      "filePath": "src/index.html",
+      "contentHash": "8ac1fabef203280f55691a9863cdbd2a95650d1f0198158767ae1912fc931dc6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "src/main.ts": {
+      "filePath": "src/main.ts",
+      "contentHash": "fcb510af66e7b3ae8091146d2a02436f186420173bb390d37874c7882ae2a0aa",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "enableProdMode"
+          ]
+        },
+        {
+          "source": "@angular/platform-browser-dynamic",
+          "specifiers": [
+            "platformBrowserDynamic"
+          ]
+        },
+        {
+          "source": "./app/app.module",
+          "specifiers": [
+            "AppModule"
+          ]
+        },
+        {
+          "source": "./environments/environment",
+          "specifiers": [
+            "environment"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "src/polyfills.ts": {
+      "filePath": "src/polyfills.ts",
+      "contentHash": "2e08a4d03b441d30fddf542999d6342a7eb8655ac213f721167bddf0efad0f5d",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "zone.js",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 62,
+      "hasStructuralAnalysis": true
+    },
+    "src/styles.css": {
+      "filePath": "src/styles.css",
+      "contentHash": "77cd5b63bfbef4e4e255d9962e6474d9848a5f79dff421c59e99259b404e6f34",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 137,
+      "hasStructuralAnalysis": false
+    },
+    "src/test.ts": {
+      "filePath": "src/test.ts",
+      "contentHash": "d00a56f1381b68ec05ce11635d2fbe45eb4806593daa8b8dfadb2d7eee2fab36",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "zone.js/testing",
+          "specifiers": []
+        },
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "getTestBed"
+          ]
+        },
+        {
+          "source": "@angular/platform-browser-dynamic/testing",
+          "specifiers": [
+            "BrowserDynamicTestingModule",
+            "platformBrowserDynamicTesting"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.app.json": {
+      "filePath": "tsconfig.app.json",
+      "contentHash": "4565e3536a07fd9da5ce4292f5a2ae0cef541a394408011ce690383311e12df7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "1971b4ce4908e6d09df02af43051c1b77f3b0e39f452ada6f87ec4cb341ac84a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.spec.json": {
+      "filePath": "tsconfig.spec.json",
+      "contentHash": "675a808e1665edc8de37d994740e7aaeb8869957e61b44b0a4fdff566f1e504c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

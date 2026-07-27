@@ -1,0 +1,1023 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "walk-my-dog",
+    "languages": [
+      "typescript",
+      "html",
+      "css",
+      "javascript",
+      "json",
+      "markdown"
+    ],
+    "frameworks": [
+      "Angular",
+      "Jasmine",
+      "Karma",
+      "RxJS"
+    ],
+    "description": "An Angular 14 dog-walking management UI (components, services, routing) generated with Angular CLI, backed by an in-memory DogsService data store.",
+    "analyzedAt": "2026-07-27T06:44:28.836Z",
+    "gitCommitHash": "1a87667205bd11f1b37df6ec0a8a32c38a44aab3"
+  },
+  "nodes": [
+    {
+      "id": "file:src/app/app-routing.module.ts",
+      "type": "file",
+      "name": "app-routing.module.ts",
+      "filePath": "src/app/app-routing.module.ts",
+      "summary": "Defines the Angular router configuration for the application, mapping routes to DogsListComponent and lazy-loading DogViewComponent for the details view.",
+      "tags": [
+        "routing",
+        "configuration",
+        "angular-module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/app-routing.module.ts:AppRoutingModule",
+      "type": "class",
+      "name": "AppRoutingModule",
+      "filePath": "src/app/app-routing.module.ts",
+      "lineRange": [
+        23,
+        23
+      ],
+      "summary": "Angular NgModule that configures and exports RouterModule with the application's route definitions.",
+      "tags": [
+        "angular-module",
+        "routing",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.component.spec.ts",
+      "type": "file",
+      "name": "app.component.spec.ts",
+      "filePath": "src/app/app.component.spec.ts",
+      "summary": "Unit test suite for AppComponent, verifying component creation, title property value, and rendered title in the DOM.",
+      "tags": [
+        "test",
+        "component",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.component.ts",
+      "type": "file",
+      "name": "app.component.ts",
+      "filePath": "src/app/app.component.ts",
+      "summary": "Root Angular component that renders the application shell with a top navigation bar and a router-outlet for child views.",
+      "tags": [
+        "component",
+        "entry-point",
+        "angular",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/app.component.ts:AppComponent",
+      "type": "class",
+      "name": "AppComponent",
+      "filePath": "src/app/app.component.ts",
+      "lineRange": [
+        47,
+        49
+      ],
+      "summary": "Root Angular component decorated with an inline template containing a navigation bar and router-outlet; holds the application title.",
+      "tags": [
+        "component",
+        "entry-point",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.module.ts",
+      "type": "file",
+      "name": "app.module.ts",
+      "filePath": "src/app/app.module.ts",
+      "summary": "Root NgModule that declares AppComponent, imports BrowserModule and AppRoutingModule, and bootstraps the Angular application.",
+      "tags": [
+        "angular-module",
+        "entry-point",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/app.module.ts:AppModule",
+      "type": "class",
+      "name": "AppModule",
+      "filePath": "src/app/app.module.ts",
+      "lineRange": [
+        26,
+        26
+      ],
+      "summary": "Root Angular NgModule that wires together the browser platform, routing, and the top-level AppComponent for bootstrapping.",
+      "tags": [
+        "angular-module",
+        "entry-point",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/environments/environment.ts",
+      "type": "file",
+      "name": "environment.ts",
+      "filePath": "src/environments/environment.ts",
+      "summary": "Development environment configuration object exporting a production flag set to false; replaced with environment.prod.ts during production builds.",
+      "tags": [
+        "configuration",
+        "environment",
+        "build-system"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Angular CLI file-replacement mechanism swaps this file for environment.prod.ts at build time via angular.json fileReplacements."
+    },
+    {
+      "id": "file:src/main.ts",
+      "type": "file",
+      "name": "main.ts",
+      "filePath": "src/main.ts",
+      "summary": "Application entry point that conditionally enables Angular's production mode and bootstraps the AppModule using the browser-dynamic platform.",
+      "tags": [
+        "entry-point",
+        "bootstrap",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/dog-view.component.spec.ts",
+      "type": "file",
+      "name": "dog-view.component.spec.ts",
+      "filePath": "src/app/dog-view.component.spec.ts",
+      "summary": "Jasmine/TestBed unit test for DogViewComponent, containing a single smoke test that verifies the component can be created successfully.",
+      "tags": [
+        "test",
+        "component",
+        "angular",
+        "jasmine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/dog-view.component.ts",
+      "type": "file",
+      "name": "dog-view.component.ts",
+      "filePath": "src/app/dog-view.component.ts",
+      "summary": "Standalone Angular component that reads a route index parameter and displays full details (photo, name, owner, description, location) for a single dog fetched from DogsService.",
+      "tags": [
+        "component",
+        "angular",
+        "routing",
+        "detail-view",
+        "tested"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses Angular standalone component API with inline template and styles; dog$ is an Observable resolved via the async pipe, driven by ActivatedRoute.paramMap."
+    },
+    {
+      "id": "file:src/app/dogs.service.spec.ts",
+      "type": "file",
+      "name": "dogs.service.spec.ts",
+      "filePath": "src/app/dogs.service.spec.ts",
+      "summary": "Jasmine/TestBed unit test for DogsService, containing a single smoke test that verifies the service can be injected and created successfully.",
+      "tags": [
+        "test",
+        "service",
+        "angular",
+        "jasmine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/dogs.service.ts",
+      "type": "file",
+      "name": "dogs.service.ts",
+      "filePath": "src/app/dogs.service.ts",
+      "summary": "Root-provided Angular service that acts as an in-memory data store, exporting the Dog interface and a DogsService class holding a hardcoded array of six dog records with name, owner, description, photo URL, and location.",
+      "tags": [
+        "service",
+        "data-model",
+        "singleton",
+        "angular",
+        "tested"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "No HTTP calls or methods — data is entirely static. The Dog interface is co-located with the service rather than in a separate models file."
+    },
+    {
+      "id": "class:src/app/dog-view.component.ts:DogViewComponent",
+      "type": "class",
+      "name": "DogViewComponent",
+      "filePath": "src/app/dog-view.component.ts",
+      "lineRange": [
+        52,
+        63
+      ],
+      "summary": "Angular standalone component that resolves a dog by route index and exposes it as an Observable for async rendering of the detail view.",
+      "tags": [
+        "component",
+        "angular",
+        "routing",
+        "observable"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/dogs.service.ts:DogsService",
+      "type": "class",
+      "name": "DogsService",
+      "filePath": "src/app/dogs.service.ts",
+      "lineRange": [
+        21,
+        80
+      ],
+      "summary": "Injectable Angular service providing a static array of Dog records used as the application's data source for listing and viewing dogs.",
+      "tags": [
+        "service",
+        "singleton",
+        "data-model",
+        "angular"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/dogs-list-card.component.spec.ts",
+      "type": "file",
+      "name": "dogs-list-card.component.spec.ts",
+      "filePath": "src/app/dogs-list-card.component.spec.ts",
+      "summary": "Unit test suite for DogsListCardComponent using Angular TestBed, verifying the card component renders and initializes correctly.",
+      "tags": [
+        "test",
+        "component",
+        "angular",
+        "unit-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/dogs-list-card.component.ts",
+      "type": "file",
+      "name": "dogs-list-card.component.ts",
+      "filePath": "src/app/dogs-list-card.component.ts",
+      "summary": "Angular component that renders a single dog card with an Input-bound dog object and index, consuming DogsService for dog data in the dogs list.",
+      "tags": [
+        "component",
+        "angular",
+        "ui",
+        "data-model",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/dogs-list-card.component.ts:DogsListCardComponent",
+      "type": "class",
+      "name": "DogsListCardComponent",
+      "filePath": "src/app/dogs-list-card.component.ts",
+      "lineRange": [
+        56,
+        65
+      ],
+      "summary": "Angular card component that accepts a dog and index as Input properties and initializes via DogsService in ngOnInit.",
+      "tags": [
+        "component",
+        "angular",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/dogs-list.component.spec.ts",
+      "type": "file",
+      "name": "dogs-list.component.spec.ts",
+      "filePath": "src/app/dogs-list.component.spec.ts",
+      "summary": "Unit test suite for DogsListComponent using Angular TestBed, verifying the list component compiles and its basic behavior.",
+      "tags": [
+        "test",
+        "component",
+        "angular",
+        "unit-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/dogs-list.component.ts",
+      "type": "file",
+      "name": "dogs-list.component.ts",
+      "filePath": "src/app/dogs-list.component.ts",
+      "summary": "Angular component that fetches the full list of dogs from DogsService and renders them using DogsListCardComponent for each entry.",
+      "tags": [
+        "component",
+        "angular",
+        "ui",
+        "service",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/dogs-list.component.ts:DogsListComponent",
+      "type": "class",
+      "name": "DogsListComponent",
+      "filePath": "src/app/dogs-list.component.ts",
+      "lineRange": [
+        42,
+        49
+      ],
+      "summary": "Angular list component that injects DogsService and loads dogs on initialization for display via DogsListCardComponent.",
+      "tags": [
+        "component",
+        "angular",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Standard Angular CLI-generated project overview for WalkMyDog, covering development server, code scaffolding, build, unit test, and end-to-end test commands with links to Angular CLI reference documentation.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "angular-cli"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:angular.json",
+      "type": "config",
+      "name": "angular.json",
+      "filePath": "angular.json",
+      "summary": "Angular CLI workspace configuration defining the walk-my-dog application's build, serve, test, and i18n-extract architect targets, including production/development build profiles with file replacement for environment switching and bundle size budgets.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "angular-cli",
+        "deployment"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Configures inline templates and inline styles for generated components (inlineTemplate/inlineStyle), which means all Angular components in this project embed their HTML and CSS directly in the .ts file rather than in separate files."
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "NPM package manifest for the walk-my-dog Angular 14 application, declaring Angular framework dependencies, RxJS, and devDependencies for Angular CLI, TypeScript 4.7, and the Karma/Jasmine testing stack.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "dependencies",
+        "package-manager"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.app.json",
+      "type": "config",
+      "name": "tsconfig.app.json",
+      "filePath": "tsconfig.app.json",
+      "summary": "TypeScript compiler configuration for the application build, extending the root tsconfig.json and scoping compilation to src/main.ts and src/polyfills.ts as entry points with no extra type definitions.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Root TypeScript configuration for the Angular 14 workspace enabling strict mode, ES2020 output target, experimental decorators for Angular metadata, and Angular-specific strict template and injection parameter checks.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Enables experimentalDecorators (required for Angular's @Component/@Injectable decorators), strictTemplates, and strictInjectionParameters — these Angular compiler options catch template and DI errors at compile time rather than at runtime."
+    },
+    {
+      "id": "config:tsconfig.spec.json",
+      "type": "config",
+      "name": "tsconfig.spec.json",
+      "filePath": "tsconfig.spec.json",
+      "summary": "TypeScript compiler configuration for the Karma/Jasmine unit-test build, extending the root tsconfig.json, adding Jasmine type definitions, and including all *.spec.ts files under src/.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "test",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.browserslistrc",
+      "type": "config",
+      "name": ".browserslistrc",
+      "filePath": ".browserslistrc",
+      "summary": "Browserslist configuration specifying browser targets (last Chrome, Firefox, 2 Edge, 2 Safari, 2 iOS, Firefox ESR) for Angular CLI build output compatibility.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "browser-support"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:karma.conf.js",
+      "type": "file",
+      "name": "karma.conf.js",
+      "filePath": "karma.conf.js",
+      "summary": "Karma test runner configuration wiring Jasmine and Angular DevKit build plugin, Chrome launcher, HTML reporter, and coverage reporting to `./coverage/walk-my-dog`.",
+      "tags": [
+        "configuration",
+        "test",
+        "ci-cd",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/assets/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "src/assets/.gitkeep",
+      "summary": "Empty placeholder file that preserves the src/assets directory in version control.",
+      "tags": [
+        "placeholder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/environments/environment.prod.ts",
+      "type": "file",
+      "name": "environment.prod.ts",
+      "filePath": "src/environments/environment.prod.ts",
+      "summary": "Production environment configuration exporting a single `environment` object with `production: true`, used by Angular's build system to swap environment-specific settings at build time.",
+      "tags": [
+        "configuration",
+        "environment",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "src/index.html",
+      "summary": "Root HTML shell for the Angular application, mounting the `<app-root>` component and setting the base href for client-side routing.",
+      "tags": [
+        "entry-point",
+        "markup",
+        "infrastructure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/polyfills.ts",
+      "type": "file",
+      "name": "polyfills.ts",
+      "filePath": "src/polyfills.ts",
+      "summary": "Angular CLI-generated polyfills bootstrap file that imports zone.js to enable Angular's change detection, loaded before the application bundle.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "infrastructure"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Only imports `zone.js` (a required Angular dependency for change detection); all optional polyfill entries remain commented out, indicating an evergreen-browser target."
+    },
+    {
+      "id": "file:src/styles.css",
+      "type": "file",
+      "name": "styles.css",
+      "filePath": "src/styles.css",
+      "summary": "Global stylesheet applying a full Meyer CSS reset across all HTML elements and setting `Be Vietnam Pro` as the application-wide font family.",
+      "tags": [
+        "global-styles",
+        "css-reset",
+        "markup"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test.ts",
+      "type": "file",
+      "name": "test.ts",
+      "filePath": "src/test.ts",
+      "summary": "Karma/Jasmine test bootstrap entry point that initialises the Angular testing environment and dynamically loads all `.spec.ts` files in the `src/` tree.",
+      "tags": [
+        "test",
+        "entry-point",
+        "configuration"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/app-routing.module.ts",
+      "target": "class:src/app/app-routing.module.ts:AppRoutingModule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/app-routing.module.ts",
+      "target": "class:src/app/app-routing.module.ts:AppRoutingModule",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/app-routing.module.ts",
+      "target": "file:src/app/dogs-list.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.spec.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "file:src/app/app.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "class:src/app/app.component.ts:AppComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "class:src/app/app.component.ts:AppComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/app.module.ts",
+      "target": "class:src/app/app.module.ts:AppModule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/app.module.ts",
+      "target": "class:src/app/app.module.ts:AppModule",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/app.module.ts",
+      "target": "file:src/app/app-routing.module.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.module.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.module.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/environments/environment.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dog-view.component.spec.ts",
+      "target": "file:src/app/dog-view.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dog-view.component.ts",
+      "target": "file:src/app/dogs.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dogs.service.spec.ts",
+      "target": "file:src/app/dogs.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dog-view.component.ts",
+      "target": "class:src/app/dog-view.component.ts:DogViewComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/dog-view.component.ts",
+      "target": "class:src/app/dog-view.component.ts:DogViewComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/dogs.service.ts",
+      "target": "class:src/app/dogs.service.ts:DogsService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/dogs.service.ts",
+      "target": "class:src/app/dogs.service.ts:DogsService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/dog-view.component.ts",
+      "target": "file:src/app/dog-view.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/app/dogs.service.ts",
+      "target": "file:src/app/dogs.service.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "class:src/app/dog-view.component.ts:DogViewComponent",
+      "target": "class:src/app/dogs.service.ts:DogsService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/dogs-list-card.component.spec.ts",
+      "target": "file:src/app/dogs-list-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dogs-list-card.component.ts",
+      "target": "file:src/app/dogs-list-card.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/app/dogs-list-card.component.ts",
+      "target": "file:src/app/dogs.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dogs-list-card.component.ts",
+      "target": "class:src/app/dogs-list-card.component.ts:DogsListCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/dogs-list-card.component.ts",
+      "target": "class:src/app/dogs-list-card.component.ts:DogsListCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/dogs-list.component.spec.ts",
+      "target": "file:src/app/dogs-list.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dogs-list.component.ts",
+      "target": "file:src/app/dogs-list.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/app/dogs-list.component.ts",
+      "target": "file:src/app/dogs-list-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dogs-list.component.ts",
+      "target": "file:src/app/dogs.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/dogs-list.component.ts",
+      "target": "class:src/app/dogs-list.component.ts:DogsListComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/dogs-list.component.ts",
+      "target": "class:src/app/dogs-list.component.ts:DogsListComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/dogs-list.component.ts",
+      "target": "file:src/app/dogs-list-card.component.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "config:tsconfig.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.spec.json",
+      "target": "config:tsconfig.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "config:tsconfig.app.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "config:tsconfig.spec.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/app/app.component.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:karma.conf.js",
+      "target": "file:src/test.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:app-shell",
+      "name": "App Shell & Bootstrap",
+      "description": "Angular application entry point, root NgModule wiring, route configuration, root AppComponent shell with navigation, environment flags, and the HTML host page — everything required to boot and navigate the app.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/app/app.module.ts",
+        "file:src/app/app-routing.module.ts",
+        "file:src/app/app.component.ts",
+        "file:src/index.html",
+        "file:src/polyfills.ts",
+        "file:src/styles.css",
+        "file:src/environments/environment.ts",
+        "file:src/environments/environment.prod.ts"
+      ]
+    },
+    {
+      "id": "layer:feature-components",
+      "name": "Feature Components",
+      "description": "Angular UI components that implement the dog-walking domain views: the paginated dog list (DogsListComponent), individual card items (DogsListCardComponent), and the detail view for a single dog (DogViewComponent).",
+      "nodeIds": [
+        "file:src/app/dogs-list.component.ts",
+        "file:src/app/dogs-list-card.component.ts",
+        "file:src/app/dog-view.component.ts"
+      ]
+    },
+    {
+      "id": "layer:data-service",
+      "name": "Data Service",
+      "description": "In-memory data store and domain model for the walk-my-dog app — DogsService holds the static Dog records array and Dog interface that all feature components depend on.",
+      "nodeIds": [
+        "file:src/app/dogs.service.ts"
+      ]
+    },
+    {
+      "id": "layer:test",
+      "name": "Tests",
+      "description": "Jasmine/Karma unit test suites for all production components and services, plus the Karma test runner bootstrap and configuration.",
+      "nodeIds": [
+        "file:src/app/app.component.spec.ts",
+        "file:src/app/dog-view.component.spec.ts",
+        "file:src/app/dogs.service.spec.ts",
+        "file:src/app/dogs-list-card.component.spec.ts",
+        "file:src/app/dogs-list.component.spec.ts",
+        "file:src/test.ts",
+        "file:karma.conf.js"
+      ]
+    },
+    {
+      "id": "layer:build-config",
+      "name": "Build & Configuration",
+      "description": "Angular CLI workspace config, NPM manifest, TypeScript compiler configs for app and test builds, and the browser compatibility target list that govern how the project is compiled, bundled, and served.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:package.json",
+        "config:tsconfig.json",
+        "config:tsconfig.app.json",
+        "config:tsconfig.spec.json",
+        "config:.browserslistrc"
+      ]
+    },
+    {
+      "id": "layer:documentation",
+      "name": "Documentation",
+      "description": "Project documentation covering Angular CLI usage, development commands, and build workflows for the walk-my-dog application.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "id": "layer:tooling",
+      "name": "Tooling & Assets",
+      "description": "Developer-tooling support files including the Understand-Anything analysis exclusion rules and the placeholder that preserves the static assets directory in version control.",
+      "nodeIds": [
+        "file:src/assets/.gitkeep"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "Start with the README to see what WalkMyDog is: a small Angular 14 dog-walking UI scaffolded by the Angular CLI, run with `ng serve`, built with `ng build`, and tested with `ng test` via Karma.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Application Entry Point",
+      "description": "`main.ts` is where the app boots: it bootstraps the root NgModule (AppModule) in the browser. This is the ignition point for everything that follows.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/environments/environment.ts"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "The Root Module",
+      "description": "AppModule declares the app's components and wires in the router module. It is the composition root that ties the shell, routing, and feature components together.",
+      "nodeIds": [
+        "file:src/app/app.module.ts"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Routing",
+      "description": "app-routing.module.ts maps URL paths to components — the dogs list and the per-dog detail view — defining how navigation flows through the app.",
+      "nodeIds": [
+        "file:src/app/app-routing.module.ts"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "The App Shell",
+      "description": "AppComponent is the root component whose template hosts the router outlet, so routed views render inside it.",
+      "nodeIds": [
+        "file:src/app/app.component.ts"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "The Data Layer: DogsService",
+      "description": "DogsService is the app's data hub — an in-memory store of dog records that every feature component depends on. It has the highest fan-in in the graph, so understanding its shape unlocks the UI.",
+      "nodeIds": [
+        "file:src/app/dogs.service.ts"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Listing the Dogs",
+      "description": "DogsListComponent reads from DogsService and renders the collection, composing a card component per dog.",
+      "nodeIds": [
+        "file:src/app/dogs-list.component.ts"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "A Single Dog Card",
+      "description": "DogsListCardComponent is the presentational child used by the list — it displays one dog's summary and is the unit the list repeats.",
+      "nodeIds": [
+        "file:src/app/dogs-list-card.component.ts"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "The Detail View",
+      "description": "DogViewComponent is the routed detail screen: it reads a route index, looks the dog up in DogsService, and renders the full record.",
+      "nodeIds": [
+        "file:src/app/dog-view.component.ts"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "Build & Compiler Configuration",
+      "description": "angular.json defines build/serve/test targets; the tsconfig files govern TypeScript compilation (tsconfig.app and tsconfig.spec both extend the base tsconfig). package.json pins Angular 14 and the npm scripts.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:tsconfig.json",
+        "config:tsconfig.app.json",
+        "config:package.json"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Testing & Wrap-Up",
+      "description": "test.ts is the Karma entry point and karma.conf.js configures the runner; each component/service has a paired .spec.ts. This closes the loop from bootstrap through UI, data, and verification.",
+      "nodeIds": [
+        "file:src/test.ts",
+        "file:karma.conf.js",
+        "file:src/app/dogs.service.spec.ts",
+        "file:src/app/app.component.spec.ts"
+      ]
+    }
+  ]
+}
