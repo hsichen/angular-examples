@@ -1,0 +1,952 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "genkit-ssr",
+    "languages": [
+      "typescript",
+      "html",
+      "css",
+      "json",
+      "markdown"
+    ],
+    "frameworks": [
+      "Angular",
+      "Angular Material",
+      "Angular SSR",
+      "Express",
+      "Genkit",
+      "Jasmine",
+      "Karma",
+      "RxJS",
+      "Zod"
+    ],
+    "description": "Genkit x Angular Starter Kit: an Angular 19 SSR app demonstrating Genkit flows for a persistent multi-turn chat session with an AI agent (Gemini API), served via an Express SSR server that exposes the chatFlow endpoint.",
+    "analyzedAt": "2026-07-27T19:33:00.795Z",
+    "gitCommitHash": "8fcbf66ddbe069bc776c2af5b6c823c2a8d1f36f"
+  },
+  "nodes": [
+    {
+      "id": "file:src/app/agent-chat/agent-chat.component.spec.ts",
+      "type": "file",
+      "name": "agent-chat.component.spec.ts",
+      "filePath": "src/app/agent-chat/agent-chat.component.spec.ts",
+      "summary": "Unit test suite for AgentChatComponent that configures a TestBed with the component under test.",
+      "tags": [
+        "test",
+        "component",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/agent-chat/agent-chat.component.ts",
+      "type": "file",
+      "name": "agent-chat.component.ts",
+      "filePath": "src/app/agent-chat/agent-chat.component.ts",
+      "summary": "Angular standalone component providing the chat UI, accepting user input and delegating message submission to AgentService.",
+      "tags": [
+        "component",
+        "angular",
+        "entry-point",
+        "event-handler",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/agent-chat/agent-chat.component.ts:AgentChatComponent",
+      "type": "class",
+      "name": "AgentChatComponent",
+      "filePath": "src/app/agent-chat/agent-chat.component.ts",
+      "lineRange": [
+        20,
+        30
+      ],
+      "summary": "Standalone Angular component that renders the chat interface and delegates user submissions to AgentService via onSubmit.",
+      "tags": [
+        "component",
+        "angular",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/agent.service.spec.ts",
+      "type": "file",
+      "name": "agent.service.spec.ts",
+      "filePath": "src/app/agent.service.spec.ts",
+      "summary": "Unit test suite for AgentService using Angular TestBed to verify service instantiation.",
+      "tags": [
+        "test",
+        "service",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/agent.service.ts",
+      "type": "file",
+      "name": "agent.service.ts",
+      "filePath": "src/app/agent.service.ts",
+      "summary": "Root-provided Angular service managing the chat session state and communicating with the Genkit chatFlow endpoint via Angular Signals and the resource API.",
+      "tags": [
+        "service",
+        "api-handler",
+        "singleton",
+        "event-handler",
+        "tested"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses Angular 19 Signals (signal, linkedSignal, resource) for reactive state management and lazy-loads the agent response asynchronously via the genkit/beta/client runFlow call."
+    },
+    {
+      "id": "class:src/app/agent.service.ts:AgentService",
+      "type": "class",
+      "name": "AgentService",
+      "filePath": "src/app/agent.service.ts",
+      "lineRange": [
+        18,
+        72
+      ],
+      "summary": "Injectable root service that holds reactive chat state (userInput, sessionId, clearSession, chat, agentResource signals) and exposes updateChatFromUser to push a user message and trigger the Genkit backend flow.",
+      "tags": [
+        "service",
+        "singleton",
+        "api-handler",
+        "angular"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/app.component.spec.ts",
+      "type": "file",
+      "name": "app.component.spec.ts",
+      "filePath": "src/app/app.component.spec.ts",
+      "summary": "Unit test suite for AppComponent that compiles the root component and verifies its creation.",
+      "tags": [
+        "test",
+        "component",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.component.ts",
+      "type": "file",
+      "name": "app.component.ts",
+      "filePath": "src/app/app.component.ts",
+      "summary": "Root Angular application component that bootstraps the app shell and injects AgentService and AgentChatComponent.",
+      "tags": [
+        "entry-point",
+        "component",
+        "angular",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/app.component.ts:AppComponent",
+      "type": "class",
+      "name": "AppComponent",
+      "filePath": "src/app/app.component.ts",
+      "lineRange": [
+        18,
+        20
+      ],
+      "summary": "Root Angular standalone component that serves as the application shell, injecting AgentService for access by child components.",
+      "tags": [
+        "entry-point",
+        "component",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.config.server.ts",
+      "type": "file",
+      "name": "app.config.server.ts",
+      "filePath": "src/app/app.config.server.ts",
+      "summary": "Merges the base application config with SSR-specific providers (server rendering and server-side routing) to produce the unified config used by the server-side bootstrap.",
+      "tags": [
+        "configuration",
+        "ssr",
+        "entry-point",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.config.ts",
+      "type": "file",
+      "name": "app.config.ts",
+      "filePath": "src/app/app.config.ts",
+      "summary": "Defines the base Angular application configuration enabling zone-based change detection with event coalescing and client-side hydration with event replay support.",
+      "tags": [
+        "configuration",
+        "hydration",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.routes.server.ts",
+      "type": "file",
+      "name": "app.routes.server.ts",
+      "filePath": "src/app/app.routes.server.ts",
+      "summary": "Declares server-side routing rules, rendering the root path in Client mode and all other paths in Server (SSR) mode.",
+      "tags": [
+        "routing",
+        "ssr",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.server.ts",
+      "type": "file",
+      "name": "main.server.ts",
+      "filePath": "src/main.server.ts",
+      "summary": "Server-side entry point that exports a default bootstrap function used by the Angular SSR engine to render the application on the server.",
+      "tags": [
+        "entry-point",
+        "ssr",
+        "bootstrap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.ts",
+      "type": "file",
+      "name": "main.ts",
+      "filePath": "src/main.ts",
+      "summary": "Client-side entry point that bootstraps the Angular application in the browser with the base app config and root AppComponent.",
+      "tags": [
+        "entry-point",
+        "bootstrap",
+        "client"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Project overview and getting-started guide for the Genkit x Angular Starter Kit, covering environment setup, Gemini API key configuration, and pointers to key source files (flows.ts, agent.service.ts) and the Genkit Developer UI.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "getting-started"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:angular.json",
+      "type": "config",
+      "name": "angular.json",
+      "filePath": "angular.json",
+      "summary": "Angular CLI workspace configuration defining build, serve, test, and i18n-extraction targets for the 'app' project, with SSR enabled via src/server.ts entry and SCSS as the inline style language.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "angular",
+        "infrastructure"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Configures allowedCommonJsDependencies for Genkit packages (node-domexception, web-streams-polyfill, @genkit-ai/core/async) which are needed because Genkit uses CommonJS modules in an ESM Angular build."
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Node.js package manifest declaring Angular 19 and Genkit 1.x runtime dependencies, dev toolchain (Karma, Jasmine, TypeScript 5.7), and npm scripts including start:with-genkit-ui for launching the Genkit Developer UI alongside ng serve.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "dependencies",
+        "scripts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Root TypeScript compiler configuration enabling strict mode, ES2022 target and module, bundler module resolution, and Angular-specific strict template and injection checks that all project tsconfig files inherit from.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses moduleResolution: 'bundler' (TypeScript 5+), required for Angular 19's esbuild-based build pipeline. experimentalDecorators is still enabled for Angular decorator compatibility."
+    },
+    {
+      "id": "config:tsconfig.app.json",
+      "type": "config",
+      "name": "tsconfig.app.json",
+      "filePath": "tsconfig.app.json",
+      "summary": "Application-specific TypeScript configuration extending tsconfig.json, targeting the three entry points (main.ts, main.server.ts, server.ts) and including Node.js types needed for SSR.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "ssr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.spec.json",
+      "type": "config",
+      "name": "tsconfig.spec.json",
+      "filePath": "tsconfig.spec.json",
+      "summary": "Test-specific TypeScript configuration extending tsconfig.json, scoped to spec files and declaration files under src/, with Jasmine types included for unit test type support.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/agent-chat/agent-chat.component.html",
+      "type": "file",
+      "name": "agent-chat.component.html",
+      "filePath": "src/app/agent-chat/agent-chat.component.html",
+      "summary": "Angular template for the AgentChatComponent rendering a full chat UI with a scrollable message history, user and agent chat bubbles, agent-suggested option buttons, a text input field, and a send button with loading state.",
+      "tags": [
+        "component",
+        "markup",
+        "chat-ui",
+        "angular-template"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses Angular 17+ control flow syntax (@if, @for, @let) instead of *ngIf/*ngFor directives, and binds to agentService signals for reactive loading and value state."
+    },
+    {
+      "id": "file:src/app/agent-chat/agent-chat.component.scss",
+      "type": "file",
+      "name": "agent-chat.component.scss",
+      "filePath": "src/app/agent-chat/agent-chat.component.scss",
+      "summary": "Scoped SCSS styles for the AgentChatComponent, defining the fixed-position sidebar chat panel layout, distinct user (pink) and agent (lavender) message bubble styles, option button styles, and a styled text input bar.",
+      "tags": [
+        "component",
+        "markup",
+        "styles",
+        "chat-ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/app.component.html",
+      "type": "file",
+      "name": "app.component.html",
+      "filePath": "src/app/app.component.html",
+      "summary": "Minimal Angular root component template that renders only the agent-chat component via its selector, making the chat panel the sole UI of the application.",
+      "tags": [
+        "component",
+        "markup",
+        "entry-point",
+        "angular-template"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.component.scss",
+      "type": "file",
+      "name": "app.component.scss",
+      "filePath": "src/app/app.component.scss",
+      "summary": "Minimal scoped SCSS for the root AppComponent, defining a tool-container class with column flex layout and fixed margin, used as a placeholder layout shell.",
+      "tags": [
+        "component",
+        "markup",
+        "styles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/flows.ts",
+      "type": "file",
+      "name": "flows.ts",
+      "filePath": "src/flows.ts",
+      "summary": "Core Genkit backend module that initializes the Gemini 2.0 Flash AI instance, defines a getDateTime tool, and exports the chatFlow Genkit flow — a stateful multi-turn chat flow with Zod-validated input/output schemas that invokes the LLM and returns structured JSON responses.",
+      "tags": [
+        "service",
+        "api-handler",
+        "genkit-flow",
+        "ai-backend"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses Genkit's beta Session API for stateful multi-turn conversations, Zod schemas for I/O validation, and partial-json parsing to handle streaming/partial LLM JSON output."
+    },
+    {
+      "id": "function:src/flows.ts:chatFlow",
+      "type": "function",
+      "name": "chatFlow",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        50,
+        102
+      ],
+      "summary": "Exported Genkit flow that manages a stateful multi-turn chat session with Gemini 2.0 Flash, accepting user input and a session ID, optionally resetting the session, sending a structured prompt with tool access, and returning a parsed JSON response containing the agent reply and suggested options.",
+      "tags": [
+        "genkit-flow",
+        "ai-backend",
+        "service",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/flows.ts:getDateTime",
+      "type": "function",
+      "name": "getDateTime",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        22,
+        43
+      ],
+      "summary": "Genkit tool definition that provides the current date and time as a formatted string, registered with the AI instance and made available to the chat flow so the LLM can call it on demand.",
+      "tags": [
+        "genkit-tool",
+        "utility",
+        "ai-backend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "src/index.html",
+      "summary": "HTML host page that bootstraps the Angular application by mounting the app-root element, and loads Material Icons and the Source Sans 3 font from Google Fonts.",
+      "tags": [
+        "markup",
+        "entry-point",
+        "html-shell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/server.ts",
+      "type": "file",
+      "name": "server.ts",
+      "filePath": "src/server.ts",
+      "summary": "Express SSR server that mounts the Genkit chatFlow as a POST endpoint at /chatFlow using expressHandler, serves Angular SSR for all other routes via AngularNodeAppEngine, and exports a reqHandler compatible with Angular CLI dev-server and Firebase Cloud Functions.",
+      "tags": [
+        "entry-point",
+        "api-handler",
+        "middleware",
+        "service"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Follows the Angular SSR node server pattern with createNodeRequestHandler; the Genkit expressHandler bridges the Genkit flow type directly to Express without additional adapter code."
+    },
+    {
+      "id": "file:src/styles.scss",
+      "type": "file",
+      "name": "styles.scss",
+      "filePath": "src/styles.scss",
+      "summary": "Global SCSS stylesheet that sets the application body font to Source Sans 3, configures a light Angular Material theme using the azure and blue palettes with Roboto typography, and ensures full-height layout for html and body.",
+      "tags": [
+        "markup",
+        "styles",
+        "configuration",
+        "angular-material"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses Angular Material's new @use-based theme mixin (mat.theme) introduced in Material 3, replacing the legacy theming API."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/agent-chat/agent-chat.component.spec.ts",
+      "target": "file:src/app/agent-chat/agent-chat.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/agent-chat/agent-chat.component.ts",
+      "target": "file:src/app/agent-chat/agent-chat.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/app/agent-chat/agent-chat.component.ts",
+      "target": "file:src/app/agent.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/agent-chat/agent-chat.component.ts",
+      "target": "class:src/app/agent-chat/agent-chat.component.ts:AgentChatComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/agent-chat/agent-chat.component.ts",
+      "target": "class:src/app/agent-chat/agent-chat.component.ts:AgentChatComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/agent-chat/agent-chat.component.ts:AgentChatComponent",
+      "target": "class:src/app/agent.service.ts:AgentService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/agent.service.spec.ts",
+      "target": "file:src/app/agent.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/agent.service.ts",
+      "target": "file:src/app/agent.service.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/app/agent.service.ts",
+      "target": "class:src/app/agent.service.ts:AgentService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/agent.service.ts",
+      "target": "class:src/app/agent.service.ts:AgentService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/app.component.spec.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "file:src/app/app.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "file:src/app/agent-chat/agent-chat.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "file:src/app/agent.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "class:src/app/app.component.ts:AppComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "class:src/app/app.component.ts:AppComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.routes.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.config.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/flows.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/app/agent.service.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Edge restored: original target 'file:src/agent.service.ts' corrected to 'file:src/app/agent.service.ts'"
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "config:tsconfig.app.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "config:tsconfig.spec.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "config:tsconfig.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.spec.json",
+      "target": "config:tsconfig.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "file:src/flows.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:chatFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:chatFlow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:getDateTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/flows.ts:chatFlow",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/agent-chat/agent-chat.component.html",
+      "target": "file:src/app/agent-chat/agent-chat.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/agent-chat/agent-chat.component.scss",
+      "target": "file:src/app/agent-chat/agent-chat.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/app.component.html",
+      "target": "file:src/app/app.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/app.component.scss",
+      "target": "file:src/app/app.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/styles.scss",
+      "target": "file:src/index.html",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/index.html",
+      "target": "file:src/app/app.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:ui",
+      "name": "Frontend UI",
+      "description": "Angular standalone components, templates, styles, and the reactive AgentService that drive the chat interface and communicate with the Genkit backend via the resource API.",
+      "nodeIds": [
+        "file:src/app/agent-chat/agent-chat.component.ts",
+        "file:src/app/agent-chat/agent-chat.component.html",
+        "file:src/app/agent-chat/agent-chat.component.scss",
+        "file:src/app/app.component.ts",
+        "file:src/app/app.component.html",
+        "file:src/app/app.component.scss",
+        "file:src/app/agent.service.ts",
+        "file:src/index.html",
+        "file:src/styles.scss"
+      ]
+    },
+    {
+      "id": "layer:ai-backend",
+      "name": "Genkit AI Backend",
+      "description": "The Genkit flow definitions (chatFlow, getDateTime tool, Gemini 2.0 Flash initialization) and the Express SSR server that exposes those flows as HTTP endpoints and serves Angular SSR for all other routes.",
+      "nodeIds": [
+        "file:src/flows.ts",
+        "file:src/server.ts"
+      ]
+    },
+    {
+      "id": "layer:bootstrap",
+      "name": "App Bootstrap & SSR Config",
+      "description": "Client and server-side Angular entry points, base and SSR-merged application configs, and server-side routing rules that together wire up Angular's hydration, zone change detection, and SSR rendering pipeline.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/main.server.ts",
+        "file:src/app/app.config.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.server.ts"
+      ]
+    },
+    {
+      "id": "layer:test",
+      "name": "Tests",
+      "description": "Jasmine/Karma unit test suites for AgentChatComponent, AgentService, and AppComponent, verifying component creation and service instantiation via Angular TestBed.",
+      "nodeIds": [
+        "file:src/app/agent-chat/agent-chat.component.spec.ts",
+        "file:src/app/agent.service.spec.ts",
+        "file:src/app/app.component.spec.ts"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "Build Config & Docs",
+      "description": "Angular CLI workspace config, npm package manifest, TypeScript compiler configs (root, app, and spec variants), project README, and the Understand-Anything ignore file that together define the build pipeline, dependencies, and developer documentation.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:package.json",
+        "config:tsconfig.json",
+        "config:tsconfig.app.json",
+        "config:tsconfig.spec.json",
+        "document:README.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "The README introduces the Genkit x Angular Starter Kit: an Angular 19 app that demonstrates a persistent, multi-turn chat session powered by Genkit flows and the Gemini API. Reading it first gives you the key concepts — Genkit flows, the Gemini API key requirement, and the two files (flows.ts, agent.service.ts) that do the heavy lifting.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Client Bootstrap",
+      "description": "src/main.ts is the browser-side entry point: it calls bootstrapApplication with the root AppComponent and the base app config, starting Angular's rendering pipeline in the client. This is the first code the browser executes, so understanding it anchors everything that follows.",
+      "nodeIds": [
+        "file:src/main.ts"
+      ],
+      "languageLesson": "Angular 19 uses standalone bootstrapping (bootstrapApplication) instead of NgModules, passing providers directly through an ApplicationConfig object rather than declaring them in a module decorator."
+    },
+    {
+      "order": 3,
+      "title": "App Config & Hydration",
+      "description": "app.config.ts defines the base ApplicationConfig that both the client and server entry points share: it enables zone-based change detection with event coalescing and activates client-side hydration with event replay so the server-rendered HTML is reused rather than discarded. These two options are the core SSR performance knobs for an Angular 19 app.",
+      "nodeIds": [
+        "file:src/app/app.config.ts"
+      ],
+      "languageLesson": "provideClientHydration with withEventReplay() lets Angular reuse SSR-rendered DOM nodes on the client, avoiding a full re-render flash. Event coalescing in zone.js batches multiple change-detection cycles into one for better throughput."
+    },
+    {
+      "order": 4,
+      "title": "App Shell Component",
+      "description": "app.component.ts is the root standalone component that acts as the application shell; its template (app.component.html) does nothing but render the <app-agent-chat> selector, making the chat panel the sole UI. It also injects AgentService at the root level, making the service available to all child components.",
+      "nodeIds": [
+        "file:src/app/app.component.ts",
+        "file:src/app/app.component.html"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Chat UI: Component & Template",
+      "description": "agent-chat.component.ts and its template are the primary user-facing layer: the component accepts user input, delegates each submission to AgentService.updateChatFromUser, and the template renders the scrollable message history, per-message option buttons, and a loading-aware send button. The template uses Angular 17+ block control flow (@if, @for, @let) bound directly to AgentService signals.",
+      "nodeIds": [
+        "file:src/app/agent-chat/agent-chat.component.ts",
+        "file:src/app/agent-chat/agent-chat.component.html",
+        "file:src/app/agent-chat/agent-chat.component.scss"
+      ],
+      "languageLesson": "Angular 17 introduced @if/@for/@let as built-in control flow syntax, replacing *ngIf/*ngFor structural directives. They compile to more efficient instruction sequences and allow @let to declare template-local variables without a pipe or intermediate component."
+    },
+    {
+      "order": 6,
+      "title": "AgentService: Reactive State & Backend Call",
+      "description": "agent.service.ts is the bridge between the chat UI and the Genkit backend: it manages session state (sessionId, clearSession) and chat history using Angular 19 Signals, and uses the resource API to lazily invoke the Genkit client's runFlow against the /chatFlow endpoint whenever the user submits a message. This is the file to study to understand how the frontend triggers a Genkit flow call.",
+      "nodeIds": [
+        "file:src/app/agent.service.ts"
+      ],
+      "languageLesson": "Angular 19's resource() function creates a reactive async resource whose value re-computes whenever its tracked signals change. Combined with linkedSignal, it lets you co-locate loading state, error state, and the latest value in one reactive primitive without manual subscription management."
+    },
+    {
+      "order": 7,
+      "title": "Express SSR Server & Genkit Endpoint",
+      "description": "server.ts is the Node.js Express server that sits between the Angular CLI dev-server (or production host) and the Genkit flows: it mounts chatFlow as a POST handler at /chatFlow via Genkit's expressHandler, and delegates all other routes to AngularNodeAppEngine for SSR rendering. This single file wires the Genkit AI backend and the Angular SSR pipeline onto one HTTP server.",
+      "nodeIds": [
+        "file:src/server.ts"
+      ],
+      "languageLesson": "Genkit's expressHandler converts a typed Genkit flow directly into an Express route handler, handling input deserialization and output serialization automatically. Angular's createNodeRequestHandler wraps the SSR engine in a Node-compatible request handler compatible with dev-server, Firebase, and Cloud Run."
+    },
+    {
+      "order": 8,
+      "title": "Genkit Flows: chatFlow & getDateTime",
+      "description": "flows.ts is the AI backend core: it initializes the Gemini 2.0 Flash model, registers a getDateTime tool so the LLM can query the current time on demand, and defines chatFlow — a stateful Genkit flow that uses Genkit's Session API to maintain multi-turn conversation history, sends each user message to Gemini with Zod-validated I/O schemas, and returns a structured JSON response containing the agent reply and suggested option buttons.",
+      "nodeIds": [
+        "file:src/flows.ts"
+      ],
+      "languageLesson": "Genkit flows combine Zod schemas (for compile-time and runtime I/O validation), the Session API (for server-side conversation memory across HTTP requests), and tool definitions (functions the LLM can call mid-generation). Partial-JSON parsing handles streaming responses where the model emits the JSON object incrementally."
+    },
+    {
+      "order": 9,
+      "title": "SSR Entry Point & Server Config",
+      "description": "main.server.ts exports the bootstrap function the Angular SSR engine calls to render each request on the server, and app.config.server.ts merges the base app config with server-specific providers (provideServerRendering, provideServerRoutesConfig). Together they configure the dual client/server rendering pipeline that lets the same Angular app run in the browser and in Node.js.",
+      "nodeIds": [
+        "file:src/main.server.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.server.ts"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "Unit Tests",
+      "description": "The three spec files cover the main testable units — AppComponent, AgentChatComponent, and AgentService — using Angular TestBed for each. They serve as a minimal safety net verifying component creation and service instantiation, and as documentation showing the minimum viable test setup for Angular 19 standalone components.",
+      "nodeIds": [
+        "file:src/app/app.component.spec.ts",
+        "file:src/app/agent-chat/agent-chat.component.spec.ts",
+        "file:src/app/agent.service.spec.ts"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Build Config & Dependencies",
+      "description": "package.json lists the Angular 19 and Genkit 1.x runtime dependencies alongside dev tooling (Karma, Jasmine, TypeScript 5.7) and the start:with-genkit-ui script that launches the Genkit Developer UI alongside ng serve. angular.json configures the Angular CLI build targets — including SSR via src/server.ts and the allowedCommonJsDependencies entries needed to use Genkit's CommonJS packages in Angular's ESM build.",
+      "nodeIds": [
+        "config:package.json",
+        "config:angular.json",
+        "config:tsconfig.json"
+      ],
+      "languageLesson": "Angular 19's esbuild-based builder requires allowedCommonJsDependencies for any CommonJS package imported in an otherwise ESM project. The tsconfig.json uses moduleResolution: 'bundler' (TypeScript 5+), which lets TypeScript resolve packages the same way esbuild does — matching the runtime module graph at compile time."
+    }
+  ]
+}
