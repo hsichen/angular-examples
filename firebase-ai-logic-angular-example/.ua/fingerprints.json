@@ -1,0 +1,430 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "d273571ca860950958f7a923e74d4959c81f3139",
+  "generatedAt": "2026-07-27T21:15:55.445Z",
+  "files": {
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "1b9243fc43b0017207979b5ba68d36503c71a32a299c95d85fd97b591aa2bcc4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "64a3d53acbed4035084e261f712c1107a38c31081e070928dafe6fefa3d0dcb9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "angular.json": {
+      "filePath": "angular.json",
+      "contentHash": "c7a5b3d71aed1f0607f2168c09e50953d57ed34dd2fc9ec4f848d58c703bf81b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 113,
+      "hasStructuralAnalysis": true
+    },
+    "firebase.json": {
+      "filePath": "firebase.json",
+      "contentHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "f0daa92b04a2bab1b40b7388eb719846f038f36875949f853d4367776f33ec6c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/ai.service.ts": {
+      "filePath": "src/app/ai.service.ts",
+      "contentHash": "9f4404410cd5e428d0c8dc7de35e32b88f9497314f99ca56ac1d608b4de96e5f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AiService",
+          "methods": [
+            "constructor",
+            "ask",
+            "getProducts",
+            "getNumberOfProducts",
+            "addToCart"
+          ],
+          "properties": [
+            "model",
+            "products",
+            "chat"
+          ],
+          "exported": true,
+          "lineCount": 127
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Injectable",
+            "Inject",
+            "inject"
+          ]
+        },
+        {
+          "source": "@angular/fire/app",
+          "specifiers": [
+            "FirebaseApp"
+          ]
+        },
+        {
+          "source": "@angular/fire/vertexai",
+          "specifiers": [
+            "getVertexAI",
+            "getGenerativeModel",
+            "GenerativeModel",
+            "ChatSession",
+            "FunctionDeclarationsTool",
+            "ObjectSchemaInterface",
+            "Schema"
+          ]
+        },
+        {
+          "source": "./product.service",
+          "specifiers": [
+            "ProductService"
+          ]
+        },
+        {
+          "source": "./product",
+          "specifiers": [
+            "Product"
+          ]
+        }
+      ],
+      "exports": [
+        "AiService"
+      ],
+      "totalLines": 152,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.component.css": {
+      "filePath": "src/app/app.component.css",
+      "contentHash": "2d2e3909c1b7eaf28e4dbbdc16804ed6eb0bbb7b1ab411a0a339da3dd9dedd20",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 156,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/app.component.ts": {
+      "filePath": "src/app/app.component.ts",
+      "contentHash": "79de8f04c47a917e5ba2b821e47b6a6496e60ce95744d0ab4751690fb2d51a85",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppComponent",
+          "methods": [
+            "constructor",
+            "addToCart",
+            "submitMessage"
+          ],
+          "properties": [
+            "ai",
+            "products",
+            "messageHistory",
+            "productList",
+            "chatHistoryContainer",
+            "scrollEffect"
+          ],
+          "exported": true,
+          "lineCount": 45
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "effect",
+            "ElementRef",
+            "inject",
+            "signal",
+            "viewChild"
+          ]
+        },
+        {
+          "source": "./product",
+          "specifiers": [
+            "Product"
+          ]
+        },
+        {
+          "source": "./product.service",
+          "specifiers": [
+            "ProductService"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CurrencyPipe",
+            "NgOptimizedImage"
+          ]
+        },
+        {
+          "source": "./message",
+          "specifiers": [
+            "Message"
+          ]
+        },
+        {
+          "source": "./ai.service",
+          "specifiers": [
+            "AiService"
+          ]
+        }
+      ],
+      "exports": [
+        "AppComponent"
+      ],
+      "totalLines": 113,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.ts": {
+      "filePath": "src/app/app.config.ts",
+      "contentHash": "4a64eab4cf312d61a31baf3a541f1f7aa1bea99dece526964db28344a8848d7a",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ApplicationConfig",
+            "provideZoneChangeDetection"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "provideRouter"
+          ]
+        },
+        {
+          "source": "@angular/fire/app",
+          "specifiers": [
+            "provideFirebaseApp",
+            "initializeApp"
+          ]
+        },
+        {
+          "source": "../environments/environment",
+          "specifiers": [
+            "environment"
+          ]
+        },
+        {
+          "source": "./app.routes",
+          "specifiers": [
+            "routes"
+          ]
+        }
+      ],
+      "exports": [
+        "appConfig"
+      ],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.ts": {
+      "filePath": "src/app/app.routes.ts",
+      "contentHash": "3820a499792c857df93881edfab6a4d2bc637ef2bc8a19e1f19b135365a15941",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "Routes"
+          ]
+        }
+      ],
+      "exports": [
+        "routes"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/message.ts": {
+      "filePath": "src/app/message.ts",
+      "contentHash": "e746bd6eb281514057aac675a485683ddd46f64088cedd016e83ccb28a77118b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/product.service.ts": {
+      "filePath": "src/app/product.service.ts",
+      "contentHash": "2835223f67c7af5e8d8852dbfbd6823c86f0bb3a968767c4bd9adecb1c5d263b",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ProductService",
+          "methods": [
+            "getProducts",
+            "getCart",
+            "addToCart"
+          ],
+          "properties": [
+            "productCart",
+            "productCartTotal",
+            "products"
+          ],
+          "exported": true,
+          "lineCount": 34
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "computed",
+            "Injectable",
+            "signal"
+          ]
+        },
+        {
+          "source": "./product",
+          "specifiers": [
+            "Product"
+          ]
+        }
+      ],
+      "exports": [
+        "ProductService"
+      ],
+      "totalLines": 48,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/product.ts": {
+      "filePath": "src/app/product.ts",
+      "contentHash": "3b1d4e656896f8a9224057ace350bfc92c931da3eb9814355401a67d41f30b20",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "src/environments/environment.development.ts": {
+      "filePath": "src/environments/environment.development.ts",
+      "contentHash": "3ab1d23312216875cdd630ee26a48579089e7d4498d51fd8f641832d00a7188f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "environment"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "src/environments/environment.ts": {
+      "filePath": "src/environments/environment.ts",
+      "contentHash": "6b86577d00ae51ccafe619fc00ff256e0888034961744428692c7d0d03763347",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "environment"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.html": {
+      "filePath": "src/index.html",
+      "contentHash": "699de4be286a791c01381ee054f7753ecc91251c661b85430bfcc0033b958390",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 23,
+      "hasStructuralAnalysis": false
+    },
+    "src/main.ts": {
+      "filePath": "src/main.ts",
+      "contentHash": "a4704240002ae63d3c0c0655421f771504dc54ff57501def461b0f21ca5495bc",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app/app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "src/styles.css": {
+      "filePath": "src/styles.css",
+      "contentHash": "b2fb3643e1a8c7e40466d22cc871e55195cd2e38b2b60954808736bae5e0a246",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 30,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.app.json": {
+      "filePath": "tsconfig.app.json",
+      "contentHash": "7c030d64833de2975bdbc63e5fe2e7aff3177ca781b976840baff34a70be9eef",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "f88ab782788a0ee32d04c10e89e276c00deb9228b5d21a9e4086932c56e9b5c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    }
+  }
+}
