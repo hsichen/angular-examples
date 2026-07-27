@@ -1,0 +1,609 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "8fcbf66ddbe069bc776c2af5b6c823c2a8d1f36f",
+  "generatedAt": "2026-07-27T20:14:16.298Z",
+  "files": {
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "77009849779303501691254f0fdb532729fbf6d190469aee35185642bc9959d5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 88,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "0d4358b9a051ac963165cb94e0ed5aa9903abf66aab5fba1375136fbf8372d83",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "angular.json": {
+      "filePath": "angular.json",
+      "contentHash": "3020b5ad7a8182a082d1614a7172040c2f65480282bb063af740807288683d1b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 116,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "8b0088f1db3ab870a9be9eebf24978cfe299991bfc2297b8f6f9595c53b75098",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/agent-chat/agent-chat.component.html": {
+      "filePath": "src/app/agent-chat/agent-chat.component.html",
+      "contentHash": "672f9a4834948fbca92ce7ce922b43726a452540f0b669722982393e09e53154",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 48,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/agent-chat/agent-chat.component.scss": {
+      "filePath": "src/app/agent-chat/agent-chat.component.scss",
+      "contentHash": "ab60487484b1e1311f1cd32a10d9629ea933b5bb41ad99eee37e1db20628522e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 164,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/agent-chat/agent-chat.component.spec.ts": {
+      "filePath": "src/app/agent-chat/agent-chat.component.spec.ts",
+      "contentHash": "f3446bfc07e4e8be4ca24c89eee2237887eb9c30d1d146bac76022ee19327f59",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "ComponentFixture",
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./agent-chat.component",
+          "specifiers": [
+            "AgentChatComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/agent-chat/agent-chat.component.ts": {
+      "filePath": "src/app/agent-chat/agent-chat.component.ts",
+      "contentHash": "7b9f1ef934c47a230411fdd25cb7fab7a20e2fd53dab82ac8ca9bd18da6048d3",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AgentChatComponent",
+          "methods": [
+            "onSubmit"
+          ],
+          "properties": [
+            "agentService",
+            "userInput"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject"
+          ]
+        },
+        {
+          "source": "@angular/material/icon",
+          "specifiers": [
+            "MatIconModule"
+          ]
+        },
+        {
+          "source": "@angular/material/progress-bar",
+          "specifiers": [
+            "MatProgressBarModule"
+          ]
+        },
+        {
+          "source": "@angular/forms",
+          "specifiers": [
+            "FormsModule"
+          ]
+        },
+        {
+          "source": "../agent.service",
+          "specifiers": [
+            "AgentService"
+          ]
+        }
+      ],
+      "exports": [
+        "AgentChatComponent"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/agent.service.spec.ts": {
+      "filePath": "src/app/agent.service.spec.ts",
+      "contentHash": "06f0a5aee04eaaefd7d2b44eb6a178e6b09cd3046152baea47ee27b0a7ce76d1",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./agent.service",
+          "specifiers": [
+            "AgentService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/agent.service.ts": {
+      "filePath": "src/app/agent.service.ts",
+      "contentHash": "c1344e4f809be4844c25d16fe1d35082cf304871f7cf34ea36dfb585b6d7521e",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AgentService",
+          "methods": [
+            "updateChatFromUser",
+            "chatItem"
+          ],
+          "properties": [
+            "userInput",
+            "sessionId",
+            "clearSession",
+            "chat",
+            "agentResource"
+          ],
+          "exported": true,
+          "lineCount": 55
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Injectable",
+            "signal",
+            "resource",
+            "linkedSignal"
+          ]
+        },
+        {
+          "source": "genkit/beta/client",
+          "specifiers": [
+            "runFlow"
+          ]
+        }
+      ],
+      "exports": [
+        "AgentService"
+      ],
+      "totalLines": 85,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.component.html": {
+      "filePath": "src/app/app.component.html",
+      "contentHash": "dbb6f175b0aa8e366d12d15c360126e30cd892945d21ef5a7da45ff47030cdb7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/app.component.scss": {
+      "filePath": "src/app/app.component.scss",
+      "contentHash": "f100cac111a7d2fb2678b7bb6e56b7cd59515641e7251796678c92e8e7b9baca",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/app.component.spec.ts": {
+      "filePath": "src/app/app.component.spec.ts",
+      "contentHash": "98a65e5fd9209cf4c1d4be48bed8aad06db2d629055403cc7287a01afe2f1e73",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.component.ts": {
+      "filePath": "src/app/app.component.ts",
+      "contentHash": "16e27a49f9da538050247bbd129878612cddfc8ad0d387aad7ee1bc58e38bf8f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppComponent",
+          "methods": [],
+          "properties": [
+            "agentService"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject"
+          ]
+        },
+        {
+          "source": "./agent-chat/agent-chat.component",
+          "specifiers": [
+            "AgentChatComponent"
+          ]
+        },
+        {
+          "source": "./agent.service",
+          "specifiers": [
+            "AgentService"
+          ]
+        }
+      ],
+      "exports": [
+        "AppComponent"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.server.ts": {
+      "filePath": "src/app/app.config.server.ts",
+      "contentHash": "b8a3341680cbddbb20c1ae6e58a1e50bc0c8f10ca5ceedf36b5051f99bf75983",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "mergeApplicationConfig",
+            "ApplicationConfig"
+          ]
+        },
+        {
+          "source": "@angular/platform-server",
+          "specifiers": [
+            "provideServerRendering"
+          ]
+        },
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "provideServerRouting"
+          ]
+        },
+        {
+          "source": "./app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app.routes.server",
+          "specifiers": [
+            "serverRoutes"
+          ]
+        }
+      ],
+      "exports": [
+        "config"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.ts": {
+      "filePath": "src/app/app.config.ts",
+      "contentHash": "26267266fbe9bfdad674fa82fd1aa2648719526babf43afab4646370cad58bbb",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ApplicationConfig",
+            "provideZoneChangeDetection"
+          ]
+        },
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "provideClientHydration",
+            "withEventReplay"
+          ]
+        }
+      ],
+      "exports": [
+        "appConfig"
+      ],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.server.ts": {
+      "filePath": "src/app/app.routes.server.ts",
+      "contentHash": "a365dd803ed200476d6aafe03af27232dd5fc77435a91cdeedc801f41ee367cb",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "RenderMode",
+            "ServerRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "serverRoutes"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/flows.ts": {
+      "filePath": "src/flows.ts",
+      "contentHash": "043eb58aa58333ef7ec42c5e20ae6a90ea212810e21087119741cdb7e5d65b81",
+      "functions": [
+        {
+          "name": "maybeStripMarkdown",
+          "params": [
+            "withMarkdown"
+          ],
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "genkit/beta",
+          "specifiers": [
+            "Chat",
+            "genkit",
+            "Session"
+          ]
+        },
+        {
+          "source": "@genkit-ai/googleai",
+          "specifiers": [
+            "googleAI",
+            "gemini20Flash"
+          ]
+        },
+        {
+          "source": "partial-json",
+          "specifiers": [
+            "parse"
+          ]
+        },
+        {
+          "source": "zod",
+          "specifiers": [
+            "z"
+          ]
+        }
+      ],
+      "exports": [
+        "chatFlow"
+      ],
+      "totalLines": 111,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.html": {
+      "filePath": "src/index.html",
+      "contentHash": "5e3aec099f9cd3bf0b9b01f7176c981a152d97e0bcb3415c7cab4ee17d7f3902",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": false
+    },
+    "src/main.server.ts": {
+      "filePath": "src/main.server.ts",
+      "contentHash": "0fa468ae3537229760cb8378df81f68d3cdf48456eace603f94923cca16ad272",
+      "functions": [
+        {
+          "name": "bootstrap",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        },
+        {
+          "source": "./app/app.config.server",
+          "specifiers": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "src/main.ts": {
+      "filePath": "src/main.ts",
+      "contentHash": "9fc48d15cb30db3c27d884c77887fee3a3d43f9d954c4f72238b3bb273253383",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app/app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/server.ts": {
+      "filePath": "src/server.ts",
+      "contentHash": "b6b14fb2e233b12bde2dad6e5aa61ba441e7051bed886773c7d211c40b9163d2",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr/node",
+          "specifiers": [
+            "AngularNodeAppEngine",
+            "createNodeRequestHandler",
+            "isMainModule",
+            "writeResponseToNodeResponse"
+          ]
+        },
+        {
+          "source": "express",
+          "specifiers": [
+            "express"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "dirname",
+            "resolve"
+          ]
+        },
+        {
+          "source": "node:url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "@genkit-ai/express",
+          "specifiers": [
+            "expressHandler"
+          ]
+        },
+        {
+          "source": "./flows",
+          "specifiers": [
+            "chatFlow"
+          ]
+        }
+      ],
+      "exports": [
+        "reqHandler"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "src/styles.scss": {
+      "filePath": "src/styles.scss",
+      "contentHash": "090b9af7255c42121f8ffa930bfe48f1a8f228a961a032b983ae240376b9c2ef",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.app.json": {
+      "filePath": "tsconfig.app.json",
+      "contentHash": "279f4735365415de3cd27268f36a8acfc99d39475721f7fc4793decb50331afe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "f88ab782788a0ee32d04c10e89e276c00deb9228b5d21a9e4086932c56e9b5c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.spec.json": {
+      "filePath": "tsconfig.spec.json",
+      "contentHash": "c6ba2c144471c65b935adf89961dbc9b4e7ad235983556c3baf95b19de135a1c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

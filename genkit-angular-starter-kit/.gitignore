@@ -45,3 +45,7 @@ Thumbs.db
 # Genkit output
 .genkit/
 
+
+# Understand-Anything: keep the knowledge graph, ignore regenerable scratch
+.ua/.trash-*/
+.ua/intermediate/
