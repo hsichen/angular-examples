@@ -1,0 +1,1180 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "1a87667205bd11f1b37df6ec0a8a32c38a44aab3",
+  "generatedAt": "2026-07-27T15:01:34.058Z",
+  "files": {
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "1b9243fc43b0017207979b5ba68d36503c71a32a299c95d85fd97b591aa2bcc4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "GEMINI.md": {
+      "filePath": "GEMINI.md",
+      "contentHash": "6fbf93a201dc790514e240367c6475ad461e7c3dbe9faad87266b062270c138b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "bf492f355db7fc9bde922a0a26f74c15a35b7fe7225d8988bbf11e362e096033",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "angular.json": {
+      "filePath": "angular.json",
+      "contentHash": "25d36de9fe379f5d1db94a795355c1de669dfab338fe435f7caff73736313f89",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 104,
+      "hasStructuralAnalysis": true
+    },
+    "codelab.md": {
+      "filePath": "codelab.md",
+      "contentHash": "3f46a43e52b31867f2b4b1abbdb2ca837eda291366d170f2e422a06f0af6fded",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 138,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/prompt-1.md": {
+      "filePath": "content/prompts/prompt-1.md",
+      "contentHash": "6a191df4e0c492d575741a17a08aa29ff6107ee994bc0129304c42a883bbb353",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/prompt-2.md": {
+      "filePath": "content/prompts/prompt-2.md",
+      "contentHash": "31ad839bce123c3fc8ead002b3da4fac25e4bdb88434ea8ff2d481d5b790a5d8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/prompt-3.md": {
+      "filePath": "content/prompts/prompt-3.md",
+      "contentHash": "b5c5f3cbb53678899161e1f36bb0914ab05fdb903d4cb898a87f169a78b766e7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 61,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-1a.md": {
+      "filePath": "content/prompts/versions/prompt-1a.md",
+      "contentHash": "80ab89a21e51f8c7dd25e51e9ff1eee1c9da7a7a8eb9b108be3a611d444f399a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-1b.md": {
+      "filePath": "content/prompts/versions/prompt-1b.md",
+      "contentHash": "6a191df4e0c492d575741a17a08aa29ff6107ee994bc0129304c42a883bbb353",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-2a.md": {
+      "filePath": "content/prompts/versions/prompt-2a.md",
+      "contentHash": "f6e8c6f8826f64699d43ec409513c03e62b7e6f4ea542093f6c78eabf904406f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-2b.md": {
+      "filePath": "content/prompts/versions/prompt-2b.md",
+      "contentHash": "2f008fe0afed73bc09f1fc800117b77231d7a679e8b3d3068b1ea8eab200f213",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-2c.md": {
+      "filePath": "content/prompts/versions/prompt-2c.md",
+      "contentHash": "31ad839bce123c3fc8ead002b3da4fac25e4bdb88434ea8ff2d481d5b790a5d8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-3a.md": {
+      "filePath": "content/prompts/versions/prompt-3a.md",
+      "contentHash": "a3e489d7aabcd948d379692ff283aa74fca08102619cb4d4b2f4297abfa8d5f0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-3b.md": {
+      "filePath": "content/prompts/versions/prompt-3b.md",
+      "contentHash": "02702bfadfcb7a7132b37357905fc9638212ac36808cfc72aca37c32449087bd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-3c.md": {
+      "filePath": "content/prompts/versions/prompt-3c.md",
+      "contentHash": "b5c5f3cbb53678899161e1f36bb0914ab05fdb903d4cb898a87f169a78b766e7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 61,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-4.md": {
+      "filePath": "content/prompts/versions/prompt-4.md",
+      "contentHash": "3eb5e819d96ff3038870ac0ba1078944846ce3a10f0c3cd207191acf8e64025f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "content/prompts/versions/prompt-4a.md": {
+      "filePath": "content/prompts/versions/prompt-4a.md",
+      "contentHash": "7e17b94261b42368de7a1f7f54f12a94305628b064050c57a073c8ac456d63eb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 89,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "96b2604639bb029bf6c72d673b365ed9442a2d29454fe0cddc37b7a15dcac930",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 55,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.server.ts": {
+      "filePath": "src/app/app.config.server.ts",
+      "contentHash": "b793bbe75763d39ece666179da7e27779e3059da38029561ed4eff9f39cd1635",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "mergeApplicationConfig",
+            "ApplicationConfig"
+          ]
+        },
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "provideServerRendering",
+            "withRoutes"
+          ]
+        },
+        {
+          "source": "./app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app.routes.server",
+          "specifiers": [
+            "serverRoutes"
+          ]
+        }
+      ],
+      "exports": [
+        "config"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.ts": {
+      "filePath": "src/app/app.config.ts",
+      "contentHash": "9dc53ae6f57d1a6509475c87c626cd5156df582df23edb275c00fa44ed81aa8f",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ApplicationConfig",
+            "provideBrowserGlobalErrorListeners"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "provideRouter"
+          ]
+        },
+        {
+          "source": "@angular/common/http",
+          "specifiers": [
+            "provideHttpClient",
+            "withFetch"
+          ]
+        },
+        {
+          "source": "./app.routes",
+          "specifiers": [
+            "routes"
+          ]
+        },
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "provideClientHydration",
+            "withEventReplay"
+          ]
+        }
+      ],
+      "exports": [
+        "appConfig"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.server.ts": {
+      "filePath": "src/app/app.routes.server.ts",
+      "contentHash": "bcfe0305bca065f00589bbc137d5a42c3a677ed7515a4c1e6f307c73b60fd117",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "RenderMode",
+            "ServerRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "serverRoutes"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.ts": {
+      "filePath": "src/app/app.routes.ts",
+      "contentHash": "e09a4325dc53c8e08a9220b5ee7dec1d1493480db19918a8cfd37ef8d2d3d821",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "Routes"
+          ]
+        },
+        {
+          "source": "./components/dashboard/dashboard",
+          "specifiers": [
+            "Dashboard"
+          ]
+        },
+        {
+          "source": "./components/fleet-list/fleet-list",
+          "specifiers": [
+            "FleetList"
+          ]
+        },
+        {
+          "source": "./components/service-queue/service-queue",
+          "specifiers": [
+            "ServiceQueue"
+          ]
+        }
+      ],
+      "exports": [
+        "routes"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.ts": {
+      "filePath": "src/app/app.ts",
+      "contentHash": "09ce7debd4ff689cf85c3acd65b5d55693e5b623ed6aacd5b1913b9a9c8365bf",
+      "functions": [],
+      "classes": [
+        {
+          "name": "App",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "RouterOutlet"
+          ]
+        },
+        {
+          "source": "./components/header/header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "./components/chat/chat",
+          "specifiers": [
+            "Chat"
+          ]
+        }
+      ],
+      "exports": [
+        "App"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/chat/chat.ts": {
+      "filePath": "src/app/components/chat/chat.ts",
+      "contentHash": "4e184b548e57a959be03cee40d19e90c84d9e971ea33360acfc921f11625d615",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Chat",
+          "methods": [],
+          "properties": [
+            "fleetService"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject"
+          ]
+        },
+        {
+          "source": "../../services/fleet.service",
+          "specifiers": [
+            "FleetService"
+          ]
+        }
+      ],
+      "exports": [
+        "Chat"
+      ],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/dashboard/dashboard.ts": {
+      "filePath": "src/app/components/dashboard/dashboard.ts",
+      "contentHash": "700490dad672df8d802968f3c3509a3c6481bcc13cbc49f11ac906a34655e245",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Dashboard",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component"
+          ]
+        },
+        {
+          "source": "../sidenav/sidenav",
+          "specifiers": [
+            "Sidenav"
+          ]
+        },
+        {
+          "source": "../sidebar/sidebar",
+          "specifiers": [
+            "Sidebar"
+          ]
+        },
+        {
+          "source": "../map/map",
+          "specifiers": [
+            "Map"
+          ]
+        }
+      ],
+      "exports": [
+        "Dashboard"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/fleet-detail-modal/fleet-detail-modal.ts": {
+      "filePath": "src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "contentHash": "c2532ea991ec39972dcaf900ace54cc0b60be4929eee3f0832072ff3aaea2973",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FleetDetailModal",
+          "methods": [
+            "constructor",
+            "initMap",
+            "closeModal",
+            "onDialogClick",
+            "getStatusBadgeClass",
+            "getBatteryColor"
+          ],
+          "properties": [
+            "unit",
+            "close",
+            "dialog",
+            "mapContainer",
+            "map",
+            "L"
+          ],
+          "exported": true,
+          "lineCount": 85
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input",
+            "output",
+            "effect",
+            "ElementRef",
+            "viewChild",
+            "afterNextRender"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "DecimalPipe"
+          ]
+        },
+        {
+          "source": "leaflet",
+          "specifiers": [
+            "* as LType"
+          ]
+        },
+        {
+          "source": "../../services/fleet.service",
+          "specifiers": [
+            "FleetUnit"
+          ]
+        }
+      ],
+      "exports": [
+        "FleetDetailModal"
+      ],
+      "totalLines": 164,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/fleet-list/fleet-list.ts": {
+      "filePath": "src/app/components/fleet-list/fleet-list.ts",
+      "contentHash": "59a7e646f4f2efaeb520c65603e1b49c8859157b32804441e5d6fb1606d2b7c4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FleetList",
+          "methods": [
+            "resetFilters",
+            "getUnitsByStatus",
+            "getStatusColor",
+            "getStatusBadgeClass",
+            "getBatteryColor"
+          ],
+          "properties": [
+            "fleetService",
+            "statusFilter",
+            "batteryFilter",
+            "serviceFilter",
+            "selectedUnit",
+            "hasActiveFilters",
+            "filteredUnits"
+          ],
+          "exported": true,
+          "lineCount": 77
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "signal",
+            "computed"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CurrencyPipe",
+            "DecimalPipe"
+          ]
+        },
+        {
+          "source": "../../services/fleet.service",
+          "specifiers": [
+            "FleetService",
+            "FleetUnit"
+          ]
+        },
+        {
+          "source": "../fleet-detail-modal/fleet-detail-modal",
+          "specifiers": [
+            "FleetDetailModal"
+          ]
+        }
+      ],
+      "exports": [
+        "FleetList"
+      ],
+      "totalLines": 216,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/header/header.ts": {
+      "filePath": "src/app/components/header/header.ts",
+      "contentHash": "53aad8f40672449b5062966b6b5329015c0db67e3ea8b4d401349ceed4e39567",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Header",
+          "methods": [],
+          "properties": [
+            "fleetService"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "RouterLink",
+            "RouterLinkActive"
+          ]
+        },
+        {
+          "source": "../../services/fleet.service",
+          "specifiers": [
+            "FleetService"
+          ]
+        }
+      ],
+      "exports": [
+        "Header"
+      ],
+      "totalLines": 86,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/map/map.ts": {
+      "filePath": "src/app/components/map/map.ts",
+      "contentHash": "f576fa90f9a6296ae79b29fd29ebb50e6aeafa5040b625ac58e68d07988e036d",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Map",
+          "methods": [
+            "constructor",
+            "updateTileLayer",
+            "updateMarkers",
+            "initMap"
+          ],
+          "properties": [
+            "mapContainer",
+            "map",
+            "tileLayer",
+            "markers",
+            "L",
+            "fleetService"
+          ],
+          "exported": true,
+          "lineCount": 114
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "ElementRef",
+            "ViewChild",
+            "effect",
+            "afterNextRender",
+            "inject"
+          ]
+        },
+        {
+          "source": "leaflet",
+          "specifiers": [
+            "* as LType"
+          ]
+        },
+        {
+          "source": "../../services/fleet.service",
+          "specifiers": [
+            "FleetService"
+          ]
+        }
+      ],
+      "exports": [
+        "Map"
+      ],
+      "totalLines": 140,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/service-queue/service-queue.ts": {
+      "filePath": "src/app/components/service-queue/service-queue.ts",
+      "contentHash": "7d8654f7ac191e1686dd32bfc5b4142d1aae207f349f6263287ebe28ccc86208",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ServiceQueue",
+          "methods": [
+            "getPriorityBadgeClass",
+            "openRequestModal",
+            "closeRequestModal",
+            "onSubmit",
+            "openDetailModal",
+            "closeDetailModal",
+            "onEditSubmit",
+            "resolveTicket"
+          ],
+          "properties": [
+            "fleetService",
+            "isModalOpen",
+            "isSubmitting",
+            "selectedTicket",
+            "selectedTab",
+            "activeTickets",
+            "resolvedTickets",
+            "serviceModel",
+            "serviceForm",
+            "editModel",
+            "editForm"
+          ],
+          "exported": true,
+          "lineCount": 108
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "signal",
+            "ChangeDetectionStrategy",
+            "computed"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "DatePipe",
+            "NgTemplateOutlet"
+          ]
+        },
+        {
+          "source": "@angular/forms/signals",
+          "specifiers": [
+            "form",
+            "FormField",
+            "submit",
+            "required"
+          ]
+        },
+        {
+          "source": "@angular/aria/tabs",
+          "specifiers": [
+            "Tab",
+            "Tabs",
+            "TabList",
+            "TabPanel",
+            "TabContent"
+          ]
+        },
+        {
+          "source": "../../services/fleet.service",
+          "specifiers": [
+            "FleetService"
+          ]
+        },
+        {
+          "source": "../../../fleet-db",
+          "specifiers": [
+            "ServiceTicket"
+          ]
+        }
+      ],
+      "exports": [
+        "ServiceQueue"
+      ],
+      "totalLines": 327,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/sidebar/sidebar.ts": {
+      "filePath": "src/app/components/sidebar/sidebar.ts",
+      "contentHash": "f7dfd520412ca868c9a933fa4bccea52660065bd76713f25b6da53e981ce7030",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Sidebar",
+          "methods": [
+            "constructor",
+            "selectUnit"
+          ],
+          "properties": [
+            "fleetService",
+            "injector"
+          ],
+          "exported": true,
+          "lineCount": 22
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "effect",
+            "afterNextRender",
+            "Injector"
+          ]
+        },
+        {
+          "source": "../../services/fleet.service",
+          "specifiers": [
+            "FleetService",
+            "FleetUnit"
+          ]
+        }
+      ],
+      "exports": [
+        "Sidebar"
+      ],
+      "totalLines": 95,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/components/sidenav/sidenav.ts": {
+      "filePath": "src/app/components/sidenav/sidenav.ts",
+      "contentHash": "deade148d2be6e5b45e431d519c13d54adaa72b436debb6c6a9d8a600ee9b322",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Sidenav",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component"
+          ]
+        }
+      ],
+      "exports": [
+        "Sidenav"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/services/fleet.service.ts": {
+      "filePath": "src/app/services/fleet.service.ts",
+      "contentHash": "f93c9c37333fa9e886f1f8dd596b092b27b4b780b7d8e8971222841ccc448bab",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FleetService",
+          "methods": [
+            "constructor",
+            "setActiveUnit",
+            "toggleTheme",
+            "toggleChat",
+            "addServiceTicket",
+            "updateServiceTicket"
+          ],
+          "properties": [
+            "unitsResource",
+            "serviceQueueResource",
+            "units",
+            "serviceQueue",
+            "activeUnitId",
+            "isDarkMode",
+            "isChatOpen",
+            "fleetWithActiveState"
+          ],
+          "exported": true,
+          "lineCount": 76
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Injectable",
+            "signal",
+            "computed",
+            "effect"
+          ]
+        },
+        {
+          "source": "@angular/common/http",
+          "specifiers": [
+            "httpResource"
+          ]
+        },
+        {
+          "source": "../../fleet-db",
+          "specifiers": [
+            "ServiceTicket"
+          ]
+        }
+      ],
+      "exports": [
+        "FleetService"
+      ],
+      "totalLines": 94,
+      "hasStructuralAnalysis": true
+    },
+    "src/fleet-db.ts": {
+      "filePath": "src/fleet-db.ts",
+      "contentHash": "a10bc6de74a81ed662d18234d0164a7e01af2b541dcad4c4a652548f6547b8d6",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FleetDatabaseService",
+          "methods": [
+            "getFleet",
+            "getServiceQueue",
+            "getTicket",
+            "addTicket",
+            "updateTicket",
+            "deleteTicket",
+            "getUnit",
+            "updateUnit"
+          ],
+          "properties": [
+            "fleet",
+            "serviceQueue"
+          ],
+          "exported": true,
+          "lineCount": 293
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "FleetDatabaseService",
+        "fleetDb"
+      ],
+      "totalLines": 318,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.html": {
+      "filePath": "src/index.html",
+      "contentHash": "84b6bb771f706fa4a77aa8c10ce8532e72e08b66ccb9828d52d41cf854fa34c9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "src/main.server.ts": {
+      "filePath": "src/main.server.ts",
+      "contentHash": "0baca3c861a8e77b5937c1492be40e31f752ada8f06ada92c271984a8f288dc9",
+      "functions": [
+        {
+          "name": "bootstrap",
+          "params": [
+            "context"
+          ],
+          "exported": false,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "BootstrapContext",
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app",
+          "specifiers": [
+            "App"
+          ]
+        },
+        {
+          "source": "./app/app.config.server",
+          "specifiers": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/main.ts": {
+      "filePath": "src/main.ts",
+      "contentHash": "2341253f1a947c37dfa27838951cf7e224f7abb32dff45a8d425f042b5eeed13",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app/app",
+          "specifiers": [
+            "App"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "src/server.ts": {
+      "filePath": "src/server.ts",
+      "contentHash": "a62375f105f516ff570ffde7baffaaff9b6a50ab8e73b5d0110c2653009e12fb",
+      "functions": [
+        {
+          "name": "getAllFleetUnits",
+          "params": [],
+          "returnType": "FleetUnit[]",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getFleetUnit",
+          "params": [
+            "id"
+          ],
+          "returnType": "FleetUnit | undefined",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "updateFleetUnit",
+          "params": [
+            "id",
+            "update"
+          ],
+          "returnType": "FleetUnit | undefined",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getServiceQueue",
+          "params": [],
+          "returnType": "ServiceTicket[]",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getServiceTicket",
+          "params": [
+            "id"
+          ],
+          "returnType": "ServiceTicket | undefined",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "addServiceTicket",
+          "params": [
+            "ticket"
+          ],
+          "returnType": "ServiceTicket",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "updateServiceTicket",
+          "params": [
+            "id",
+            "update"
+          ],
+          "returnType": "ServiceTicket | undefined",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "deleteServiceTicket",
+          "params": [
+            "id"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr/node",
+          "specifiers": [
+            "AngularNodeAppEngine",
+            "createNodeRequestHandler",
+            "isMainModule",
+            "writeResponseToNodeResponse"
+          ]
+        },
+        {
+          "source": "express",
+          "specifiers": [
+            "express"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "join"
+          ]
+        },
+        {
+          "source": "node:process",
+          "specifiers": [
+            "loadEnvFile"
+          ]
+        },
+        {
+          "source": "./fleet-db",
+          "specifiers": [
+            "fleetDb",
+            "FleetUnit",
+            "ServiceTicket"
+          ]
+        }
+      ],
+      "exports": [
+        "getAllFleetUnits",
+        "getFleetUnit",
+        "updateFleetUnit",
+        "getServiceQueue",
+        "getServiceTicket",
+        "addServiceTicket",
+        "updateServiceTicket",
+        "deleteServiceTicket",
+        "reqHandler"
+      ],
+      "totalLines": 153,
+      "hasStructuralAnalysis": true
+    },
+    "src/styles.css": {
+      "filePath": "src/styles.css",
+      "contentHash": "2c995edf7927a7fed4c9c87c51415fcafe8b442503a0a355d94715c4af28f024",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 122,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.app.json": {
+      "filePath": "tsconfig.app.json",
+      "contentHash": "b46615438d1762cd73feff332253962848b2e7f28cd0a61ad7e5f634cf480a17",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "1269bd6119d3a64c6119c469b357685660099b67ec2fe3045a72d2da77671576",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    }
+  }
+}
