@@ -1,0 +1,979 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "5e95335eb8b25a456a16179bfb9fda1f669d054a",
+  "generatedAt": "2026-07-27T05:22:39.699Z",
+  "files": {
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "edd5334318f8a84f6f86ded28f63a0c0a6c5c039ef63966b764b8dd2229e4331",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 112,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "353f8e1d5ad593921c4f20028106050535ad0f963f422176c5be38e0b80e40a4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "angular.json": {
+      "filePath": "angular.json",
+      "contentHash": "a09ea9893e0f89fe185cc96a1948dd00d38a4074dde1f770dda949dc4bbb9f35",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 116,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "74b7f352daf1040e092dcc9e9fa62f511cf5cedfbd25aaac328c0269ef406985",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.component.html": {
+      "filePath": "src/app/app.component.html",
+      "contentHash": "fe212400869dcf9d4adfb3bd01e1bc3a3b9a64af3f3c8d8b3e1325bc6a9af267",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 29,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/app.component.scss": {
+      "filePath": "src/app/app.component.scss",
+      "contentHash": "1ecfdef7fe611f5f89efbcd393accce183948a18ad5ec717d8e6de5e32fc2f87",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 81,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/app.component.spec.ts": {
+      "filePath": "src/app/app.component.spec.ts",
+      "contentHash": "7afdfbed1658b1460a9806efc4ee3d26671d53a39283401f68bcaca89387d143",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.component.ts": {
+      "filePath": "src/app/app.component.ts",
+      "contentHash": "ffc1e4c9816260b87727703f61f86c5934b26f24777747ca2e0f2db7912f5371",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppComponent",
+          "methods": [],
+          "properties": [
+            "storyService",
+            "endpoint"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "NgOptimizedImage"
+          ]
+        },
+        {
+          "source": "./story/story.component",
+          "specifiers": [
+            "StoryComponent"
+          ]
+        },
+        {
+          "source": "./user-input/user-input.component",
+          "specifiers": [
+            "UserInputComponent"
+          ]
+        },
+        {
+          "source": "./story.service",
+          "specifiers": [
+            "StoryService",
+            "DESCRIPTION_FLOW"
+          ]
+        }
+      ],
+      "exports": [
+        "AppComponent"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.server.ts": {
+      "filePath": "src/app/app.config.server.ts",
+      "contentHash": "d84f306eec0ee344aba80b7cb435e1ca1c72128e4e0606e13f466cb90ad49174",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "mergeApplicationConfig",
+            "ApplicationConfig"
+          ]
+        },
+        {
+          "source": "@angular/platform-server",
+          "specifiers": [
+            "provideServerRendering"
+          ]
+        },
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "provideServerRouting"
+          ]
+        },
+        {
+          "source": "./app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app.routes.server",
+          "specifiers": [
+            "serverRoutes"
+          ]
+        }
+      ],
+      "exports": [
+        "config"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.ts": {
+      "filePath": "src/app/app.config.ts",
+      "contentHash": "4dfba2277828ea5d5b66508aa019e47e7adccf553b8ef1448cee724c0a6ef52c",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ApplicationConfig",
+            "provideZoneChangeDetection"
+          ]
+        },
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "provideClientHydration",
+            "withEventReplay"
+          ]
+        }
+      ],
+      "exports": [
+        "appConfig"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.server.ts": {
+      "filePath": "src/app/app.routes.server.ts",
+      "contentHash": "a365dd803ed200476d6aafe03af27232dd5fc77435a91cdeedc801f41ee367cb",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "RenderMode",
+            "ServerRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "serverRoutes"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/image/image.component.html": {
+      "filePath": "src/app/image/image.component.html",
+      "contentHash": "fd6fb7fffe714fe983ba94214802876f54cc5432cd1d999624cf4806d4293120",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/image/image.component.scss": {
+      "filePath": "src/app/image/image.component.scss",
+      "contentHash": "5439f2324e29f4553c71140eadcfe618d7b611aae3c69b7d85caeb74b24d93a9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 69,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/image/image.component.spec.ts": {
+      "filePath": "src/app/image/image.component.spec.ts",
+      "contentHash": "c7065a0111d93241f404338e07d2ff3cc18cb8d0e4bc96a64281dd90bbfd70ba",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "ComponentFixture",
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./image.component",
+          "specifiers": [
+            "ImageComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/image/image.component.ts": {
+      "filePath": "src/app/image/image.component.ts",
+      "contentHash": "232b13f2f43856094a69e5a914c28fa0e358886d0f6acc5d9430ba8b94b4e3b3",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ImageComponent",
+          "methods": [],
+          "properties": [
+            "storyService",
+            "story",
+            "isLoading",
+            "imgResource"
+          ],
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "resource",
+            "computed",
+            "input",
+            "ResourceStatus"
+          ]
+        },
+        {
+          "source": "../story.service",
+          "specifiers": [
+            "StoryService"
+          ]
+        },
+        {
+          "source": "@angular/material/progress-spinner",
+          "specifiers": [
+            "MatProgressSpinnerModule"
+          ]
+        },
+        {
+          "source": "@angular/material/icon",
+          "specifiers": [
+            "MatIconModule"
+          ]
+        },
+        {
+          "source": "genkit/beta/client",
+          "specifiers": [
+            "runFlow"
+          ]
+        }
+      ],
+      "exports": [
+        "ImageComponent"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/story.service.spec.ts": {
+      "filePath": "src/app/story.service.spec.ts",
+      "contentHash": "db6460cef4c33efa9144a88fa9d1ccfebeb05513db62569d736514b92f614a51",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./story.service",
+          "specifiers": [
+            "StoryService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/story.service.ts": {
+      "filePath": "src/app/story.service.ts",
+      "contentHash": "c71d39957dfb0a4fc87f13073fc59ba7b1c20883848147083ff88cbfabcecf84",
+      "functions": [
+        {
+          "name": "randomId",
+          "params": [],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "StoryService",
+          "methods": [],
+          "properties": [
+            "hasStoryStarted",
+            "premiseInput",
+            "storyInput",
+            "sessionId",
+            "hasPremiseUpdated",
+            "clearSession",
+            "premiseResource"
+          ],
+          "exported": true,
+          "lineCount": 42
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Injectable",
+            "signal",
+            "linkedSignal",
+            "resource"
+          ]
+        },
+        {
+          "source": "genkit/beta/client",
+          "specifiers": [
+            "runFlow"
+          ]
+        }
+      ],
+      "exports": [
+        "DESCRIPTION_FLOW",
+        "StoryService"
+      ],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/story/story.component.html": {
+      "filePath": "src/app/story/story.component.html",
+      "contentHash": "7b66abd53311a46e4a27035f56762d92b3fb554c5db0481141bc67239e2977d7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/story/story.component.scss": {
+      "filePath": "src/app/story/story.component.scss",
+      "contentHash": "2b5d118ddf4f0cd23dc6c3289cfa93ca6a5cf2a60c57a5b284719046aeaa772a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 130,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/story/story.component.spec.ts": {
+      "filePath": "src/app/story/story.component.spec.ts",
+      "contentHash": "282689625fcaa036d507ad3a21a0d6cb628eb96303f4b2e42015465fa2d8677d",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "ComponentFixture",
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./story.component",
+          "specifiers": [
+            "StoryComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/story/story.component.ts": {
+      "filePath": "src/app/story/story.component.ts",
+      "contentHash": "d92bd74514e85fb5f625c5ea8550d16e42345acd5aedfd167b412449c18565c4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "StoryComponent",
+          "methods": [],
+          "properties": [
+            "storyService",
+            "endpoint",
+            "isStoryOver",
+            "showTheEnd",
+            "loadingStories",
+            "primaryObjective",
+            "progress",
+            "storyParts",
+            "storyResource"
+          ],
+          "exported": true,
+          "lineCount": 52
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "resource",
+            "computed",
+            "linkedSignal"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "PercentPipe"
+          ]
+        },
+        {
+          "source": "@angular/material/progress-spinner",
+          "specifiers": [
+            "MatProgressSpinnerModule"
+          ]
+        },
+        {
+          "source": "@angular/material/progress-bar",
+          "specifiers": [
+            "MatProgressBarModule"
+          ]
+        },
+        {
+          "source": "../story.service",
+          "specifiers": [
+            "StoryService"
+          ]
+        },
+        {
+          "source": "genkit/beta/client",
+          "specifiers": [
+            "runFlow"
+          ]
+        },
+        {
+          "source": "../image/image.component",
+          "specifiers": [
+            "ImageComponent"
+          ]
+        },
+        {
+          "source": "../user-input/user-input.component",
+          "specifiers": [
+            "UserInputComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "StoryComponent"
+      ],
+      "totalLines": 93,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/user-input/user-input.component.html": {
+      "filePath": "src/app/user-input/user-input.component.html",
+      "contentHash": "1c4d807ea41a14927fb3afda1b3ef1f9a59152b46b420bdcc7edf1d027c20391",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/user-input/user-input.component.scss": {
+      "filePath": "src/app/user-input/user-input.component.scss",
+      "contentHash": "1ce37f57c9a095dabd7375472ed675dfa301c3f3ba2096e589cfeed7152ee042",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 89,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/user-input/user-input.component.spec.ts": {
+      "filePath": "src/app/user-input/user-input.component.spec.ts",
+      "contentHash": "df3452c9c667f80a52f6a16e7d6b2fb3f0aa87eb7cc252dbd02f5248171be3f1",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "ComponentFixture",
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./user-input.component",
+          "specifiers": [
+            "UserInputComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/user-input/user-input.component.ts": {
+      "filePath": "src/app/user-input/user-input.component.ts",
+      "contentHash": "bbb421f7db938f65deb3ba0c391738238084a03850f1879d579b8545e1df1acc",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UserInputComponent",
+          "methods": [
+            "onClickOption",
+            "onSubmit",
+            "onUpdateStory"
+          ],
+          "properties": [
+            "storyService",
+            "endpoint",
+            "options",
+            "isLoading",
+            "rating",
+            "ratingText",
+            "isDescriptionFlow",
+            "userInput"
+          ],
+          "exported": true,
+          "lineCount": 30
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "computed",
+            "inject",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/forms",
+          "specifiers": [
+            "FormsModule"
+          ]
+        },
+        {
+          "source": "../story.service",
+          "specifiers": [
+            "StoryService",
+            "DESCRIPTION_FLOW"
+          ]
+        },
+        {
+          "source": "@angular/material/progress-spinner",
+          "specifiers": [
+            "MatProgressSpinnerModule"
+          ]
+        }
+      ],
+      "exports": [
+        "UserInputComponent"
+      ],
+      "totalLines": 55,
+      "hasStructuralAnalysis": true
+    },
+    "src/flows.ts": {
+      "filePath": "src/flows.ts",
+      "contentHash": "b1969d95ca03786b1363bb56cef54d0b4c0dbe70dbeed993bb557876950810d4",
+      "functions": [
+        {
+          "name": "handleProgress",
+          "params": [
+            "storyParts",
+            "achievedMilestone",
+            "sessionId"
+          ],
+          "returnType": "Promise<{ storyParts: string[], progress: number }>",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "genImgBlob",
+          "params": [
+            "story",
+            "sessionId"
+          ],
+          "returnType": "Promise<string>",
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "maybeStripMarkdown",
+          "params": [
+            "withMarkdown"
+          ],
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "JsonSessionStore",
+          "methods": [
+            "get",
+            "save"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "genkit/beta",
+          "specifiers": [
+            "Chat",
+            "genkit",
+            "SessionData",
+            "SessionStore"
+          ]
+        },
+        {
+          "source": "zod",
+          "specifiers": [
+            "z"
+          ]
+        },
+        {
+          "source": "@genkit-ai/vertexai",
+          "specifiers": [
+            "imagen3Fast",
+            "vertexAI"
+          ]
+        },
+        {
+          "source": "@genkit-ai/googleai",
+          "specifiers": [
+            "googleAI",
+            "gemini20Flash"
+          ]
+        },
+        {
+          "source": "./prompts",
+          "specifiers": [
+            "beginStoryPrompt",
+            "createImgPrompt",
+            "continuePrompt",
+            "descriptionPrompt",
+            "preamblePrompt"
+          ]
+        },
+        {
+          "source": "partial-json",
+          "specifiers": [
+            "parse"
+          ]
+        }
+      ],
+      "exports": [
+        "descriptionFlow",
+        "beginStoryFlow",
+        "continueStoryFlow",
+        "genImgFlow"
+      ],
+      "totalLines": 323,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.html": {
+      "filePath": "src/index.html",
+      "contentHash": "6f0647fdfeaa7f74b90efa72a9b1b4624bdd6a28832732d19aa4223cfe759793",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": false
+    },
+    "src/main.server.ts": {
+      "filePath": "src/main.server.ts",
+      "contentHash": "4a436362a1857e8e3dcd0acb0fa9e0b2f64cb86f10859d171a69d02717581940",
+      "functions": [
+        {
+          "name": "bootstrap",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        },
+        {
+          "source": "./app/app.config.server",
+          "specifiers": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "src/main.ts": {
+      "filePath": "src/main.ts",
+      "contentHash": "9fc48d15cb30db3c27d884c77887fee3a3d43f9d954c4f72238b3bb273253383",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app/app.component",
+          "specifiers": [
+            "AppComponent"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/prompts.ts": {
+      "filePath": "src/prompts.ts",
+      "contentHash": "b58c85afc68b2be9efe46206bf89d4f16dc0facce3bbfe44d69099065b96bf77",
+      "functions": [
+        {
+          "name": "descriptionPrompt",
+          "params": [
+            "userInput"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 52
+        },
+        {
+          "name": "continuePrompt",
+          "params": [
+            "choice",
+            "currentMilestone"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 37
+        },
+        {
+          "name": "beginStoryPrompt",
+          "params": [
+            "description"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 48
+        },
+        {
+          "name": "createImgPrompt",
+          "params": [
+            "story"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "preamblePrompt",
+        "descriptionPrompt",
+        "continuePrompt",
+        "choicesPrompt",
+        "beginStoryPrompt",
+        "createImgPrompt"
+      ],
+      "totalLines": 219,
+      "hasStructuralAnalysis": true
+    },
+    "src/server.ts": {
+      "filePath": "src/server.ts",
+      "contentHash": "97f1060ea22ec1a3f65b949dc732f6a163a819976122e9075a24a94faa711eef",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr/node",
+          "specifiers": [
+            "AngularNodeAppEngine",
+            "createNodeRequestHandler",
+            "isMainModule",
+            "writeResponseToNodeResponse"
+          ]
+        },
+        {
+          "source": "express",
+          "specifiers": [
+            "express"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "dirname",
+            "resolve"
+          ]
+        },
+        {
+          "source": "node:url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "@genkit-ai/express",
+          "specifiers": [
+            "expressHandler"
+          ]
+        },
+        {
+          "source": "./flows",
+          "specifiers": [
+            "descriptionFlow",
+            "beginStoryFlow",
+            "continueStoryFlow",
+            "genImgFlow"
+          ]
+        }
+      ],
+      "exports": [
+        "reqHandler"
+      ],
+      "totalLines": 73,
+      "hasStructuralAnalysis": true
+    },
+    "src/styles.scss": {
+      "filePath": "src/styles.scss",
+      "contentHash": "6bc13ef04a50d4e63953c5cd46b319c419f7aab203a144324e47b78c9d1b0b16",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 55,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.app.json": {
+      "filePath": "tsconfig.app.json",
+      "contentHash": "279f4735365415de3cd27268f36a8acfc99d39475721f7fc4793decb50331afe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "f88ab782788a0ee32d04c10e89e276c00deb9228b5d21a9e4086932c56e9b5c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.spec.json": {
+      "filePath": "tsconfig.spec.json",
+      "contentHash": "c6ba2c144471c65b935adf89961dbc9b4e7ad235983556c3baf95b19de135a1c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

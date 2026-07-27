@@ -1,0 +1,1728 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "genkit-angular-story-generator",
+    "languages": [
+      "typescript",
+      "html",
+      "css",
+      "json",
+      "markdown"
+    ],
+    "frameworks": [
+      "Angular",
+      "Angular SSR",
+      "Genkit",
+      "Express",
+      "Jasmine",
+      "Karma"
+    ],
+    "description": "An Angular 19 and Genkit demo that generates a user-driven, choose-your-own-adventure-style graphic novel using the Gemini API (with optional Vertex AI).",
+    "analyzedAt": "2026-07-27T05:21:56.374Z",
+    "gitCommitHash": "5e95335eb8b25a456a16179bfb9fda1f669d054a"
+  },
+  "nodes": [
+    {
+      "id": "file:src/app/image/image.component.spec.ts",
+      "type": "file",
+      "name": "image.component.spec.ts",
+      "filePath": "src/app/image/image.component.spec.ts",
+      "summary": "Angular unit test spec that bootstraps ImageComponent through TestBed and asserts it creates successfully.",
+      "tags": [
+        "test",
+        "component",
+        "angular",
+        "unit-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/image/image.component.ts",
+      "type": "file",
+      "name": "image.component.ts",
+      "filePath": "src/app/image/image.component.ts",
+      "summary": "Standalone Angular component that renders the generated graphic-novel image for a story part, backed by an async resource driven by StoryService.",
+      "tags": [
+        "component",
+        "angular",
+        "image",
+        "resource",
+        "tested"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses Angular signal inputs and the experimental resource() API for async image loading."
+    },
+    {
+      "id": "file:src/app/story.service.spec.ts",
+      "type": "file",
+      "name": "story.service.spec.ts",
+      "filePath": "src/app/story.service.spec.ts",
+      "summary": "Angular unit test spec verifying that the StoryService is provided and instantiates through the injector.",
+      "tags": [
+        "test",
+        "service",
+        "angular",
+        "unit-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/story.service.ts",
+      "type": "file",
+      "name": "story.service.ts",
+      "filePath": "src/app/story.service.ts",
+      "summary": "Root-provided Angular service holding shared story state (premise, session, story input) as signals and exposing a premise-description resource that calls the Genkit description flow.",
+      "tags": [
+        "service",
+        "state-management",
+        "angular",
+        "data-model",
+        "singleton",
+        "tested"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Central signal-based store shared across the story, image, and user-input components; exports the DESCRIPTION_FLOW endpoint constant."
+    },
+    {
+      "id": "file:src/app/story/story.component.spec.ts",
+      "type": "file",
+      "name": "story.component.spec.ts",
+      "filePath": "src/app/story/story.component.spec.ts",
+      "summary": "Angular unit test spec that creates StoryComponent via TestBed and asserts successful instantiation.",
+      "tags": [
+        "test",
+        "component",
+        "angular",
+        "unit-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/story/story.component.ts",
+      "type": "file",
+      "name": "story.component.ts",
+      "filePath": "src/app/story/story.component.ts",
+      "summary": "Standalone Angular component orchestrating the choose-your-own-adventure flow, composing image and user-input children and streaming story parts from the Genkit begin/continue story flows.",
+      "tags": [
+        "component",
+        "angular",
+        "orchestration",
+        "resource",
+        "tested"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Composes child components and uses signal-driven resource() to progressively fetch story parts from the backend endpoint."
+    },
+    {
+      "id": "file:src/app/user-input/user-input.component.spec.ts",
+      "type": "file",
+      "name": "user-input.component.spec.ts",
+      "filePath": "src/app/user-input/user-input.component.spec.ts",
+      "summary": "Angular unit test spec creating UserInputComponent through TestBed and asserting it is created.",
+      "tags": [
+        "test",
+        "component",
+        "angular",
+        "unit-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/user-input/user-input.component.ts",
+      "type": "file",
+      "name": "user-input.component.ts",
+      "filePath": "src/app/user-input/user-input.component.ts",
+      "summary": "Standalone Angular component capturing user premise input and adventure choices, updating shared StoryService signals to drive the next story step.",
+      "tags": [
+        "component",
+        "angular",
+        "event-handler",
+        "form",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/image/image.component.ts:ImageComponent",
+      "type": "class",
+      "name": "ImageComponent",
+      "filePath": "src/app/image/image.component.ts",
+      "lineRange": [
+        23,
+        38
+      ],
+      "summary": "Component class that binds a story input and loading flag, exposing an image resource that fetches the generated illustration for the current story part.",
+      "tags": [
+        "component",
+        "angular",
+        "image",
+        "resource"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/story.service.ts:StoryService",
+      "type": "class",
+      "name": "StoryService",
+      "filePath": "src/app/story.service.ts",
+      "lineRange": [
+        21,
+        62
+      ],
+      "summary": "Injectable service maintaining story-generation state via signals (premise, session id, story input, update flags) and a premise-description resource, with a clearSession reset helper.",
+      "tags": [
+        "service",
+        "state-management",
+        "singleton",
+        "angular"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/story/story.component.ts:StoryComponent",
+      "type": "class",
+      "name": "StoryComponent",
+      "filePath": "src/app/story/story.component.ts",
+      "lineRange": [
+        33,
+        84
+      ],
+      "summary": "Component class managing overall story progression state (parts, progress, objective, end-of-story flags) and a story resource that streams generated content from the backend endpoint.",
+      "tags": [
+        "component",
+        "angular",
+        "orchestration",
+        "resource"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/user-input/user-input.component.ts:UserInputComponent",
+      "type": "class",
+      "name": "UserInputComponent",
+      "filePath": "src/app/user-input/user-input.component.ts",
+      "lineRange": [
+        25,
+        54
+      ],
+      "summary": "Component class handling user interactions — selecting an adventure option, submitting a premise, and updating the story — by mutating shared StoryService signals.",
+      "tags": [
+        "component",
+        "angular",
+        "event-handler",
+        "form"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.component.spec.ts",
+      "type": "file",
+      "name": "app.component.spec.ts",
+      "filePath": "src/app/app.component.spec.ts",
+      "summary": "Unit test spec for the root AppComponent, verifying component creation and rendered title using Angular's TestBed.",
+      "tags": [
+        "test",
+        "unit-test",
+        "angular",
+        "spec"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.component.ts",
+      "type": "file",
+      "name": "app.component.ts",
+      "filePath": "src/app/app.component.ts",
+      "summary": "Root Angular standalone component that composes the story and user-input child components and injects StoryService as the application shell.",
+      "tags": [
+        "component",
+        "entry-point",
+        "angular",
+        "root-component",
+        "tested"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses Angular standalone component pattern with the inject() function rather than constructor injection."
+    },
+    {
+      "id": "class:src/app/app.component.ts:AppComponent",
+      "type": "class",
+      "name": "AppComponent",
+      "filePath": "src/app/app.component.ts",
+      "lineRange": [
+        20,
+        23
+      ],
+      "summary": "Root component class holding an injected StoryService and endpoint reference, serving as the application's top-level view container.",
+      "tags": [
+        "component",
+        "angular",
+        "root-component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.config.server.ts",
+      "type": "file",
+      "name": "app.config.server.ts",
+      "filePath": "src/app/app.config.server.ts",
+      "summary": "Server-side Angular application configuration that merges the base appConfig with SSR-specific providers and server routes.",
+      "tags": [
+        "config",
+        "angular",
+        "ssr",
+        "server-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.config.ts",
+      "type": "file",
+      "name": "app.config.ts",
+      "filePath": "src/app/app.config.ts",
+      "summary": "Base Angular application configuration providing zone change detection, router, and client hydration providers via appConfig.",
+      "tags": [
+        "config",
+        "angular",
+        "app-config",
+        "providers"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.routes.server.ts",
+      "type": "file",
+      "name": "app.routes.server.ts",
+      "filePath": "src/app/app.routes.server.ts",
+      "summary": "Defines server-side render mode routes for Angular SSR, exporting serverRoutes with prerender configuration.",
+      "tags": [
+        "config",
+        "angular",
+        "ssr",
+        "routing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.server.ts",
+      "type": "file",
+      "name": "main.server.ts",
+      "filePath": "src/main.server.ts",
+      "summary": "Server-side bootstrap entry point that boots the AppComponent with the server configuration for Angular SSR.",
+      "tags": [
+        "entry-point",
+        "angular",
+        "ssr",
+        "bootstrap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.ts",
+      "type": "file",
+      "name": "main.ts",
+      "filePath": "src/main.ts",
+      "summary": "Client-side browser bootstrap entry point that boots the AppComponent with the base application configuration.",
+      "tags": [
+        "entry-point",
+        "angular",
+        "bootstrap",
+        "browser"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/flows.ts",
+      "type": "file",
+      "name": "flows.ts",
+      "filePath": "src/flows.ts",
+      "summary": "Core Genkit backend defining the choose-your-own-adventure flows (description, begin/continue/end story, image generation) backed by Gemini and Imagen models with an in-memory session store.",
+      "tags": [
+        "service",
+        "api-handler",
+        "ai",
+        "genkit",
+        "entry-point"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses Genkit's beta session API and Zod schemas to define typed input/output contracts for each defineFlow call; flows are composed by calling one another (continueStoryFlow -> handleProgress -> endStoryFlow, genImgFlow -> genImgBlob -> imgBlobFlow)."
+    },
+    {
+      "id": "function:src/flows.ts:descriptionFlow",
+      "type": "function",
+      "name": "descriptionFlow",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        39,
+        78
+      ],
+      "summary": "Genkit flow that seeds or resumes a chat session and asks Gemini to produce a story premise, next question, and premise options from the user's input.",
+      "tags": [
+        "genkit",
+        "ai",
+        "flow",
+        "session"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/flows.ts:beginStoryFlow",
+      "type": "function",
+      "name": "beginStoryFlow",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        99,
+        134
+      ],
+      "summary": "Genkit flow that starts the graphic novel: prompts Gemini for the opening story parts, primary objective, and milestones, then persists milestone state to the session.",
+      "tags": [
+        "genkit",
+        "ai",
+        "flow",
+        "session"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/flows.ts:continueStoryFlow",
+      "type": "function",
+      "name": "continueStoryFlow",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        149,
+        186
+      ],
+      "summary": "Genkit flow that advances the story based on the user's chosen path, computing new story parts, choices, and rating, and delegating milestone/progress tracking to handleProgress.",
+      "tags": [
+        "genkit",
+        "ai",
+        "flow",
+        "session"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/flows.ts:genImgFlow",
+      "type": "function",
+      "name": "genImgFlow",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        250,
+        262
+      ],
+      "summary": "Genkit flow that generates an illustrative image blob for a given story segment by delegating to genImgBlob.",
+      "tags": [
+        "genkit",
+        "ai",
+        "flow",
+        "image-generation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/flows.ts:handleProgress",
+      "type": "function",
+      "name": "handleProgress",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        200,
+        222
+      ],
+      "summary": "Advances the current milestone and computes story progress, appending the generated ending via endStoryFlow when the final milestone is achieved.",
+      "tags": [
+        "session",
+        "state-management",
+        "progress",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/flows.ts:genImgBlob",
+      "type": "function",
+      "name": "genImgBlob",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        264,
+        275
+      ],
+      "summary": "Asks Gemini to describe an image capturing the story's essence, builds an image prompt, and generates the image via imgBlobFlow.",
+      "tags": [
+        "ai",
+        "image-generation",
+        "genkit",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/flows.ts:JsonSessionStore",
+      "type": "class",
+      "name": "JsonSessionStore",
+      "filePath": "src/flows.ts",
+      "lineRange": [
+        310,
+        322
+      ],
+      "summary": "In-memory implementation of Genkit's SessionStore interface backing session get/save against a module-level object (demo use only, not production-safe).",
+      "tags": [
+        "session",
+        "storage",
+        "data-model",
+        "singleton"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Implements the SessionStore<S> generic interface but persists to a plain in-memory record rather than durable storage."
+    },
+    {
+      "id": "file:src/prompts.ts",
+      "type": "file",
+      "name": "prompts.ts",
+      "filePath": "src/prompts.ts",
+      "summary": "Central library of prompt templates and preamble text that instruct the Gemini model how to generate the story premise, opening, continuation, choices, and image descriptions.",
+      "tags": [
+        "prompt-engineering",
+        "ai",
+        "genkit",
+        "template",
+        "utility"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Exports both static preamble/choices prompt strings and parameterized template functions that interpolate user input into structured JSON-output instructions."
+    },
+    {
+      "id": "function:src/prompts.ts:descriptionPrompt",
+      "type": "function",
+      "name": "descriptionPrompt",
+      "filePath": "src/prompts.ts",
+      "lineRange": [
+        27,
+        78
+      ],
+      "summary": "Builds the prompt instructing the model to derive a story premise, follow-up question, and premise options from the user's input.",
+      "tags": [
+        "prompt-engineering",
+        "ai",
+        "template"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/prompts.ts:continuePrompt",
+      "type": "function",
+      "name": "continuePrompt",
+      "filePath": "src/prompts.ts",
+      "lineRange": [
+        116,
+        152
+      ],
+      "summary": "Builds the prompt that advances the story from a user's choice relative to the current milestone, requesting new story parts, rating, and next choices.",
+      "tags": [
+        "prompt-engineering",
+        "ai",
+        "template"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/prompts.ts:beginStoryPrompt",
+      "type": "function",
+      "name": "beginStoryPrompt",
+      "filePath": "src/prompts.ts",
+      "lineRange": [
+        167,
+        214
+      ],
+      "summary": "Builds the prompt that starts the story from a chosen description, requesting opening story parts, primary objective, milestones, and initial choices.",
+      "tags": [
+        "prompt-engineering",
+        "ai",
+        "template"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/server.ts",
+      "type": "file",
+      "name": "server.ts",
+      "filePath": "src/server.ts",
+      "summary": "Express server entry point that exposes the Genkit flows as POST endpoints, serves the built Angular browser bundle, and performs Angular SSR for all other routes.",
+      "tags": [
+        "entry-point",
+        "api-handler",
+        "server",
+        "ssr",
+        "express"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Wraps each Genkit flow with @genkit-ai/express expressHandler and integrates Angular SSR via AngularNodeAppEngine; exports reqHandler for the Angular CLI / Cloud Functions."
+    },
+    {
+      "id": "endpoint:src/server.ts:POST-/descriptionFlow",
+      "type": "endpoint",
+      "name": "POST /descriptionFlow",
+      "filePath": "src/server.ts",
+      "summary": "HTTP POST endpoint that invokes descriptionFlow to generate a story premise from user input.",
+      "tags": [
+        "api-handler",
+        "endpoint",
+        "genkit",
+        "http"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:src/server.ts:POST-/beginStoryFlow",
+      "type": "endpoint",
+      "name": "POST /beginStoryFlow",
+      "filePath": "src/server.ts",
+      "summary": "HTTP POST endpoint that invokes beginStoryFlow to start the graphic novel.",
+      "tags": [
+        "api-handler",
+        "endpoint",
+        "genkit",
+        "http"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:src/server.ts:POST-/continueStoryFlow",
+      "type": "endpoint",
+      "name": "POST /continueStoryFlow",
+      "filePath": "src/server.ts",
+      "summary": "HTTP POST endpoint that invokes continueStoryFlow to advance the story from a user choice.",
+      "tags": [
+        "api-handler",
+        "endpoint",
+        "genkit",
+        "http"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:src/server.ts:POST-/genImgFlow",
+      "type": "endpoint",
+      "name": "POST /genImgFlow",
+      "filePath": "src/server.ts",
+      "summary": "HTTP POST endpoint that invokes genImgFlow to generate an image for a story segment.",
+      "tags": [
+        "api-handler",
+        "endpoint",
+        "genkit",
+        "http"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Project overview and getting-started guide for the Angular + Genkit graphic novel demo, covering prerequisites, Gemini API key setup, running the app via ng serve, and using the Genkit Developer UI.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "getting-started"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:angular.json",
+      "type": "config",
+      "name": "angular.json",
+      "filePath": "angular.json",
+      "summary": "Angular CLI workspace configuration defining the app project's build, serve, test, and SSR targets, including browser and server bundle outputs and asset/style settings.",
+      "tags": [
+        "configuration",
+        "angular",
+        "build-system",
+        "ssr"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Configures Angular application builder with a server entry for SSR and prerendering."
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "npm manifest declaring Angular 19 and Genkit dependencies plus scripts for serving, building, testing, running the SSR server, and launching the app with the Genkit Developer UI.",
+      "tags": [
+        "configuration",
+        "dependencies",
+        "build-system",
+        "npm"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Combines Angular framework packages with @genkit-ai (googleai, vertexai, express) and zod for the Gemini-powered flows."
+    },
+    {
+      "id": "config:tsconfig.app.json",
+      "type": "config",
+      "name": "tsconfig.app.json",
+      "filePath": "tsconfig.app.json",
+      "summary": "Application-scoped TypeScript configuration extending the base tsconfig, targeting the app's main, server, and SSR entry files with node type definitions.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Base TypeScript compiler configuration for the workspace with strict compiler and Angular compiler options shared by the app and spec configs.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.spec.json",
+      "type": "config",
+      "name": "tsconfig.spec.json",
+      "filePath": "tsconfig.spec.json",
+      "summary": "Test-scoped TypeScript configuration extending the base tsconfig with Jasmine and node types for compiling unit test spec files.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "test",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.component.html",
+      "type": "file",
+      "name": "app.component.html",
+      "filePath": "src/app/app.component.html",
+      "summary": "Root component template rendering the Angular + Genkit branding header and conditionally showing the user-input controls before the story begins, followed by the story view.",
+      "tags": [
+        "component",
+        "template",
+        "angular",
+        "entry-point"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses Angular control-flow (@if) and composes child components app-user-input and app-story; images use ngSrc directive."
+    },
+    {
+      "id": "file:src/app/app.component.scss",
+      "type": "file",
+      "name": "app.component.scss",
+      "filePath": "src/app/app.component.scss",
+      "summary": "Styles for the root component, laying out the branding header, body container, and control positioning.",
+      "tags": [
+        "component",
+        "styles",
+        "scss",
+        "layout"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/image/image.component.html",
+      "type": "file",
+      "name": "image.component.html",
+      "filePath": "src/app/image/image.component.html",
+      "summary": "Template for the image component that shows a loading spinner, a retry placeholder when image generation fails, or the generated comic panel image.",
+      "tags": [
+        "component",
+        "template",
+        "angular",
+        "image"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses @if/@else-if control flow with a resource signal (imgResource) and Material spinner/icon components."
+    },
+    {
+      "id": "file:src/app/image/image.component.scss",
+      "type": "file",
+      "name": "image.component.scss",
+      "filePath": "src/app/image/image.component.scss",
+      "summary": "Styles for the image component, including placeholder sizing, loading state, and the generated comic panel image.",
+      "tags": [
+        "component",
+        "styles",
+        "scss",
+        "image"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/story/story.component.html",
+      "type": "file",
+      "name": "story.component.html",
+      "filePath": "src/app/story/story.component.html",
+      "summary": "Template rendering the choose-your-own-adventure story: primary objective with progress, a sequence of comic panels (image + text), loading placeholders, and the next user-input prompt.",
+      "tags": [
+        "component",
+        "template",
+        "angular",
+        "story"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Iterates story parts with @for/track, uses @let bindings, percent pipe, and embeds app-image and app-user-input child components plus Material spinner/progress-bar."
+    },
+    {
+      "id": "file:src/app/story/story.component.scss",
+      "type": "file",
+      "name": "story.component.scss",
+      "filePath": "src/app/story/story.component.scss",
+      "summary": "Styles for the story component, defining the comic-box panel layout, objective banner, loading placeholders, and the End marker typography.",
+      "tags": [
+        "component",
+        "styles",
+        "scss",
+        "layout"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/app/user-input/user-input.component.html",
+      "type": "file",
+      "name": "user-input.component.html",
+      "filePath": "src/app/user-input/user-input.component.html",
+      "summary": "Template for the user-input component: a textarea plus buttons and suggested options that drive both the premise-customization flow and the in-story next-action prompt.",
+      "tags": [
+        "component",
+        "template",
+        "angular",
+        "form"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses ngModel two-way binding, @if/@else and @for control flow, @let bindings, and dynamic class expressions to switch between description and story flows."
+    },
+    {
+      "id": "file:src/app/user-input/user-input.component.scss",
+      "type": "file",
+      "name": "user-input.component.scss",
+      "filePath": "src/app/user-input/user-input.component.scss",
+      "summary": "Styles for the user-input component, covering the textarea, buttons, rating badges, and option choice layout.",
+      "tags": [
+        "component",
+        "styles",
+        "scss",
+        "form"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "src/index.html",
+      "summary": "Application HTML entry point that mounts the app-root element and loads Material Icons and Google Fonts used throughout the UI.",
+      "tags": [
+        "entry-point",
+        "html",
+        "bootstrap",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/styles.scss",
+      "type": "file",
+      "name": "styles.scss",
+      "filePath": "src/styles.scss",
+      "summary": "Global stylesheet importing the Angular Material deep-purple/amber theme and setting base styling for body, textareas, inputs, and buttons.",
+      "tags": [
+        "styles",
+        "scss",
+        "global",
+        "theme"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Imports a prebuilt Angular Material theme and defines app-wide element defaults."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/image/image.component.spec.ts",
+      "target": "file:src/app/image/image.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/image/image.component.ts",
+      "target": "file:src/app/story.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/story.service.spec.ts",
+      "target": "file:src/app/story.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/story/story.component.spec.ts",
+      "target": "file:src/app/story/story.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/story/story.component.ts",
+      "target": "file:src/app/image/image.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/story/story.component.ts",
+      "target": "file:src/app/story.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/story/story.component.ts",
+      "target": "file:src/app/user-input/user-input.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/user-input/user-input.component.spec.ts",
+      "target": "file:src/app/user-input/user-input.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/user-input/user-input.component.ts",
+      "target": "file:src/app/story.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/image/image.component.ts",
+      "target": "class:src/app/image/image.component.ts:ImageComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/image/image.component.ts",
+      "target": "class:src/app/image/image.component.ts:ImageComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/story.service.ts",
+      "target": "class:src/app/story.service.ts:StoryService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/story.service.ts",
+      "target": "class:src/app/story.service.ts:StoryService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/story/story.component.ts",
+      "target": "class:src/app/story/story.component.ts:StoryComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/story/story.component.ts",
+      "target": "class:src/app/story/story.component.ts:StoryComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/user-input/user-input.component.ts",
+      "target": "class:src/app/user-input/user-input.component.ts:UserInputComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/user-input/user-input.component.ts",
+      "target": "class:src/app/user-input/user-input.component.ts:UserInputComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/image/image.component.ts:ImageComponent",
+      "target": "class:src/app/story.service.ts:StoryService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:src/app/story/story.component.ts:StoryComponent",
+      "target": "class:src/app/story.service.ts:StoryService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:src/app/story/story.component.ts:StoryComponent",
+      "target": "class:src/app/image/image.component.ts:ImageComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:src/app/story/story.component.ts:StoryComponent",
+      "target": "class:src/app/user-input/user-input.component.ts:UserInputComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:src/app/user-input/user-input.component.ts:UserInputComponent",
+      "target": "class:src/app/story.service.ts:StoryService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/image/image.component.ts",
+      "target": "file:src/app/image/image.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/story.service.ts",
+      "target": "file:src/app/story.service.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/story/story.component.ts",
+      "target": "file:src/app/story/story.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/user-input/user-input.component.ts",
+      "target": "file:src/app/user-input/user-input.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/app.component.spec.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "file:src/app/app.component.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "file:src/app/story.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "file:src/app/story/story.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "file:src/app/user-input/user-input.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "class:src/app/app.component.ts:AppComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "class:src/app/app.component.ts:AppComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.routes.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.config.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "file:src/prompts.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "file:src/flows.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:descriptionFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:beginStoryFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:continueStoryFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:genImgFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:handleProgress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:genImgBlob",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "class:src/flows.ts:JsonSessionStore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:descriptionFlow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:beginStoryFlow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:continueStoryFlow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/flows.ts",
+      "target": "function:src/flows.ts:genImgFlow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/prompts.ts",
+      "target": "function:src/prompts.ts:descriptionPrompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/prompts.ts",
+      "target": "function:src/prompts.ts:continuePrompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/prompts.ts",
+      "target": "function:src/prompts.ts:beginStoryPrompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/prompts.ts",
+      "target": "function:src/prompts.ts:descriptionPrompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/prompts.ts",
+      "target": "function:src/prompts.ts:continuePrompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/prompts.ts",
+      "target": "function:src/prompts.ts:beginStoryPrompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/flows.ts:descriptionFlow",
+      "target": "function:src/prompts.ts:descriptionPrompt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/flows.ts:beginStoryFlow",
+      "target": "function:src/prompts.ts:beginStoryPrompt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/flows.ts:continueStoryFlow",
+      "target": "function:src/prompts.ts:continuePrompt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/flows.ts:continueStoryFlow",
+      "target": "function:src/flows.ts:handleProgress",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/flows.ts:genImgFlow",
+      "target": "function:src/flows.ts:genImgBlob",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "endpoint:src/server.ts:POST-/descriptionFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "endpoint:src/server.ts:POST-/beginStoryFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "endpoint:src/server.ts:POST-/continueStoryFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "endpoint:src/server.ts:POST-/genImgFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "endpoint:src/server.ts:POST-/descriptionFlow",
+      "target": "function:src/flows.ts:descriptionFlow",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "endpoint:src/server.ts:POST-/beginStoryFlow",
+      "target": "function:src/flows.ts:beginStoryFlow",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "endpoint:src/server.ts:POST-/continueStoryFlow",
+      "target": "function:src/flows.ts:continueStoryFlow",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "endpoint:src/server.ts:POST-/genImgFlow",
+      "target": "function:src/flows.ts:genImgFlow",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "config:package.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "config:angular.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "config:tsconfig.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.spec.json",
+      "target": "config:tsconfig.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/app.component.html",
+      "target": "file:src/app/app.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/app.component.scss",
+      "target": "file:src/app/app.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/image/image.component.html",
+      "target": "file:src/app/image/image.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/image/image.component.scss",
+      "target": "file:src/app/image/image.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/story/story.component.html",
+      "target": "file:src/app/story/story.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/story/story.component.scss",
+      "target": "file:src/app/story/story.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/user-input/user-input.component.html",
+      "target": "file:src/app/user-input/user-input.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/user-input/user-input.component.scss",
+      "target": "file:src/app/user-input/user-input.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/app.component.html",
+      "target": "file:src/app/story/story.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/app.component.html",
+      "target": "file:src/app/user-input/user-input.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/story/story.component.html",
+      "target": "file:src/app/image/image.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/story/story.component.html",
+      "target": "file:src/app/user-input/user-input.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/index.html",
+      "target": "file:src/app/app.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/styles.scss",
+      "target": "file:src/app/app.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:ui",
+      "name": "Frontend UI Layer",
+      "description": "Angular standalone components (app shell, story, image, user-input), their HTML templates and SCSS styles, the shared signal-based StoryService store, and global styling that render the choose-your-own-adventure graphic novel in the browser.",
+      "nodeIds": [
+        "file:src/app/app.component.ts",
+        "file:src/app/app.component.html",
+        "file:src/app/app.component.scss",
+        "file:src/app/story/story.component.ts",
+        "file:src/app/story/story.component.html",
+        "file:src/app/story/story.component.scss",
+        "file:src/app/image/image.component.ts",
+        "file:src/app/image/image.component.html",
+        "file:src/app/image/image.component.scss",
+        "file:src/app/user-input/user-input.component.ts",
+        "file:src/app/user-input/user-input.component.html",
+        "file:src/app/user-input/user-input.component.scss",
+        "file:src/app/story.service.ts",
+        "file:src/index.html",
+        "file:src/styles.scss"
+      ]
+    },
+    {
+      "id": "layer:api",
+      "name": "AI Backend Layer",
+      "description": "Genkit/Express server exposing the story flows as HTTP POST endpoints, the Gemini/Imagen-backed flow definitions with in-memory session store, and the prompt-template library that instructs the model.",
+      "nodeIds": [
+        "file:src/server.ts",
+        "file:src/flows.ts",
+        "file:src/prompts.ts",
+        "endpoint:src/server.ts:POST-/descriptionFlow",
+        "endpoint:src/server.ts:POST-/beginStoryFlow",
+        "endpoint:src/server.ts:POST-/continueStoryFlow",
+        "endpoint:src/server.ts:POST-/genImgFlow"
+      ]
+    },
+    {
+      "id": "layer:bootstrap",
+      "name": "Bootstrap & SSR Layer",
+      "description": "Client and server entry points plus Angular application configuration and SSR/prerender route setup that boot the AppComponent for both browser hydration and server-side rendering.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/main.server.ts",
+        "file:src/app/app.config.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.server.ts"
+      ]
+    },
+    {
+      "id": "layer:test",
+      "name": "Test Layer",
+      "description": "Jasmine/Karma unit test specs that bootstrap the root component, feature components, and StoryService through Angular's TestBed to verify instantiation and rendering.",
+      "nodeIds": [
+        "file:src/app/app.component.spec.ts",
+        "file:src/app/story/story.component.spec.ts",
+        "file:src/app/image/image.component.spec.ts",
+        "file:src/app/user-input/user-input.component.spec.ts",
+        "file:src/app/story.service.spec.ts"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "Configuration & Documentation",
+      "description": "Project-level build and tooling configuration (Angular CLI workspace, npm manifest, TypeScript configs, tool ignore rules) plus the README getting-started documentation.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:package.json",
+        "config:tsconfig.json",
+        "config:tsconfig.app.json",
+        "config:tsconfig.spec.json",
+        "document:README.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "Start with the README to understand what this demo is: an Angular 19 + Genkit application that generates a user-driven, choose-your-own-adventure graphic novel using Google's Gemini and Imagen models. It covers the prerequisites (Node.js v20+, a GEMINI_API_KEY, optional Vertex AI), how to serve the app with `ng serve`, and how to inspect the AI flows through the Genkit Developer UI. Keep this mental model in mind: a browser UI collects user choices, and a Genkit backend turns those choices into story text and comic-panel images.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Browser Entry & Bootstrap",
+      "description": "`main.ts` is the client-side entry point named in the README; it boots the root AppComponent using the base `appConfig`, which wires up zone change detection, the router, and client hydration. `index.html` is the static HTML shell that mounts the `<app-root>` element and loads Material Icons and Google Fonts. Together these two files answer the question \"how does the app start in the browser?\" before we look at any feature code.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/app/app.config.ts",
+        "file:src/index.html"
+      ],
+      "languageLesson": "Modern standalone Angular skips NgModules: `bootstrapApplication(AppComponent, appConfig)` boots directly from a component, and providers are supplied via an ApplicationConfig object instead of an @NgModule."
+    },
+    {
+      "order": 3,
+      "title": "The Application Shell",
+      "description": "AppComponent is the root component and the top of the UI's dependency graph. Its template conditionally shows the user-input controls before a story begins and then hands off to the story view, composing the two main child components. Notice it injects StoryService with Angular's `inject()` function rather than a constructor, establishing the shared state container that the rest of the UI builds on.",
+      "nodeIds": [
+        "file:src/app/app.component.ts",
+        "file:src/app/app.component.html"
+      ],
+      "languageLesson": "Angular's new control-flow syntax uses `@if`/`@for` directly in templates (no *ngIf/*ngFor), and `inject()` allows dependency injection outside constructors, keeping standalone components concise."
+    },
+    {
+      "order": 4,
+      "title": "Shared State: StoryService",
+      "description": "StoryService is the signal-based store at the heart of the frontend — with a fan-in of 5, nearly every UI component depends on it. It holds the premise, session id, and current story input as signals, exposes a premise-description `resource()` that calls the Genkit description flow, and provides a `clearSession` reset helper. Because it is root-provided, the story, image, and user-input components all read and write the same reactive state, which is how a user's choice in one component ripples through the whole UI.",
+      "nodeIds": [
+        "file:src/app/story.service.ts"
+      ],
+      "languageLesson": "Angular signals are reactive values: `signal()` holds state, and `resource()` is an experimental API that ties an async fetch to signal inputs, automatically re-running when its dependencies change. This replaces manual RxJS subscription plumbing for request/response data."
+    },
+    {
+      "order": 5,
+      "title": "Capturing User Choices",
+      "description": "Building on the shared StoryService from Step 4, UserInputComponent is where the user actually drives the story. It presents a textarea plus suggested option buttons that serve double duty: customizing the initial premise before the story starts, and selecting the next action mid-story. Every interaction mutates StoryService signals rather than calling the backend directly, which is what triggers the downstream story and image resources to refetch.",
+      "nodeIds": [
+        "file:src/app/user-input/user-input.component.ts",
+        "file:src/app/user-input/user-input.component.html"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "Orchestrating the Story",
+      "description": "StoryComponent orchestrates the choose-your-own-adventure flow, composing the image and user-input children and streaming story parts from the Genkit begin/continue endpoints via a signal-driven `resource()`. Its template renders the primary objective with a progress bar, then a sequence of comic panels (each an image plus text), with loading placeholders while the backend works. This is the illustrative center of the UI layer — it ties user choices (Step 5) to backend-generated content, and it belongs to the same tightly-coupled UI cluster the analysis identified around StoryService.",
+      "nodeIds": [
+        "file:src/app/story/story.component.ts",
+        "file:src/app/story/story.component.html"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Rendering Generated Panels",
+      "description": "ImageComponent renders the generated illustration for a single story part, backed by its own async `resource()` driven by StoryService. Its template models the three real-world states of AI image generation: a Material spinner while loading, a retry placeholder when generation fails, and the finished comic panel image. Together with StoryComponent from Step 6, it completes the visual half of the graphic novel.",
+      "nodeIds": [
+        "file:src/app/image/image.component.ts",
+        "file:src/app/image/image.component.html"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "The AI Backend Server",
+      "description": "Now we cross from the browser into the AI backend. `server.ts` is the Express entry point (and the natural start of the backend dependency chain) that exposes each Genkit flow as an HTTP POST endpoint, serves the built Angular browser bundle, and performs Angular SSR for all remaining routes. The four endpoints — descriptionFlow, beginStoryFlow, continueStoryFlow, and genImgFlow — are exactly the calls the StoryService and components from Steps 4-7 make over HTTP.",
+      "nodeIds": [
+        "file:src/server.ts",
+        "endpoint:src/server.ts:POST-/beginStoryFlow",
+        "endpoint:src/server.ts:POST-/continueStoryFlow",
+        "endpoint:src/server.ts:POST-/genImgFlow"
+      ],
+      "languageLesson": "`@genkit-ai/express`'s `expressHandler` wraps a Genkit flow as an Express route, while Angular's `AngularNodeAppEngine` handles SSR — a single Node process serves both the API and the server-rendered app."
+    },
+    {
+      "order": 9,
+      "title": "The Genkit Flows",
+      "description": "`flows.ts` is the core of the backend and the highest fan-out file in the project (12 outgoing edges), defining every choose-your-own-adventure flow: seeding a premise (descriptionFlow), starting the novel (beginStoryFlow), advancing it from a choice (continueStoryFlow), and generating panel images (genImgFlow). Flows compose one another — continueStoryFlow delegates milestone tracking to handleProgress, which appends the ending when the final milestone is reached. An in-memory JsonSessionStore keeps conversation state between requests, which the summary flags as demo-only and not production-safe.",
+      "nodeIds": [
+        "file:src/flows.ts",
+        "function:src/flows.ts:beginStoryFlow",
+        "function:src/flows.ts:continueStoryFlow",
+        "function:src/flows.ts:genImgFlow"
+      ],
+      "languageLesson": "Genkit's `defineFlow` uses Zod schemas to declare typed input/output contracts, so each flow validates its request and response shape. The beta session API (`ai.chat`/SessionStore) threads conversation memory across separate HTTP calls."
+    },
+    {
+      "order": 10,
+      "title": "Prompt Engineering",
+      "description": "`prompts.ts` is where the flows from Step 9 get their intelligence: it centralizes the preamble text and parameterized template functions that instruct Gemini how to produce the premise, story openings, continuations, choices, and image descriptions. Each flow calls a matching prompt builder (descriptionFlow → descriptionPrompt, beginStoryFlow → beginStoryPrompt, continueStoryFlow → continuePrompt), interpolating user input into structured instructions that request JSON output. This separation keeps the model instructions readable and versionable apart from the flow control logic.",
+      "nodeIds": [
+        "file:src/prompts.ts",
+        "function:src/prompts.ts:descriptionPrompt",
+        "function:src/prompts.ts:beginStoryPrompt",
+        "function:src/prompts.ts:continuePrompt"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Server-Side Rendering",
+      "description": "This demo runs on both the browser and the server. `main.server.ts` is the SSR bootstrap that boots AppComponent with server-specific configuration; `app.config.server.ts` merges the base appConfig from Step 2 with SSR providers; and `app.routes.server.ts` declares render modes and prerender settings. This is how `server.ts` (Step 8) can server-render the same Angular app it also serves as static assets.",
+      "nodeIds": [
+        "file:src/main.server.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.server.ts"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Build & Dependency Configuration",
+      "description": "The configuration layer ties the whole project together. `package.json` declares the Angular 19 and @genkit-ai dependencies plus the run scripts (including `start:with-genkit-ui` from the README), and `angular.json` defines the build, serve, test, and SSR targets that map the entry points from Steps 2, 8, and 11 to browser and server bundles. `tsconfig.json` supplies the strict base TypeScript settings the app extends. Reading these clarifies how the source files become a running application.",
+      "nodeIds": [
+        "config:package.json",
+        "config:angular.json",
+        "config:tsconfig.json"
+      ]
+    },
+    {
+      "order": 13,
+      "title": "Tests & Wrap-Up",
+      "description": "Finally, the test layer shows how the pieces are verified. These Jasmine/Karma specs use Angular's TestBed to bootstrap the root component, the three feature components, and StoryService, asserting each instantiates and renders successfully. They double as concise, executable examples of how to construct every UI unit you toured in Steps 3-7 — a good place to start experimenting with the codebase yourself.",
+      "nodeIds": [
+        "file:src/app/app.component.spec.ts",
+        "file:src/app/story.service.spec.ts",
+        "file:src/app/story/story.component.spec.ts"
+      ]
+    }
+  ]
+}

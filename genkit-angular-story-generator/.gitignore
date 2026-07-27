@@ -107,3 +107,7 @@ node_modules/
 # dataconnect generated files
 .dataconnect
 
+# Understand-Anything: keep the knowledge graph, ignore regenerable scratch
+.ua/.trash-*/
+.ua/intermediate/
+
