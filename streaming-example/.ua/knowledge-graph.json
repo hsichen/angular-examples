@@ -1,0 +1,569 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "streaming-xp-app",
+    "languages": [
+      "typescript",
+      "html",
+      "css",
+      "json",
+      "markdown"
+    ],
+    "frameworks": [
+      "Angular",
+      "Angular SSR",
+      "Express",
+      "RxJS"
+    ],
+    "description": "An Angular 19 SSR app demonstrating streaming Gemini AI responses via the Google Gen AI SDK (@google/genai): an Express endpoint (GET /api/stream-response) pipes generateContentStream chunks to a browser component that renders them incrementally using Angular 19 resource() over a ReadableStream.",
+    "analyzedAt": "2026-07-27T21:57:39.150Z",
+    "gitCommitHash": "d273571ca860950958f7a923e74d4959c81f3139"
+  },
+  "nodes": [
+    {
+      "id": "file:src/app/app.component.ts",
+      "type": "file",
+      "name": "app.component.ts",
+      "filePath": "src/app/app.component.ts",
+      "summary": "Root Angular component that fetches a streaming Gemini response from `/api/stream-response` and progressively renders the accumulated text using the Angular 19 `resource` API with an async ReadableStream iterator.",
+      "tags": [
+        "component",
+        "entry-point",
+        "streaming",
+        "api-handler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses the Angular 19 experimental `resource` API with a `stream` factory returning a signal, combined with a native `ReadableStream` async iterator — a pattern that replaces RxJS observables for streaming data binding."
+    },
+    {
+      "id": "class:src/app/app.component.ts:AppComponent",
+      "type": "class",
+      "name": "AppComponent",
+      "filePath": "src/app/app.component.ts",
+      "lineRange": [
+        8,
+        36
+      ],
+      "summary": "The application's root component; owns the streaming resource that incrementally accumulates decoded text chunks from the backend SSE/streaming endpoint into a signal-backed `characters` property.",
+      "tags": [
+        "component",
+        "streaming",
+        "signal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/main.server.ts",
+      "type": "file",
+      "name": "main.server.ts",
+      "filePath": "src/main.server.ts",
+      "summary": "Server-side bootstrap entry point that exports a default `bootstrap` function for Angular Universal SSR, wiring `AppComponent` with the server-specific application configuration.",
+      "tags": [
+        "entry-point",
+        "ssr",
+        "bootstrap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.ts",
+      "type": "file",
+      "name": "main.ts",
+      "filePath": "src/main.ts",
+      "summary": "Client-side bootstrap entry point that calls `bootstrapApplication` with `AppComponent` and the browser application configuration, initializing the Angular app in the browser.",
+      "tags": [
+        "entry-point",
+        "bootstrap",
+        "client-side"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Angular CLI-generated project overview for streaming-xp-app, covering development server setup, code scaffolding commands, build instructions, unit and e2e test execution, and links to Angular CLI documentation.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "getting-started"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:angular.json",
+      "type": "config",
+      "name": "angular.json",
+      "filePath": "angular.json",
+      "summary": "Angular workspace configuration for streaming-xp-app defining the SSR-enabled application build (with src/server.ts as the SSR entry), production and development build targets, bundle size budgets, and the dev server builder.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "angular",
+        "infrastructure"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "SSR is enabled via outputMode: server and an explicit ssr.entry pointing at src/server.ts. Schematics are configured to skip test generation (skipTests: true) for all Angular schematic types."
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "NPM manifest declaring Angular 19, @google/genai SDK, Express, and @angular/ssr as runtime dependencies, with a serve:ssr:streaming-xp-app script to launch the built SSR server from dist/.",
+      "tags": [
+        "configuration",
+        "dependencies",
+        "build-system",
+        "npm"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.app.json",
+      "type": "config",
+      "name": "tsconfig.app.json",
+      "filePath": "tsconfig.app.json",
+      "summary": "Application-scoped TypeScript configuration extending the base tsconfig.json, explicitly listing src/main.ts, src/main.server.ts, and src/server.ts as compilation entry files for the Angular SSR build.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple",
+      "languageNotes": "The files array explicitly enumerates the three entry points (browser bootstrap, server bootstrap, and Express SSR server) rather than relying on a glob include, which is the recommended Angular pattern."
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Base TypeScript compiler configuration enabling strict mode, ES2022 target with bundler module resolution, experimental decorators, and Angular-specific strict compiler options including strictTemplates and strictInjectionParameters.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses moduleResolution: bundler (introduced in TypeScript 5.0) suited for Angular's esbuild-based build pipeline. Angular compiler options enable strict template checking and strict injection parameter validation."
+    },
+    {
+      "id": "file:src/app/app.config.server.ts",
+      "type": "file",
+      "name": "app.config.server.ts",
+      "filePath": "src/app/app.config.server.ts",
+      "summary": "Server-side Angular application configuration that merges the base client config with SSR providers (server rendering and server routing), exporting a unified config consumed by the SSR bootstrap.",
+      "tags": [
+        "configuration",
+        "service",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.config.ts",
+      "type": "file",
+      "name": "app.config.ts",
+      "filePath": "src/app/app.config.ts",
+      "summary": "Root Angular application configuration supplying core providers: HTTP client with fetch backend, zone-based change detection, router with client routes, and client hydration with event replay for SSR.",
+      "tags": [
+        "configuration",
+        "entry-point",
+        "service"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses Angular 19 standalone providers API; provideClientHydration with withEventReplay enables SSR hydration."
+    },
+    {
+      "id": "file:src/app/app.routes.server.ts",
+      "type": "file",
+      "name": "app.routes.server.ts",
+      "filePath": "src/app/app.routes.server.ts",
+      "summary": "Defines server-side Angular SSR route configuration, setting all routes to Prerender render mode for static output generation.",
+      "tags": [
+        "configuration",
+        "service",
+        "middleware"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.routes.ts",
+      "type": "file",
+      "name": "app.routes.ts",
+      "filePath": "src/app/app.routes.ts",
+      "summary": "Declares the client-side Angular router routes array, currently empty as no additional routes are defined beyond the root.",
+      "tags": [
+        "configuration",
+        "middleware"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "src/index.html",
+      "summary": "Root HTML shell for the StreamingXpApp Angular application, containing the app-root bootstrapping element and base metadata.",
+      "tags": [
+        "entry-point",
+        "markup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/server.ts",
+      "type": "file",
+      "name": "server.ts",
+      "filePath": "src/server.ts",
+      "summary": "Express server integrating Angular SSR with a Gemini streaming API endpoint; serves static assets, handles SSR rendering via AngularNodeAppEngine, and streams Gemini 2.0 Flash responses to the client over HTTP.",
+      "tags": [
+        "entry-point",
+        "service",
+        "api-handler",
+        "middleware"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses @google/genai generateContentStream with async iteration to stream chunks directly to the HTTP response without buffering."
+    },
+    {
+      "id": "file:src/styles.css",
+      "type": "file",
+      "name": "styles.css",
+      "filePath": "src/styles.css",
+      "summary": "Global CSS stylesheet for the Angular application, currently minimal (1 line).",
+      "tags": [
+        "markup",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:src/server.ts:GET-/api/stream-response",
+      "type": "endpoint",
+      "name": "GET /api/stream-response",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        31,
+        40
+      ],
+      "summary": "Express GET endpoint that streams a Gemini 2.0 Flash model response chunk-by-chunk to the HTTP client, using generateContentStream for real-time AI output delivery.",
+      "tags": [
+        "api-handler",
+        "service",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "class:src/app/app.component.ts:AppComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/app.component.ts",
+      "target": "class:src/app/app.component.ts:AppComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.config.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "config:tsconfig.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "config:tsconfig.app.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.routes.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.config.ts",
+      "target": "file:src/app/app.routes.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "endpoint:src/server.ts:GET-/api/stream-response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "endpoint:src/server.ts:GET-/api/stream-response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "file:src/app/app.config.server.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/index.html",
+      "target": "file:src/app/app.component.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:frontend-ui",
+      "name": "Frontend UI",
+      "description": "The browser-rendered surface of the streaming demo: the root Angular component that opens a ReadableStream to the Gemini endpoint and progressively renders accumulated text chunks, together with the HTML shell and global stylesheet.",
+      "nodeIds": [
+        "file:src/app/app.component.ts",
+        "file:src/index.html",
+        "file:src/styles.css"
+      ]
+    },
+    {
+      "id": "layer:streaming-backend",
+      "name": "Streaming Backend",
+      "description": "The Express SSR server and its Gemini streaming endpoint, which call @google/genai generateContentStream and pipe AI response chunks directly to the HTTP client while also serving static assets and delegating Angular SSR rendering.",
+      "nodeIds": [
+        "file:src/server.ts",
+        "endpoint:src/server.ts:GET-/api/stream-response"
+      ]
+    },
+    {
+      "id": "layer:app-bootstrap",
+      "name": "App Bootstrap & SSR Configuration",
+      "description": "Angular application wiring for both browser and server environments: client and server bootstrap entry points, provider configurations (HTTP, hydration, zone change detection), and client/server route definitions that control SSR prerendering behavior.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/main.server.ts",
+        "file:src/app/app.config.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.ts",
+        "file:src/app/app.routes.server.ts"
+      ]
+    },
+    {
+      "id": "layer:build-config",
+      "name": "Build & Project Configuration",
+      "description": "Root-level configuration files that govern the Angular workspace build, NPM dependencies, and TypeScript compilation — including SSR output mode settings, bundle budgets, and strict type-checking options.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:package.json",
+        "config:tsconfig.json",
+        "config:tsconfig.app.json"
+      ]
+    },
+    {
+      "id": "layer:docs-tooling",
+      "name": "Documentation & Tooling",
+      "description": "Project documentation and analyzer tooling support files: the CLI-generated README covering setup and build commands, and the Understand-Anything ignore configuration scoping which files are included in codebase analysis.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "README.md provides the project name, CLI version, and the commands needed to run and build the app. It establishes the development baseline: `ng serve` on port 4200 for local development and `ng build` for production output. Reading this first anchors every subsequent file in its operational context.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Browser Bootstrap",
+      "description": "src/main.ts is the client-side entry point — it calls Angular's `bootstrapApplication` with `AppComponent` and the browser-specific provider config. This is the first file the browser executes, so understanding it reveals how the Angular runtime is initialized before any UI renders.",
+      "nodeIds": [
+        "file:src/main.ts"
+      ],
+      "languageLesson": "Angular 19 uses standalone bootstrapping (`bootstrapApplication`) instead of NgModule-based `platformBrowserDynamic().bootstrapModule()`. This means every provider is registered directly through the `ApplicationConfig` object rather than through a root module."
+    },
+    {
+      "order": 3,
+      "title": "HTML Shell & App Root",
+      "description": "src/index.html is the static HTML document the browser loads first, containing the `<app-root>` element that Angular replaces with the rendered component tree. It is the physical mounting point that connects the browser's DOM to the Angular bootstrap in main.ts.",
+      "nodeIds": [
+        "file:src/index.html"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Application Providers & Routing",
+      "description": "app.config.ts wires the core Angular providers — HTTP client with fetch backend, zone-based change detection, client-side router, and SSR hydration with event replay. app.routes.ts holds the routes array (currently empty, meaning the root component handles everything). Together they define the runtime environment that `AppComponent` operates within.",
+      "nodeIds": [
+        "file:src/app/app.config.ts",
+        "file:src/app/app.routes.ts"
+      ],
+      "languageLesson": "`provideClientHydration(withEventReplay())` is an Angular 19 SSR feature: after the server pre-renders HTML, the browser replays user interactions that occurred before hydration completed, avoiding lost clicks or keystrokes during the hand-off."
+    },
+    {
+      "order": 5,
+      "title": "Streaming UI Component",
+      "description": "app.component.ts is the core of the demo — it uses Angular 19's experimental `resource` API with a `stream` factory to open a `ReadableStream` to `/api/stream-response` and progressively accumulates decoded text chunks into a signal-backed `characters` property. Each chunk triggers reactive re-rendering as the AI response arrives token by token, with no RxJS required.",
+      "nodeIds": [
+        "file:src/app/app.component.ts"
+      ],
+      "languageLesson": "The Angular `resource` API's `stream` option accepts a factory returning a `Signal<T>` updated incrementally. Combined with a `ReadableStream` async iterator, this replaces the classic `HttpClient` + RxJS `scan` pattern: the component reacts to each pushed chunk without subscribing to an observable."
+    },
+    {
+      "order": 6,
+      "title": "Express Server & Gemini Streaming Endpoint",
+      "description": "src/server.ts is the Express server that plays two roles simultaneously: it serves static build artifacts and delegates Angular SSR rendering via `AngularNodeAppEngine`, and it exposes `GET /api/stream-response` — the endpoint that calls `@google/genai`'s `generateContentStream` and pipes Gemini 2.0 Flash output chunk-by-chunk directly into the HTTP response. This is the backend half of the streaming path that `app.component.ts` reads from.",
+      "nodeIds": [
+        "file:src/server.ts",
+        "endpoint:src/server.ts:GET-/api/stream-response"
+      ],
+      "languageLesson": "`generateContentStream` returns an async iterable; iterating it with `for await...of` and writing each `chunk.text` to `res.write()` streams tokens to the browser without buffering the full response — keeping time-to-first-token low regardless of total response length."
+    },
+    {
+      "order": 7,
+      "title": "SSR Bootstrap & Server Configuration",
+      "description": "main.server.ts is the server-side counterpart to main.ts: it exports a `bootstrap` function consumed by Express's `AngularNodeAppEngine` to render the Angular component tree on the server before sending HTML to the client. app.config.server.ts merges the base client providers with SSR-specific ones (server rendering, server routing), and app.routes.server.ts sets all routes to Prerender mode — meaning pages are rendered at build time for fast initial delivery.",
+      "nodeIds": [
+        "file:src/main.server.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.server.ts"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Build & TypeScript Configuration",
+      "description": "angular.json is the Angular workspace configuration that declares the SSR build target, points `ssr.entry` at src/server.ts, sets bundle size budgets, and enables the esbuild-based builder. tsconfig.json and tsconfig.app.json set up strict TypeScript compilation with `bundler` module resolution and explicitly enumerate the three entry points (main.ts, main.server.ts, server.ts) so the compiler processes browser, SSR, and Express code in a single pass.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:tsconfig.json",
+        "config:tsconfig.app.json"
+      ],
+      "languageLesson": "`moduleResolution: bundler` (TypeScript 5.0+) tells the compiler to resolve modules the way esbuild does rather than following Node.js CJS rules. This is required for Angular 19's esbuild pipeline and allows importing `.js` extensions in source while still compiling `.ts` files."
+    },
+    {
+      "order": 9,
+      "title": "Dependencies & NPM Scripts",
+      "description": "package.json declares the key runtime dependencies that make this demo possible: Angular 19, `@google/genai` (the Gemini SDK), `express`, and `@angular/ssr`. The `serve:ssr:streaming-xp-app` script launches the compiled Express server from `dist/`, which is the production path that wires together every layer explored in this tour.",
+      "nodeIds": [
+        "config:package.json"
+      ]
+    }
+  ]
+}
