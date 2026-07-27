@@ -1,0 +1,2040 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "logistics-manager-app",
+    "languages": [
+      "typescript",
+      "html",
+      "css",
+      "json",
+      "markdown"
+    ],
+    "frameworks": [
+      "Angular",
+      "Express",
+      "Leaflet",
+      "Tailwind CSS",
+      "Vitest"
+    ],
+    "description": "An Angular 21 logistics management app with SSR: fleet tracking, interactive Leaflet maps, a service queue, and a chat interface, backed by an in-memory fleet database and a signal-based FleetService, styled with Tailwind CSS.",
+    "analyzedAt": "2026-07-27T15:00:39.377Z",
+    "gitCommitHash": "1a87667205bd11f1b37df6ec0a8a32c38a44aab3"
+  },
+  "nodes": [
+    {
+      "id": "file:src/app/app.config.server.ts",
+      "type": "file",
+      "name": "app.config.server.ts",
+      "filePath": "src/app/app.config.server.ts",
+      "summary": "Merges the base application config with server-side rendering providers, supplying Angular SSR with prerender routes for the Node.js bootstrap path.",
+      "tags": [
+        "configuration",
+        "ssr",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.config.ts",
+      "type": "file",
+      "name": "app.config.ts",
+      "filePath": "src/app/app.config.ts",
+      "summary": "Defines the root Angular application config with router, HTTP client (fetch), client hydration with event replay, and global error listeners for browser bootstrapping.",
+      "tags": [
+        "configuration",
+        "entry-point",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.routes.server.ts",
+      "type": "file",
+      "name": "app.routes.server.ts",
+      "filePath": "src/app/app.routes.server.ts",
+      "summary": "Declares server-side route rules, configuring all routes to use Prerender mode for Angular SSR.",
+      "tags": [
+        "configuration",
+        "ssr",
+        "routing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.ts",
+      "type": "file",
+      "name": "app.ts",
+      "filePath": "src/app/app.ts",
+      "summary": "Root Angular component that composes the application shell — rendering the persistent header, router outlet for page content, and floating chat overlay.",
+      "tags": [
+        "entry-point",
+        "component",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/app.ts:App",
+      "type": "class",
+      "name": "App",
+      "filePath": "src/app/app.ts",
+      "lineRange": [
+        6,
+        18
+      ],
+      "summary": "Root Angular standalone component (selector: app-root) that provides the top-level application shell with header, routing outlet, and chat panel.",
+      "tags": [
+        "component",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/components/chat/chat.ts",
+      "type": "file",
+      "name": "chat.ts",
+      "filePath": "src/app/components/chat/chat.ts",
+      "summary": "Implements the floating AI assistant chat overlay component, showing a togglable panel with a message area and text input, wired to FleetService for open/close state.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/components/chat/chat.ts:Chat",
+      "type": "class",
+      "name": "Chat",
+      "filePath": "src/app/components/chat/chat.ts",
+      "lineRange": [
+        4,
+        44
+      ],
+      "summary": "Standalone Angular component (selector: app-chat) rendering a fixed-position chat panel whose visibility and theme are controlled by the injected FleetService.",
+      "tags": [
+        "component",
+        "singleton"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/components/header/header.ts",
+      "type": "file",
+      "name": "header.ts",
+      "filePath": "src/app/components/header/header.ts",
+      "summary": "Implements the persistent application header component with branding, main navigation links, a chat toggle button, a theme switcher, and an administrator profile dropdown.",
+      "tags": [
+        "component",
+        "navigation",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/components/header/header.ts:Header",
+      "type": "class",
+      "name": "Header",
+      "filePath": "src/app/components/header/header.ts",
+      "lineRange": [
+        5,
+        85
+      ],
+      "summary": "Standalone Angular component (selector: app-header) that renders the application's top navigation bar and delegates chat toggle and dark-mode switching to FleetService.",
+      "tags": [
+        "component",
+        "navigation",
+        "event-handler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses Angular's inject() function for dependency injection and routerLinkActive for active route highlighting, keeping the class body minimal — all logic is in the inline template."
+    },
+    {
+      "id": "file:src/main.server.ts",
+      "type": "file",
+      "name": "main.server.ts",
+      "filePath": "src/main.server.ts",
+      "summary": "Server-side bootstrap entry point that exports the default Angular SSR bootstrap function, wiring the root App component with the merged server configuration.",
+      "tags": [
+        "entry-point",
+        "ssr",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.ts",
+      "type": "file",
+      "name": "main.ts",
+      "filePath": "src/main.ts",
+      "summary": "Browser-side application entry point that bootstraps the Angular application with the root App component and browser-targeted application config.",
+      "tags": [
+        "entry-point",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.routes.ts",
+      "type": "file",
+      "name": "app.routes.ts",
+      "filePath": "src/app/app.routes.ts",
+      "summary": "Defines the top-level Angular router configuration, mapping the root path to Dashboard, '/fleet' to FleetList, and '/service-queue' to ServiceQueue.",
+      "tags": [
+        "entry-point",
+        "configuration",
+        "routing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "type": "file",
+      "name": "fleet-detail-modal.ts",
+      "filePath": "src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "summary": "Angular standalone component rendering a modal dialog with a Leaflet map and status details for a selected fleet unit; lazily loads Leaflet after render.",
+      "tags": [
+        "component",
+        "ui",
+        "modal",
+        "map"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/components/fleet-detail-modal/fleet-detail-modal.ts:FleetDetailModal",
+      "type": "class",
+      "name": "FleetDetailModal",
+      "filePath": "src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "lineRange": [
+        79,
+        163
+      ],
+      "summary": "Standalone Angular component that displays a modal with Leaflet map, unit status badge, and battery indicator; handles open/close lifecycle and backdrop-click dismissal.",
+      "tags": [
+        "component",
+        "modal",
+        "leaflet",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/components/fleet-list/fleet-list.ts",
+      "type": "file",
+      "name": "fleet-list.ts",
+      "filePath": "src/app/components/fleet-list/fleet-list.ts",
+      "summary": "Angular standalone component that displays a filterable list of fleet units with status, battery, and service filters, and opens the FleetDetailModal on unit selection.",
+      "tags": [
+        "component",
+        "ui",
+        "data-model",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/app/components/fleet-list/fleet-list.ts:FleetList",
+      "type": "class",
+      "name": "FleetList",
+      "filePath": "src/app/components/fleet-list/fleet-list.ts",
+      "lineRange": [
+        139,
+        215
+      ],
+      "summary": "Angular component that consumes FleetService signals to render a filterable fleet unit list, supports status/battery/service filters, and delegates to FleetDetailModal for detail view.",
+      "tags": [
+        "component",
+        "filter",
+        "service",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/components/service-queue/service-queue.ts",
+      "type": "file",
+      "name": "service-queue.ts",
+      "filePath": "src/app/components/service-queue/service-queue.ts",
+      "summary": "Angular standalone component managing the service ticket queue with tabbed active/resolved views, inline forms for creating and editing tickets, and direct FleetService mutations.",
+      "tags": [
+        "component",
+        "ui",
+        "service",
+        "form"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/app/components/service-queue/service-queue.ts:ServiceQueue",
+      "type": "class",
+      "name": "ServiceQueue",
+      "filePath": "src/app/components/service-queue/service-queue.ts",
+      "lineRange": [
+        219,
+        326
+      ],
+      "summary": "Angular component that manages service ticket CRUD via FleetService: opens request and detail modals, submits new tickets, edits existing ones, and resolves tickets with reactive signals.",
+      "tags": [
+        "component",
+        "service",
+        "form",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/app/services/fleet.service.ts",
+      "type": "file",
+      "name": "fleet.service.ts",
+      "filePath": "src/app/services/fleet.service.ts",
+      "summary": "Root-provided Angular service acting as the application state hub: fetches fleet units and service tickets via httpResource, exposes computed signals, and proxies POST/PATCH mutations to the Express API.",
+      "tags": [
+        "service",
+        "singleton",
+        "data-model",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/services/fleet.service.ts:FleetService",
+      "type": "class",
+      "name": "FleetService",
+      "filePath": "src/app/services/fleet.service.ts",
+      "lineRange": [
+        18,
+        93
+      ],
+      "summary": "Injectable Angular service that holds reactive signals for fleet units, service queue, active unit, dark mode, and chat state; provides setActiveUnit, toggleTheme, toggleChat, addServiceTicket, and updateServiceTicket methods.",
+      "tags": [
+        "service",
+        "singleton",
+        "state-management",
+        "api-handler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses Angular 21 httpResource for declarative data fetching and signal/computed for reactive state without RxJS."
+    },
+    {
+      "id": "file:src/fleet-db.ts",
+      "type": "file",
+      "name": "fleet-db.ts",
+      "filePath": "src/fleet-db.ts",
+      "summary": "In-memory data store and type definitions for fleet units and service tickets; provides FleetDatabaseService with CRUD methods and exports a singleton fleetDb instance used by the Express server.",
+      "tags": [
+        "data-model",
+        "service",
+        "singleton",
+        "database"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "class",
+      "name": "FleetDatabaseService",
+      "filePath": "src/fleet-db.ts",
+      "lineRange": [
+        23,
+        315
+      ],
+      "summary": "In-memory database class seeded with fleet unit and service ticket records; exposes getFleet, getServiceQueue, getTicket, addTicket, updateTicket, deleteTicket, getUnit, and updateUnit methods.",
+      "tags": [
+        "data-model",
+        "database",
+        "singleton",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/server.ts",
+      "type": "file",
+      "name": "server.ts",
+      "filePath": "src/server.ts",
+      "summary": "Express SSR server entry point for the Angular app: defines REST API routes for fleet units and service tickets (GET/PATCH on /api/fleet, GET/POST/PATCH/DELETE on /api/service-queue), serves static browser assets, and delegates unmatched requests to the Angular SSR engine.",
+      "tags": [
+        "entry-point",
+        "api-handler",
+        "service",
+        "middleware"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Exports thin wrapper functions (getAllFleetUnits, addServiceTicket, etc.) as named exports so route logic can be unit-tested independently of Express middleware."
+    },
+    {
+      "id": "function:src/server.ts:getAllFleetUnits",
+      "type": "function",
+      "name": "getAllFleetUnits",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "Returns the full array of fleet units from the in-memory database.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/server.ts:getFleetUnit",
+      "type": "function",
+      "name": "getFleetUnit",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "Looks up a single fleet unit by ID from the in-memory database.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/server.ts:updateFleetUnit",
+      "type": "function",
+      "name": "updateFleetUnit",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        28,
+        30
+      ],
+      "summary": "Applies a partial update to a fleet unit identified by ID.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/server.ts:getServiceQueue",
+      "type": "function",
+      "name": "getServiceQueue",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        32,
+        34
+      ],
+      "summary": "Returns the full service ticket queue from the in-memory database.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/server.ts:getServiceTicket",
+      "type": "function",
+      "name": "getServiceTicket",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        36,
+        38
+      ],
+      "summary": "Retrieves a single service ticket by ID.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/server.ts:addServiceTicket",
+      "type": "function",
+      "name": "addServiceTicket",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        40,
+        42
+      ],
+      "summary": "Creates a new service ticket in the in-memory store and returns it.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/server.ts:updateServiceTicket",
+      "type": "function",
+      "name": "updateServiceTicket",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        44,
+        46
+      ],
+      "summary": "Applies a partial update to a service ticket identified by ID.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/server.ts:deleteServiceTicket",
+      "type": "function",
+      "name": "deleteServiceTicket",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        48,
+        50
+      ],
+      "summary": "Deletes a service ticket by ID and returns whether the deletion succeeded.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/components/dashboard/dashboard.ts",
+      "type": "file",
+      "name": "dashboard.ts",
+      "filePath": "src/app/components/dashboard/dashboard.ts",
+      "summary": "Top-level dashboard layout component that composes the Map, Sidebar, and Sidenav into a single full-height flex container, serving as the main view shell for the logistics manager app.",
+      "tags": [
+        "component",
+        "entry-point",
+        "layout"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/components/dashboard/dashboard.ts:Dashboard",
+      "type": "class",
+      "name": "Dashboard",
+      "filePath": "src/app/components/dashboard/dashboard.ts",
+      "lineRange": [
+        20,
+        20
+      ],
+      "summary": "Angular standalone component acting as the dashboard layout shell, composing Map, Sidebar, and Sidenav child components with Tailwind flex layout.",
+      "tags": [
+        "component",
+        "layout",
+        "angular"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/components/map/map.ts",
+      "type": "file",
+      "name": "map.ts",
+      "filePath": "src/app/components/map/map.ts",
+      "summary": "Leaflet-based interactive map component that dynamically imports Leaflet after render, renders fleet vehicle markers with status-aware styling, and reacts to FleetService signals for dark/light tile switching and active unit selection.",
+      "tags": [
+        "component",
+        "map",
+        "leaflet",
+        "service"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses Angular's afterNextRender and dynamic import('leaflet') to avoid SSR issues with the browser-only Leaflet library; leverages Angular signals via effect() to reactively update tile layers and markers."
+    },
+    {
+      "id": "class:src/app/components/map/map.ts:Map",
+      "type": "class",
+      "name": "Map",
+      "filePath": "src/app/components/map/map.ts",
+      "lineRange": [
+        27,
+        140
+      ],
+      "summary": "Angular component encapsulating a Leaflet map instance, managing tile layer switching between dark/light CartoCDN tiles and rendering clickable vehicle markers with ping animations and active state highlighting driven by FleetService signals.",
+      "tags": [
+        "component",
+        "map",
+        "leaflet",
+        "signal-reactive"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/app/components/sidebar/sidebar.ts",
+      "type": "file",
+      "name": "sidebar.ts",
+      "filePath": "src/app/components/sidebar/sidebar.ts",
+      "summary": "Fleet monitoring sidebar component that displays active fleet units with status, speed, and battery data driven by FleetService signals, and auto-scrolls to the selected unit when the active unit changes.",
+      "tags": [
+        "component",
+        "sidebar",
+        "fleet-tracking",
+        "signal-reactive"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/components/sidebar/sidebar.ts:Sidebar",
+      "type": "class",
+      "name": "Sidebar",
+      "filePath": "src/app/components/sidebar/sidebar.ts",
+      "lineRange": [
+        74,
+        95
+      ],
+      "summary": "Angular standalone component rendering the fleet list panel; subscribes to activeUnitId signal to auto-scroll the selected unit into view, and exposes selectUnit() to propagate user selection back to FleetService.",
+      "tags": [
+        "component",
+        "sidebar",
+        "event-handler",
+        "signal-reactive"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/components/sidenav/sidenav.ts",
+      "type": "file",
+      "name": "sidenav.ts",
+      "filePath": "src/app/components/sidenav/sidenav.ts",
+      "summary": "Minimal vertical icon navigation bar component fixed to the left edge of the dashboard, providing navigation buttons rendered with Material Symbols icons.",
+      "tags": [
+        "component",
+        "navigation",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/components/sidenav/sidenav.ts:Sidenav",
+      "type": "class",
+      "name": "Sidenav",
+      "filePath": "src/app/components/sidenav/sidenav.ts",
+      "lineRange": [
+        27,
+        27
+      ],
+      "summary": "Angular standalone component rendering a static vertical icon nav rail with Material Symbols buttons; currently has no logic or injected services.",
+      "tags": [
+        "component",
+        "navigation",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:GEMINI.md",
+      "type": "document",
+      "name": "GEMINI.md",
+      "filePath": "GEMINI.md",
+      "summary": "AI agent configuration directive for the project workspace, specifying which Gemini CLI agent skills (angular-developer, gemini-api-dev, gemini-interactions-api) and MCP servers (Angular CLI, Chrome DevTools) must be prioritized when working on this codebase.",
+      "tags": [
+        "documentation",
+        "configuration",
+        "ai-agent",
+        "development"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Standard project README generated by Angular CLI 21.1.3, covering development server startup, code scaffolding commands, build, unit test (Vitest), and e2e test instructions.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "development"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:angular.json",
+      "type": "config",
+      "name": "angular.json",
+      "filePath": "angular.json",
+      "summary": "Angular workspace configuration defining the logistics-manager-app project with SSR enabled (browser entry src/main.ts, server entry src/main.server.ts, SSR handler src/server.ts), schematics defaults (inline templates, skip tests), and production/development build configurations.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "infrastructure",
+        "angular"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "outputMode is 'server' with an explicit SSR entry, meaning this is a full Angular SSR application rather than a static SPA."
+    },
+    {
+      "id": "document:codelab.md",
+      "type": "document",
+      "name": "codelab.md",
+      "filePath": "codelab.md",
+      "summary": "Comprehensive step-by-step hands-on codelab for adding three AI-powered enhancements to the logistics app — fleet chat (Chat component), intelligent service prioritization (ServiceQueue), and predictive battery diagnostics (FleetDetailModal) — using the Gemini CLI, agent skills, and MCP servers.",
+      "tags": [
+        "documentation",
+        "tutorial",
+        "ai-integration",
+        "development"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "NPM package manifest for the Angular 21 SSR logistics app, declaring runtime dependencies (Angular 21, Express 5, Leaflet, RxJS) and dev dependencies (Angular build tools, Tailwind CSS 4, Vitest, TypeScript 5.9), plus Prettier configuration and npm scripts for serving, building, and running the SSR server.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "dependencies",
+        "package-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Root TypeScript configuration enabling strict mode with Angular-specific compiler options (strict templates, strict injection parameters), targeting ES2022 with module:preserve, and referencing tsconfig.app.json for application compilation.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple",
+      "languageNotes": "module:preserve is the modern Angular 21 setting that lets the bundler handle module format; combined with strict and noImplicitOverride this enforces a high-quality TypeScript baseline."
+    },
+    {
+      "id": "config:tsconfig.app.json",
+      "type": "config",
+      "name": "tsconfig.app.json",
+      "filePath": "tsconfig.app.json",
+      "summary": "Application-scoped TypeScript configuration extending the root tsconfig.json, targeting the out-tsc/app output directory, including all TypeScript source files under src/, and excluding spec files.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/prompt-1.md",
+      "type": "document",
+      "name": "prompt-1.md",
+      "filePath": "content/prompts/prompt-1.md",
+      "summary": "Codelab LLM prompt instructing an AI assistant to integrate Gemini support into the Angular app's Node.js backend — covering GoogleGenAI client initialization, designing a POST chat endpoint using the interactions API with session state via interaction_id, and verifying the endpoint with curl.",
+      "tags": [
+        "documentation",
+        "ai-integration",
+        "tutorial",
+        "backend",
+        "gemini"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/prompt-2.md",
+      "type": "document",
+      "name": "prompt-2.md",
+      "filePath": "content/prompts/prompt-2.md",
+      "summary": "Codelab LLM prompt directing an AI assistant to wire up client-side Angular chat communication to the backend AI endpoint, using the @google/genai interactions API and verifying the integration via Angular MCP server and ChromeDevTools MCP.",
+      "tags": [
+        "documentation",
+        "ai-integration",
+        "tutorial",
+        "frontend",
+        "gemini"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/prompt-3.md",
+      "type": "document",
+      "name": "prompt-3.md",
+      "filePath": "content/prompts/prompt-3.md",
+      "summary": "Codelab LLM prompt guiding an AI assistant to implement multi-turn Gemini tool/function calling on the fleet backend, synchronize Angular UI state using resource and linkedSignal signals, and includes a full TypeScript implementation reference for the interactions SDK orchestration loop.",
+      "tags": [
+        "documentation",
+        "ai-integration",
+        "tutorial",
+        "tool-calling",
+        "angular-signals"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Contains embedded TypeScript code illustrating the flat tool definition schema and multi-turn function_result loop required by the Gemini interactions API."
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-1a.md",
+      "type": "document",
+      "name": "prompt-1a.md",
+      "filePath": "content/prompts/versions/prompt-1a.md",
+      "summary": "Minimal version of the Gemini SDK backend integration prompt, instructing the model to update server code for Gemini SDK support and present a plan before making changes.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "gemini-sdk",
+        "planning"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-1b.md",
+      "type": "document",
+      "name": "prompt-1b.md",
+      "filePath": "content/prompts/versions/prompt-1b.md",
+      "summary": "Structured version of the Gemini SDK backend integration prompt specifying the @google/genai package and gemini-3-flash-preview model, with tasks to initialize the GoogleGenAI client, plan a POST chat endpoint with session state, and verify with curl.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "gemini-sdk",
+        "backend",
+        "node-js"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-2a.md",
+      "type": "document",
+      "name": "prompt-2a.md",
+      "filePath": "content/prompts/versions/prompt-2a.md",
+      "summary": "Minimal version of the client-to-AI chat communication prompt, asking for Angular resource pattern integration between the chat window and the AI endpoint, with a planning step before changes.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "angular",
+        "client-integration",
+        "planning"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-2b.md",
+      "type": "document",
+      "name": "prompt-2b.md",
+      "filePath": "content/prompts/versions/prompt-2b.md",
+      "summary": "Detailed version of the client-to-AI chat communication prompt specifying Angular Skills, Angular MCP, and Google GenAI Skills as tools, with tasks to review endpoint code, plan using Angular resource and the interactions API, and verify via build and browser preview.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "angular",
+        "client-integration",
+        "mcp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-2c.md",
+      "type": "document",
+      "name": "prompt-2c.md",
+      "filePath": "content/prompts/versions/prompt-2c.md",
+      "summary": "Concise structured version of the client-to-AI communication prompt that explicitly requires the @google/genai interactions API and extraction of the generated message from the first text object in interaction.outputs, with build and browser verification steps.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "angular",
+        "client-integration",
+        "interactions-api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-3a.md",
+      "type": "document",
+      "name": "prompt-3a.md",
+      "filePath": "content/prompts/versions/prompt-3a.md",
+      "summary": "Minimal version of the fleet tool-calling prompt, instructing the model to add tool calling support for the fleet by examining server functions and handling recursive Gemini tool call responses, with a planning step first.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "tool-calling",
+        "planning",
+        "fleet-management"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-3b.md",
+      "type": "document",
+      "name": "prompt-3b.md",
+      "filePath": "content/prompts/versions/prompt-3b.md",
+      "summary": "Detailed version of the fleet tool-calling prompt listing angular-developer, gemini-api-dev, and gemini-interactions-api agent skills plus MCP servers, with tasks covering multi-turn tool call handling, UI state synchronization via Angular resource and linkedSignal, and critical formatting requirements for the interactions API input.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "tool-calling",
+        "angular",
+        "fleet-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-3c.md",
+      "type": "document",
+      "name": "prompt-3c.md",
+      "filePath": "content/prompts/versions/prompt-3c.md",
+      "summary": "Comprehensive version of the fleet tool-calling prompt with precise implementation requirements including flat tool definitions, mandatory parameters schemas, function_result input formatting, and a TypeScript ground-truth code reference for the full multi-turn orchestration loop.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "tool-calling",
+        "angular",
+        "reference-implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-4.md",
+      "type": "document",
+      "name": "prompt-4.md",
+      "filePath": "content/prompts/versions/prompt-4.md",
+      "summary": "Bug-fix prompt targeting a 'Missing key type in input content' error in the Interactions API tool-calling loop in src/server.ts, specifying six key requirements for correct function_result input formatting, call_id mapping, and tools array structure.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "debugging",
+        "tool-calling",
+        "interactions-api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:content/prompts/versions/prompt-4a.md",
+      "type": "document",
+      "name": "prompt-4a.md",
+      "filePath": "content/prompts/versions/prompt-4a.md",
+      "summary": "Optimized and comprehensive prompt for implementing or fixing Gemini Interactions API tool-calling logic, covering flat tool definitions, mandatory parameter schemas, the data-wrapper pattern for JSON-serializable results, empty-array fallbacks, and a full TypeScript ground-truth reference implementation.",
+      "tags": [
+        "documentation",
+        "codelab-prompt",
+        "tool-calling",
+        "reference-implementation",
+        "interactions-api"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "src/index.html",
+      "summary": "Angular SSR host HTML page that bootstraps the application via <app-root>, loads Inter and Space Grotesk fonts from Google Fonts, loads Material Symbols icons, and applies dark-mode Tailwind classes to the document body.",
+      "tags": [
+        "entry-point",
+        "markup",
+        "bootstrap",
+        "html-shell"
+      ],
+      "complexity": "simple",
+      "languageNotes": "The html element carries class=\"dark\" to force dark theme by default, leveraging the .dark CSS selector defined in src/styles.css."
+    },
+    {
+      "id": "file:src/styles.css",
+      "type": "file",
+      "name": "styles.css",
+      "filePath": "src/styles.css",
+      "summary": "Global stylesheet that bridges a Material Design 3 color system to Tailwind CSS v4's @theme layer, defining semantic CSS custom properties for both light and dark themes, plus font family and border-radius design tokens; also imports Leaflet's default map styles.",
+      "tags": [
+        "configuration",
+        "design-system",
+        "theme",
+        "css-variables"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses Tailwind CSS v4's @theme directive (not a tailwind.config.js) to map CSS custom properties (--color-primary, etc.) into Tailwind utility classes, enabling component-level usage of design tokens via standard Tailwind class names."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/app.ts",
+      "target": "class:src/app/app.ts:App",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/app.ts",
+      "target": "class:src/app/app.ts:App",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/components/chat/chat.ts",
+      "target": "class:src/app/components/chat/chat.ts:Chat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/chat/chat.ts",
+      "target": "class:src/app/components/chat/chat.ts:Chat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/components/header/header.ts",
+      "target": "class:src/app/components/header/header.ts:Header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/header/header.ts",
+      "target": "class:src/app/components/header/header.ts:Header",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.routes.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.config.ts",
+      "target": "file:src/app/app.routes.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.ts",
+      "target": "file:src/app/components/chat/chat.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.ts",
+      "target": "file:src/app/components/header/header.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/chat/chat.ts",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/header/header.ts",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.config.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/main.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:src/app/components/chat/chat.ts:Chat",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:src/app/components/header/header.ts:Header",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/components/dashboard/dashboard.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/components/fleet-list/fleet-list.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/components/service-queue/service-queue.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/fleet-list/fleet-list.ts",
+      "target": "file:src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/fleet-list/fleet-list.ts",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/service-queue/service-queue.ts",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/service-queue/service-queue.ts",
+      "target": "file:src/fleet-db.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/services/fleet.service.ts",
+      "target": "file:src/fleet-db.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "file:src/fleet-db.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "target": "class:src/app/components/fleet-detail-modal/fleet-detail-modal.ts:FleetDetailModal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "target": "class:src/app/components/fleet-detail-modal/fleet-detail-modal.ts:FleetDetailModal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/components/fleet-list/fleet-list.ts",
+      "target": "class:src/app/components/fleet-list/fleet-list.ts:FleetList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/fleet-list/fleet-list.ts",
+      "target": "class:src/app/components/fleet-list/fleet-list.ts:FleetList",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/components/service-queue/service-queue.ts",
+      "target": "class:src/app/components/service-queue/service-queue.ts:ServiceQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/service-queue/service-queue.ts",
+      "target": "class:src/app/components/service-queue/service-queue.ts:ServiceQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/services/fleet.service.ts",
+      "target": "class:src/app/services/fleet.service.ts:FleetService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/services/fleet.service.ts",
+      "target": "class:src/app/services/fleet.service.ts:FleetService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/fleet-db.ts",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/fleet-db.ts",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:getAllFleetUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:getAllFleetUnits",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:getFleetUnit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:getFleetUnit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:updateFleetUnit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:updateFleetUnit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:getServiceQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:getServiceQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:getServiceTicket",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:getServiceTicket",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:addServiceTicket",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:addServiceTicket",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:updateServiceTicket",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:updateServiceTicket",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:deleteServiceTicket",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "function:src/server.ts:deleteServiceTicket",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/server.ts:getAllFleetUnits",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/server.ts:getFleetUnit",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/server.ts:updateFleetUnit",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/server.ts:getServiceQueue",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/server.ts:getServiceTicket",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/server.ts:addServiceTicket",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/server.ts:updateServiceTicket",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/server.ts:deleteServiceTicket",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/components/service-queue/service-queue.ts:ServiceQueue",
+      "target": "class:src/app/services/fleet.service.ts:FleetService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/components/fleet-list/fleet-list.ts:FleetList",
+      "target": "class:src/app/services/fleet.service.ts:FleetService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/components/fleet-detail-modal/fleet-detail-modal.ts:FleetDetailModal",
+      "target": "class:src/app/services/fleet.service.ts:FleetService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:src/app/services/fleet.service.ts:FleetService",
+      "target": "class:src/fleet-db.ts:FleetDatabaseService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/components/fleet-list/fleet-list.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/components/service-queue/service-queue.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/components/dashboard/dashboard.ts",
+      "target": "file:src/app/components/map/map.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/dashboard/dashboard.ts",
+      "target": "file:src/app/components/sidebar/sidebar.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/dashboard/dashboard.ts",
+      "target": "file:src/app/components/sidenav/sidenav.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/map/map.ts",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/sidebar/sidebar.ts",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/components/dashboard/dashboard.ts",
+      "target": "class:src/app/components/dashboard/dashboard.ts:Dashboard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/dashboard/dashboard.ts",
+      "target": "class:src/app/components/dashboard/dashboard.ts:Dashboard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/components/map/map.ts",
+      "target": "class:src/app/components/map/map.ts:Map",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/map/map.ts",
+      "target": "class:src/app/components/map/map.ts:Map",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/components/sidebar/sidebar.ts",
+      "target": "class:src/app/components/sidebar/sidebar.ts:Sidebar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/sidebar/sidebar.ts",
+      "target": "class:src/app/components/sidebar/sidebar.ts:Sidebar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/components/sidenav/sidenav.ts",
+      "target": "class:src/app/components/sidenav/sidenav.ts:Sidenav",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/components/sidenav/sidenav.ts",
+      "target": "class:src/app/components/sidenav/sidenav.ts:Sidenav",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/components/map/map.ts:Map",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:src/app/components/sidebar/sidebar.ts:Sidebar",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:codelab.md",
+      "target": "file:src/app/components/chat/chat.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:codelab.md",
+      "target": "file:src/app/components/service-queue/service-queue.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:codelab.md",
+      "target": "file:src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:codelab.md",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:GEMINI.md",
+      "target": "document:codelab.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/prompt-2.md",
+      "target": "document:content/prompts/prompt-1.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/prompt-3.md",
+      "target": "document:content/prompts/prompt-2.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/prompt-1.md",
+      "target": "file:src/server.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/prompt-2.md",
+      "target": "file:src/app/components/chat/chat.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/prompt-3.md",
+      "target": "file:src/server.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/prompt-3.md",
+      "target": "file:src/app/services/fleet.service.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-1a.md",
+      "target": "document:content/prompts/prompt-1.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-1b.md",
+      "target": "document:content/prompts/prompt-1.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-1a.md",
+      "target": "document:content/prompts/versions/prompt-1b.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-2a.md",
+      "target": "document:content/prompts/prompt-2.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-2b.md",
+      "target": "document:content/prompts/prompt-2.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-2c.md",
+      "target": "document:content/prompts/prompt-2.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-2a.md",
+      "target": "document:content/prompts/versions/prompt-2b.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-2a.md",
+      "target": "document:content/prompts/versions/prompt-2c.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-2b.md",
+      "target": "document:content/prompts/versions/prompt-2c.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-3a.md",
+      "target": "document:content/prompts/prompt-3.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-3b.md",
+      "target": "document:content/prompts/prompt-3.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-3c.md",
+      "target": "document:content/prompts/prompt-3.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-3a.md",
+      "target": "document:content/prompts/versions/prompt-3b.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-3a.md",
+      "target": "document:content/prompts/versions/prompt-3c.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-3b.md",
+      "target": "document:content/prompts/versions/prompt-3c.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-4.md",
+      "target": "document:content/prompts/versions/prompt-3c.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-4a.md",
+      "target": "document:content/prompts/versions/prompt-4.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:content/prompts/versions/prompt-4a.md",
+      "target": "document:content/prompts/versions/prompt-3c.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/styles.css",
+      "target": "file:src/index.html",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/index.html",
+      "target": "file:src/app/app.ts",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:ui-components",
+      "name": "UI Components",
+      "description": "Angular standalone components that render the logistics manager's visual interface — the dashboard layout, interactive Leaflet map, fleet sidebar, service queue, fleet list with filtering, detail modal, persistent header, chat overlay, and icon navigation rail.",
+      "nodeIds": [
+        "file:src/app/components/dashboard/dashboard.ts",
+        "file:src/app/components/map/map.ts",
+        "file:src/app/components/sidebar/sidebar.ts",
+        "file:src/app/components/sidenav/sidenav.ts",
+        "file:src/app/components/fleet-list/fleet-list.ts",
+        "file:src/app/components/fleet-detail-modal/fleet-detail-modal.ts",
+        "file:src/app/components/service-queue/service-queue.ts",
+        "file:src/app/components/chat/chat.ts",
+        "file:src/app/components/header/header.ts"
+      ]
+    },
+    {
+      "id": "layer:service",
+      "name": "Application Service Layer",
+      "description": "The root-provided FleetService that acts as the reactive state hub for the entire application, fetching fleet units and service tickets via Angular httpResource, exposing computed signals, and proxying REST mutations to the Express API.",
+      "nodeIds": [
+        "file:src/app/services/fleet.service.ts"
+      ]
+    },
+    {
+      "id": "layer:data",
+      "name": "Data Layer",
+      "description": "In-memory fleet database providing type definitions, seeded fleet unit and service ticket records, and a FleetDatabaseService with full CRUD methods consumed by both the Express server and the Angular service layer.",
+      "nodeIds": [
+        "file:src/fleet-db.ts"
+      ]
+    },
+    {
+      "id": "layer:server",
+      "name": "SSR & API Server",
+      "description": "Express-based server-side rendering entry point exposing REST API routes for fleet units and service tickets, serving static assets, delegating unmatched requests to the Angular SSR engine, and the Angular SSR bootstrap wiring (main.server.ts, app.config.server.ts, app.routes.server.ts).",
+      "nodeIds": [
+        "file:src/server.ts",
+        "file:src/main.server.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.server.ts"
+      ]
+    },
+    {
+      "id": "layer:app-bootstrap",
+      "name": "App Bootstrap & Shell",
+      "description": "Browser-side application entry point, root Angular component shell, client-side router and provider configuration, route definitions mapping URLs to page components, the HTML host document, and the global Tailwind/Material Design 3 stylesheet.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/app/app.ts",
+        "file:src/app/app.config.ts",
+        "file:src/app/app.routes.ts",
+        "file:src/index.html",
+        "file:src/styles.css"
+      ]
+    },
+    {
+      "id": "layer:codelab-content",
+      "name": "Codelab Prompt Content",
+      "description": "Structured AI-agent prompt files for the Gemini codelab tutorial — primary prompts covering backend Gemini integration, client-side chat wiring, and tool-calling, plus versioned alternates and bug-fix variants used during codelab development.",
+      "nodeIds": [
+        "document:content/prompts/prompt-1.md",
+        "document:content/prompts/prompt-2.md",
+        "document:content/prompts/prompt-3.md",
+        "document:content/prompts/versions/prompt-1a.md",
+        "document:content/prompts/versions/prompt-1b.md",
+        "document:content/prompts/versions/prompt-2a.md",
+        "document:content/prompts/versions/prompt-2b.md",
+        "document:content/prompts/versions/prompt-2c.md",
+        "document:content/prompts/versions/prompt-3a.md",
+        "document:content/prompts/versions/prompt-3b.md",
+        "document:content/prompts/versions/prompt-3c.md",
+        "document:content/prompts/versions/prompt-4.md",
+        "document:content/prompts/versions/prompt-4a.md"
+      ]
+    },
+    {
+      "id": "layer:project-config",
+      "name": "Project Configuration & Documentation",
+      "description": "Root-level project files including the Angular workspace config, NPM package manifest, TypeScript compiler configs, the codelab tutorial guide, AI agent configuration directives (GEMINI.md), the standard project README, and the Understand-Anything analysis exclusion config.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:package.json",
+        "config:tsconfig.json",
+        "config:tsconfig.app.json",
+        "document:codelab.md",
+        "document:GEMINI.md",
+        "document:README.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Entry Point",
+      "description": "src/main.ts is where Angular bootstraps the browser-side application, calling bootstrapApplication() with the root App component and the client-side config. Reading this file first shows you exactly how the app comes to life in the browser before any components or services are wired up.",
+      "nodeIds": [
+        "file:src/main.ts"
+      ],
+      "languageLesson": "Angular 21 uses standalone bootstrapApplication() instead of NgModule-based AppModule bootstrapping. This means there is no app.module.ts — providers and imports are declared directly in the config object passed here."
+    },
+    {
+      "order": 2,
+      "title": "App Shell & Root Component",
+      "description": "src/app/app.ts defines the root <app-root> component that renders the persistent header, a <router-outlet> for page content, and the floating chat overlay. It is the outermost component frame that every page view lives inside.",
+      "nodeIds": [
+        "file:src/app/app.ts"
+      ],
+      "languageLesson": "Angular standalone components declare their own imports array inline (no NgModule needed), keeping the component self-contained and tree-shakeable."
+    },
+    {
+      "order": 3,
+      "title": "Client Config & Routing",
+      "description": "app.config.ts wires up the Angular router, HttpClient (using the fetch backend), and client-side hydration with event replay — the full set of providers the browser app needs. app.routes.ts maps three URL paths (/, /fleet, /service-queue) to the three page-level components, establishing the navigation contract for the whole app.",
+      "nodeIds": [
+        "file:src/app/app.config.ts",
+        "file:src/app/app.routes.ts"
+      ],
+      "languageLesson": "provideClientHydration(withEventReplay()) enables Angular SSR's incremental hydration: the server-rendered HTML is reused while Angular reattaches event listeners, and any events fired before hydration completes are replayed so no interactions are lost."
+    },
+    {
+      "order": 4,
+      "title": "HTML Shell & Global Styles",
+      "description": "src/index.html is the single HTML page that Angular SSR serves — it hosts <app-root>, loads Google Fonts, and seeds the dark-mode class. src/styles.css bridges a Material Design 3 color token system into Tailwind v4's @theme layer, defining the light/dark color palette and importing Leaflet's default map styles.",
+      "nodeIds": [
+        "file:src/index.html",
+        "file:src/styles.css"
+      ],
+      "languageLesson": "Tailwind CSS v4 replaced tailwind.config.js with a CSS-first @theme directive. Custom design tokens (--color-primary, --color-surface, etc.) are declared directly in CSS and are automatically available as Tailwind utility classes."
+    },
+    {
+      "order": 5,
+      "title": "In-Memory Data Layer",
+      "description": "src/fleet-db.ts is the shared data foundation for the entire application — it declares the FleetUnit and ServiceTicket TypeScript types, seeds a realistic set of vehicles and tickets, and exposes a FleetDatabaseService singleton with full CRUD methods. Both the Express REST API (server.ts) and the Angular service (fleet.service.ts) read from this single in-memory store.",
+      "nodeIds": [
+        "file:src/fleet-db.ts"
+      ],
+      "languageLesson": "Sharing type definitions and the database class between server.ts and the Angular build is possible because Angular SSR compiles both targets from the same TypeScript source tree — no separate package or code duplication needed."
+    },
+    {
+      "order": 6,
+      "title": "Fleet Service — Reactive State Hub",
+      "description": "fleet.service.ts is the single source of truth for all runtime application state. It uses Angular 21's httpResource to declaratively fetch fleet units and service tickets from the Express API, exposes computed signals for filtered data, and provides methods (setActiveUnit, toggleTheme, toggleChat, addServiceTicket, updateServiceTicket) that every component calls to drive mutations.",
+      "nodeIds": [
+        "file:src/app/services/fleet.service.ts"
+      ],
+      "languageLesson": "httpResource is an Angular 21 primitive that combines an HTTP request with a signal-based resource, returning a value() signal that automatically updates when the request completes or is re-triggered. It replaces the Observable-based HttpClient pattern for data fetching without needing RxJS."
+    },
+    {
+      "order": 7,
+      "title": "Dashboard Layout",
+      "description": "dashboard.ts is the root view for the / route — a pure layout component that arranges the Map, Sidebar, and Sidenav in a full-height flex container. Because all real state lives in FleetService, the dashboard itself has zero logic; it is purely compositional.",
+      "nodeIds": [
+        "file:src/app/components/dashboard/dashboard.ts"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Interactive Leaflet Map",
+      "description": "map.ts is the most technically complex component: it dynamically imports Leaflet after the first render (to avoid SSR crashes), places status-aware vehicle markers for every fleet unit from FleetService, and uses Angular's effect() to reactively swap CartoCDN tile layers when the theme signal toggles between dark and light.",
+      "nodeIds": [
+        "file:src/app/components/map/map.ts"
+      ],
+      "languageLesson": "afterNextRender() + dynamic import('leaflet') is the Angular SSR pattern for browser-only libraries. The import runs only in the browser after the first render cycle, so the server never attempts to load or execute Leaflet's window-dependent code."
+    },
+    {
+      "order": 9,
+      "title": "Fleet Sidebar & Detail Modal",
+      "description": "sidebar.ts displays the live list of active fleet units beside the map, auto-scrolling to whichever unit is active in the FleetService signal. Clicking a unit opens fleet-detail-modal.ts, a second Leaflet map modal that shows the unit's precise position, status badge, and battery level.",
+      "nodeIds": [
+        "file:src/app/components/sidebar/sidebar.ts",
+        "file:src/app/components/fleet-detail-modal/fleet-detail-modal.ts"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "Fleet List Page",
+      "description": "fleet-list.ts is the /fleet route's page component — a fully filterable table of all fleet units with status, battery, and service-need filter controls driven by computed signals from FleetService. Selecting a row opens the same FleetDetailModal used in the sidebar, keeping the detail view consistent across navigation contexts.",
+      "nodeIds": [
+        "file:src/app/components/fleet-list/fleet-list.ts"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Service Queue Page",
+      "description": "service-queue.ts handles the /service-queue route, presenting a tabbed view of active and resolved maintenance tickets with inline forms for creating, editing, and resolving tickets. It calls FleetService mutation methods directly, which POST or PATCH to the Express API and then re-trigger the httpResource to keep the UI in sync.",
+      "nodeIds": [
+        "file:src/app/components/service-queue/service-queue.ts"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Header & Chat Overlay",
+      "description": "header.ts provides the persistent top navigation bar with route links, a chat toggle button, and a dark/light theme switcher — all delegating to FleetService signals. chat.ts is the floating AI assistant panel whose visibility is also gated by FleetService's chatOpen signal, making it always available regardless of which route is active.",
+      "nodeIds": [
+        "file:src/app/components/header/header.ts",
+        "file:src/app/components/chat/chat.ts"
+      ]
+    },
+    {
+      "order": 13,
+      "title": "Express SSR Server & REST API",
+      "description": "src/server.ts is the Node.js/Express entry point that serves the Angular SSR app and exposes the REST API consumed by FleetService. It mounts GET /api/fleet, PATCH /api/fleet/:id, and full CRUD on /api/service-queue, all delegating to fleet-db.ts. Unmatched requests are forwarded to the Angular SSR engine, which renders the correct route server-side.",
+      "nodeIds": [
+        "file:src/server.ts",
+        "file:src/main.server.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.server.ts"
+      ],
+      "languageLesson": "Angular SSR's server entry (main.server.ts) exports a default bootstrap function that Express calls for every unmatched request. app.config.server.ts merges the browser config with server-only providers (like provideServerRendering()), and app.routes.server.ts sets all routes to Prerender mode for static generation at build time."
+    },
+    {
+      "order": 14,
+      "title": "Project Config & Build System",
+      "description": "angular.json declares this project as an SSR application with separate browser (src/main.ts) and server (src/main.server.ts / src/server.ts) entry points. package.json lists the key dependencies — Angular 21, Express 5, Leaflet, Tailwind 4, and Vitest — giving you a snapshot of the entire technology stack.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:package.json",
+        "config:tsconfig.json"
+      ]
+    },
+    {
+      "order": 15,
+      "title": "Codelab Tutorial & AI Prompts",
+      "description": "codelab.md is a step-by-step hands-on guide for adding three AI-powered features to the app (fleet chat, intelligent service prioritization, predictive battery diagnostics) using the Gemini CLI and MCP servers. The content/prompts/ files are the actual AI agent prompts used during each codelab step — comparing prompt-1.md through prompt-3.md with their versioned alternates in versions/ reveals how prompt engineering iterates toward precise, reliable AI-generated code.",
+      "nodeIds": [
+        "document:codelab.md",
+        "document:content/prompts/prompt-1.md",
+        "document:content/prompts/prompt-2.md",
+        "document:content/prompts/prompt-3.md"
+      ]
+    }
+  ]
+}
