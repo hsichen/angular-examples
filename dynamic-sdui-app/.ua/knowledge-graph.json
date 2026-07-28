@@ -1,0 +1,4591 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "dynamic-sdui-app",
+    "languages": [
+      "typescript",
+      "python",
+      "html",
+      "css",
+      "json",
+      "markdown"
+    ],
+    "frameworks": [
+      "Angular",
+      "Angular CDK",
+      "Angular Material",
+      "Angular SSR",
+      "Genkit",
+      "Tailwind CSS",
+      "Express"
+    ],
+    "description": "An experimental Angular 21 + Genkit framework for AI-powered Server-Driven UI (SDUI). Two-AI architecture: a Generator AI (Python MCP CLI) scaffolds app assets at dev time, and an Executor AI (Genkit generateUIFlow behind POST /generateUI) streams component schemas that MagicAiRenderer instantiates imperatively at runtime from user chat intent. Ships three demo apps (vacation-rentals, magic-bookstore, adev-docs).",
+    "analyzedAt": "2026-07-28T01:22:41.284Z",
+    "gitCommitHash": "9982461bd221376931f4c602e1497db3297e7f51"
+  },
+  "nodes": [
+    {
+      "id": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "type": "file",
+      "name": "app-context.ts",
+      "filePath": "src/app/apps/vacation-rentals/app-context.ts",
+      "summary": "Central SDUI registry for the vacation-rentals demo app: exports GENERATED_APP_CONTEXT, which wires together all 19 UI component types with their JSON schema definitions and descriptions so the AI layer can dynamically instantiate them.",
+      "tags": [
+        "entry-point",
+        "configuration",
+        "component"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses a typed constant object rather than a class — serves as the schema-driven component registry consumed by MagicAiService at runtime."
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+      "type": "file",
+      "name": "alert-banner.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+      "summary": "Angular standalone component that renders a dismissible alert banner with success, warning, or error status styling and a dynamic icon.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+      "type": "file",
+      "name": "amenity-list.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+      "summary": "Angular standalone component that displays a collapsible list of property amenities, initially showing a limited subset with a toggle to reveal all.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "type": "file",
+      "name": "booking-widget.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "summary": "Complex Angular standalone component presenting an interactive reservation widget with check-in/check-out date pickers, guest count selector, dynamic price calculation (base, service fee, total), and a reserve action.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler",
+        "validation"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses Angular signals for reactive state (checkInDate, checkOutDate, guestCount) and computed signals for derived price values."
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "type": "file",
+      "name": "component-showcase.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "summary": "Large Angular standalone showcase component that imports and renders all 18 vacation-rental UI components with hardcoded demo data, serving as a visual reference for the SDUI component library.",
+      "tags": [
+        "component",
+        "ui",
+        "demonstration"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Acts as a living style guide — not a production route component, but a developer showcase that exercises every component in the demo app."
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "type": "file",
+      "name": "destination-card.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "summary": "Angular standalone component displaying a destination thumbnail with average price; clicking the card injects a contextual prompt into the AI chat to find listings for that destination.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/empty-state.component.ts",
+      "type": "file",
+      "name": "empty-state.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/empty-state.component.ts",
+      "summary": "Angular standalone component rendering a centered empty-state placeholder with an icon, title, message, and optional action button for zero-result screens.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "type": "file",
+      "name": "favorites-list.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "summary": "Angular standalone component that reads saved favorite listings from FavoritesService and renders each as a card with a remove toggle; used as a routed favorites page.",
+      "tags": [
+        "component",
+        "ui",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+      "type": "file",
+      "name": "filter-chip.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+      "summary": "Angular standalone component for a selectable filter chip that emits a toggle event when clicked, used for category or amenity filtering in listing search.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+      "type": "file",
+      "name": "host-profile-card.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+      "summary": "Angular standalone component that displays a host's profile including avatar, name, response rate, and superhost badge from a single host input object.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/listing-description.component.ts",
+      "type": "file",
+      "name": "listing-description.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/listing-description.component.ts",
+      "summary": "Angular standalone component that renders a property description text with an expand/collapse toggle when the content exceeds the configured visible line limit.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "type": "file",
+      "name": "listing-header.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "summary": "Angular standalone component for a listing page header showing title, location, rating stars, and a heart-toggle that persists the listing to or removes it from FavoritesService.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/location-map.component.ts",
+      "type": "file",
+      "name": "location-map.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/location-map.component.ts",
+      "summary": "Angular standalone component that renders a static property location map image with coordinates and a descriptive label.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/pagination.component.ts",
+      "type": "file",
+      "name": "pagination.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/pagination.component.ts",
+      "summary": "Angular standalone component providing previous/next and direct-page navigation controls, driven by currentPage, totalItems, and itemsPerPage inputs.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+      "type": "file",
+      "name": "photo-gallery-grid.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+      "summary": "Angular standalone component that displays a responsive image grid for a rental property's photo gallery, accepting an array of image URLs and a property title.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "type": "file",
+      "name": "property-card.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "summary": "Angular standalone component for a listing search-result card that shows a photo carousel, location, title, price, and rating; clicking 'View Details' fires an AI chat prompt to display the full listing.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "type": "file",
+      "name": "rating-stars.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "summary": "Angular standalone component that renders a star-rating display (full, half, and empty stars) from a numeric rating and optional review count.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "type": "file",
+      "name": "review-card.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "summary": "Angular standalone component that renders a guest review card including reviewer avatar, name, date, star rating, and review text from a single review input object.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+      "type": "file",
+      "name": "rules-and-policies.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+      "summary": "Angular standalone component that renders house rules and cancellation/safety policies as structured lists from rules and policies input arrays.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/site-footer.component.ts",
+      "type": "file",
+      "name": "site-footer.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/site-footer.component.ts",
+      "summary": "Angular standalone component rendering the site-wide footer with configurable link columns and social media icon links.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+      "type": "file",
+      "name": "user-booking-card.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+      "summary": "Angular standalone component that renders a user's existing booking summary card including property image, dates, guest count, total price, and booking status badge.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+      "type": "file",
+      "name": "view-details-button.component.ts",
+      "filePath": "src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+      "summary": "Angular standalone component for a 'View Details' CTA button that injects a listing-specific prompt into ChatService to trigger AI-driven navigation to the listing detail view.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/favorites.service.ts",
+      "type": "file",
+      "name": "favorites.service.ts",
+      "filePath": "src/app/apps/vacation-rentals/favorites.service.ts",
+      "summary": "Angular injectable service managing the user's saved favorite listings as a reactive signal-based list with add and remove operations.",
+      "tags": [
+        "service",
+        "singleton",
+        "utility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses Angular signals (signal + update) for state management rather than RxJS, keeping the service lightweight and compatible with the signals-first component architecture."
+    },
+    {
+      "id": "file:src/app/chat/chat.service.ts",
+      "type": "file",
+      "name": "chat.service.ts",
+      "filePath": "src/app/chat/chat.service.ts",
+      "summary": "Angular injectable service that bridges component user interactions to the MagicAiService: accepts user-initiated prompt strings, updates conversation history, and triggers routing to the AI chat view.",
+      "tags": [
+        "service",
+        "singleton",
+        "api-handler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Injects Angular Router to navigate to the AI chat route after adding a prompt — components call addUserPrompt() to initiate AI-powered interactions from anywhere in the app."
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/alert-banner.component.ts:AlertBannerComponent",
+      "type": "class",
+      "name": "AlertBannerComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+      "lineRange": [
+        91,
+        109
+      ],
+      "summary": "Displays a dismissible alert banner; derives an icon name from the status input and exposes a dismiss method for user interaction.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/amenity-list.component.ts:AmenityListComponent",
+      "type": "class",
+      "name": "AmenityListComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+      "lineRange": [
+        103,
+        127
+      ],
+      "summary": "Shows a paginated list of property amenities with a show-all toggle, using computed signals for visible subset and hidden count.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/booking-widget.component.ts:BookingWidgetComponent",
+      "type": "class",
+      "name": "BookingWidgetComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "lineRange": [
+        198,
+        290
+      ],
+      "summary": "Full reservation widget with signal-based reactive date and guest count state, derived price computations, date formatting helpers, and a reserve action that validates required fields.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/component-showcase.component.ts:ComponentShowcaseComponent",
+      "type": "class",
+      "name": "ComponentShowcaseComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "lineRange": [
+        302,
+        455
+      ],
+      "summary": "Developer showcase component pre-loaded with hardcoded fixture data for all 18 vacation-rental components; no methods — purely a data container for visual testing.",
+      "tags": [
+        "component",
+        "demonstration",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/destination-card.component.ts:DestinationCardComponent",
+      "type": "class",
+      "name": "DestinationCardComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "lineRange": [
+        92,
+        104
+      ],
+      "summary": "Card component for a destination; the findListings method calls ChatService.addUserPrompt to initiate an AI search for listings in the displayed destination.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/empty-state.component.ts:EmptyStateComponent",
+      "type": "class",
+      "name": "EmptyStateComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/empty-state.component.ts",
+      "lineRange": [
+        76,
+        86
+      ],
+      "summary": "Zero-result placeholder component accepting icon, title, message, and action button text inputs with a performAction stub.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/favorites-list.component.ts:FavoritesListComponent",
+      "type": "class",
+      "name": "FavoritesListComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "lineRange": [
+        123,
+        130
+      ],
+      "summary": "Renders the user's saved favorites list by reading FavoritesService.favorites signal and delegates removal to favoritesService.removeFavorite.",
+      "tags": [
+        "component",
+        "ui",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/filter-chip.component.ts:FilterChipComponent",
+      "type": "class",
+      "name": "FilterChipComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+      "lineRange": [
+        58,
+        68
+      ],
+      "summary": "Selectable filter chip with filterName, icon, and isSelected inputs; toggleSelection logs and can emit the selection state change.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/host-profile-card.component.ts:HostProfileCardComponent",
+      "type": "class",
+      "name": "HostProfileCardComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+      "lineRange": [
+        96,
+        98
+      ],
+      "summary": "Presentational component accepting a single host object input to render host profile details with avatar, name, and superhost status.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/listing-description.component.ts:ListingDescriptionComponent",
+      "type": "class",
+      "name": "ListingDescriptionComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/listing-description.component.ts",
+      "lineRange": [
+        83,
+        91
+      ],
+      "summary": "Expandable property description component using a signal-based isExpanded flag toggled by toggleExpanded to show or hide excess content.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/listing-header.component.ts:ListingHeaderComponent",
+      "type": "class",
+      "name": "ListingHeaderComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "lineRange": [
+        115,
+        143
+      ],
+      "summary": "Listing page header component that displays title, location, rating, review count, and a heart-icon toggle that calls FavoritesService to add or remove the listing from saved favorites.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/location-map.component.ts:LocationMapComponent",
+      "type": "class",
+      "name": "LocationMapComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/location-map.component.ts",
+      "lineRange": [
+        68,
+        86
+      ],
+      "summary": "Presentational component displaying a static map image with coordinates and a location description string for a rental property.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/pagination.component.ts:PaginationComponent",
+      "type": "class",
+      "name": "PaginationComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/pagination.component.ts",
+      "lineRange": [
+        122,
+        141
+      ],
+      "summary": "Pagination control component with goToPage, previousPage, and nextPage methods; computes page range from currentPage, totalItems, and itemsPerPage inputs.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts:PhotoGalleryGridComponent",
+      "type": "class",
+      "name": "PhotoGalleryGridComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+      "lineRange": [
+        103,
+        106
+      ],
+      "summary": "Presentational grid gallery component accepting imageUrls array and propertyTitle to render a responsive photo grid for a rental listing.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/property-card.component.ts:PropertyCardComponent",
+      "type": "class",
+      "name": "PropertyCardComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "lineRange": [
+        113,
+        132
+      ],
+      "summary": "Listing search-result card that shows images, location, title, price, and rating; viewDetail calls ChatService.addUserPrompt to surface the AI-driven listing detail view.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/rating-stars.component.ts:RatingStarsComponent",
+      "type": "class",
+      "name": "RatingStarsComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "lineRange": [
+        63,
+        70
+      ],
+      "summary": "Reusable star-rating display component computing fullStars, hasHalfStar, and emptyStars from a 0–5 numeric rating input.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/review-card.component.ts:ReviewCardComponent",
+      "type": "class",
+      "name": "ReviewCardComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "lineRange": [
+        105,
+        115
+      ],
+      "summary": "Presentational review card accepting a single review object input and rendering reviewer name, avatar, date, star rating, and review text.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts:RulesAndPoliciesComponent",
+      "type": "class",
+      "name": "RulesAndPoliciesComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+      "lineRange": [
+        117,
+        120
+      ],
+      "summary": "Presentational component rendering property house rules and cancellation/safety policy items from two separate array inputs.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/site-footer.component.ts:SiteFooterComponent",
+      "type": "class",
+      "name": "SiteFooterComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/site-footer.component.ts",
+      "lineRange": [
+        141,
+        144
+      ],
+      "summary": "Presentational site footer component rendering configurable link columns and social media icon links from two array inputs.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/user-booking-card.component.ts:UserBookingCardComponent",
+      "type": "class",
+      "name": "UserBookingCardComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+      "lineRange": [
+        160,
+        170
+      ],
+      "summary": "Presentational booking summary card accepting a single booking object input displaying property image, dates, guests, price, and booking status.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/components/view-details-button.component.ts:ViewDetailsButtonComponent",
+      "type": "class",
+      "name": "ViewDetailsButtonComponent",
+      "filePath": "src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+      "lineRange": [
+        36,
+        43
+      ],
+      "summary": "CTA button component that calls ChatService.addUserPrompt with the listingName to trigger AI-driven navigation to a specific listing's detail view.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/vacation-rentals/favorites.service.ts:FavoritesService",
+      "type": "class",
+      "name": "FavoritesService",
+      "filePath": "src/app/apps/vacation-rentals/favorites.service.ts",
+      "lineRange": [
+        22,
+        32
+      ],
+      "summary": "Signal-based Angular service maintaining the list of user-favorited rental listings; exposes addFavorite and removeFavorite methods that update the reactive favorites signal.",
+      "tags": [
+        "service",
+        "singleton",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/chat/chat.service.ts:ChatService",
+      "type": "class",
+      "name": "ChatService",
+      "filePath": "src/app/chat/chat.service.ts",
+      "lineRange": [
+        17,
+        63
+      ],
+      "summary": "Core application service bridging component interactions to the AI layer: addUserPrompt sets the MagicAiService prompt, persists conversation history, and navigates the router to the chat view.",
+      "tags": [
+        "service",
+        "singleton",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "type": "file",
+      "name": "app-context.ts",
+      "filePath": "src/app/apps/magic-bookstore/app-context.ts",
+      "summary": "Defines GENERATED_APP_CONTEXT for the magic-bookstore demo, registering all 12 UI components as available SDUI components with their schemas so the AI layer can render them dynamically.",
+      "tags": [
+        "component",
+        "configuration",
+        "data-model",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "type": "file",
+      "name": "author-bio-card.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "summary": "Angular standalone component that renders an author biography card with name initials, photo, bio text, and social links, reading author data from the magic-bookstore data-store.",
+      "tags": [
+        "component",
+        "ui",
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/author-bio-card.component.ts:AuthorBioCardComponent",
+      "type": "class",
+      "name": "AuthorBioCardComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "lineRange": [
+        89,
+        102
+      ],
+      "summary": "Displays author biography with avatar initials, biography text, and social links; computes initials from the author's full name.",
+      "tags": [
+        "component",
+        "ui",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "type": "file",
+      "name": "award-badge.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "summary": "Angular standalone component rendering a styled badge for literary awards, accepting an award object as input and displaying the award name and year.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/award-badge.component.ts:AwardBadgeComponent",
+      "type": "class",
+      "name": "AwardBadgeComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "lineRange": [
+        63,
+        65
+      ],
+      "summary": "Presentational badge component that displays a literary award's name and year from an input signal.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "type": "file",
+      "name": "bestseller-ribbon.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "summary": "Angular standalone component rendering a bestseller ribbon overlay with a configurable rank label, intended for use as a decorator on book cover cards.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts:BestsellerRibbonComponent",
+      "type": "class",
+      "name": "BestsellerRibbonComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "lineRange": [
+        36,
+        38
+      ],
+      "summary": "Simple presentational ribbon overlay that accepts a rank string and renders the bestseller badge UI.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "type": "file",
+      "name": "book-cover-card.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "summary": "Angular standalone component displaying a book cover card with title, author, rating stars, bestseller ribbon, and a 'view details' action that sends a prompt to the AI chat service.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/book-cover-card.component.ts:BookCoverCardComponent",
+      "type": "class",
+      "name": "BookCoverCardComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "lineRange": [
+        149,
+        156
+      ],
+      "summary": "Book cover card that injects ChatService to trigger AI-driven detail navigation when the user clicks 'view details'.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+      "type": "file",
+      "name": "book-description-panel.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+      "summary": "Angular standalone component displaying a collapsible book description panel with a configurable character limit and expand/collapse toggle using Angular signals.",
+      "tags": [
+        "component",
+        "ui",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/book-description-panel.component.ts:BookDescriptionPanelComponent",
+      "type": "class",
+      "name": "BookDescriptionPanelComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+      "lineRange": [
+        70,
+        94
+      ],
+      "summary": "Collapsible description panel using Angular signals for expand state, truncating text at a configurable maxLength with a show-more/show-less toggle.",
+      "tags": [
+        "component",
+        "ui",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "type": "file",
+      "name": "book-detail-hero.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "summary": "Angular standalone component rendering a full-detail hero section for a book, including cover image, ratings, bestseller ribbon, author names, and an add-to-cart action stub.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts:BookDetailHeroComponent",
+      "type": "class",
+      "name": "BookDetailHeroComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "lineRange": [
+        185,
+        198
+      ],
+      "summary": "Hero component for a book detail page that computes a joined author-names string and exposes an addToCart stub logging the book title.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "type": "file",
+      "name": "book-specifications.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "summary": "Angular standalone component rendering a structured specifications table for a book, displaying metadata such as pages, publisher, format, and language from the data-store Book type.",
+      "tags": [
+        "component",
+        "ui",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/book-specifications.component.ts:BookSpecificationsComponent",
+      "type": "class",
+      "name": "BookSpecificationsComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "lineRange": [
+        95,
+        97
+      ],
+      "summary": "Presentational table component that renders key book metadata fields from a Book input signal.",
+      "tags": [
+        "component",
+        "ui",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "type": "file",
+      "name": "full-review-card.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "summary": "Angular standalone component displaying a full reader review card with reviewer name, rating stars, date, and review body text.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/full-review-card.component.ts:FullReviewCardComponent",
+      "type": "class",
+      "name": "FullReviewCardComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "lineRange": [
+        65,
+        67
+      ],
+      "summary": "Presentational card displaying a reader review with rating stars from RatingStarsComponent and review data from the data-store Review type.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "type": "file",
+      "name": "genre-tag-cloud.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "summary": "Angular standalone component rendering a cloud of clickable genre and tag chips that submit a genre-search prompt to the AI chat service when clicked.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts:GenreTagCloudComponent",
+      "type": "class",
+      "name": "GenreTagCloudComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "lineRange": [
+        73,
+        81
+      ],
+      "summary": "Tag cloud component that injects ChatService and calls addUserPrompt when a genre chip is clicked to trigger AI-driven book discovery.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "type": "file",
+      "name": "rating-stars.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "summary": "Angular standalone component that renders a row of star icons (full, half, empty) computed from a numeric rating input; shared across multiple bookstore components.",
+      "tags": [
+        "component",
+        "ui",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/rating-stars.component.ts:RatingStarsComponent",
+      "type": "class",
+      "name": "RatingStarsComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "lineRange": [
+        42,
+        59
+      ],
+      "summary": "Reusable rating-stars widget that computes full, half, and empty star counts from a decimal rating and returns icon names via getStarIcon.",
+      "tags": [
+        "component",
+        "ui",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "type": "file",
+      "name": "related-books-carousel.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "summary": "Angular standalone component rendering a horizontally scrollable carousel of related book covers using BookCoverCardComponent, with programmatic scroll buttons.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts:RelatedBooksCarouselComponent",
+      "type": "class",
+      "name": "RelatedBooksCarouselComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "lineRange": [
+        117,
+        131
+      ],
+      "summary": "Carousel container with a ViewChild reference to the scroll container and a scroll() method that moves left or right by pixel offset.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "type": "file",
+      "name": "review-summary.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "summary": "Angular standalone component showing an aggregate review summary with average rating stars and total review count.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/review-summary.component.ts:ReviewSummaryComponent",
+      "type": "class",
+      "name": "ReviewSummaryComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "lineRange": [
+        38,
+        41
+      ],
+      "summary": "Compact aggregate-rating component accepting averageRating and reviewCount signals and delegating star rendering to RatingStarsComponent.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+      "type": "file",
+      "name": "series-info-card.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+      "summary": "Angular standalone component displaying a book series information card with series name, book position, and total books in the series.",
+      "tags": [
+        "component",
+        "ui",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/series-info-card.component.ts:SeriesInfoCardComponent",
+      "type": "class",
+      "name": "SeriesInfoCardComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+      "lineRange": [
+        63,
+        65
+      ],
+      "summary": "Presentational card showing book series membership details such as series name, current book number, and total series length.",
+      "tags": [
+        "component",
+        "ui",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+      "type": "file",
+      "name": "stock-availability.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+      "summary": "Angular standalone component displaying real-time stock availability, pricing (regular and sale), and an add-to-cart button with in-stock/out-of-stock state.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/components/stock-availability.component.ts:StockAvailabilityComponent",
+      "type": "class",
+      "name": "StockAvailabilityComponent",
+      "filePath": "src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+      "lineRange": [
+        117,
+        127
+      ],
+      "summary": "Stock and price widget that conditionally shows sale pricing and exposes an addToCart stub that logs stock and price inputs.",
+      "tags": [
+        "component",
+        "ui",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "file",
+      "name": "data-store.ts",
+      "filePath": "src/app/apps/magic-bookstore/data-store.ts",
+      "summary": "Large static data module exporting the magic-bookstore DATA constant — a comprehensive catalog of books, authors, reviews, and series used as sample data throughout all bookstore UI components.",
+      "tags": [
+        "data-model",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "type": "file",
+      "name": "magic-bookstore-showcase.component.ts",
+      "filePath": "src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "summary": "Angular standalone showcase component that imports all 13 magic-bookstore UI components and renders them side-by-side with sample data, serving as a live component gallery for the demo.",
+      "tags": [
+        "component",
+        "ui",
+        "entry-point"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts:MagicBookstoreShowcaseComponent",
+      "type": "class",
+      "name": "MagicBookstoreShowcaseComponent",
+      "filePath": "src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "lineRange": [
+        191,
+        194
+      ],
+      "summary": "Showcase host component holding sampleBooks and sampleBookDetail properties populated from the data-store to feed all child component demos.",
+      "tags": [
+        "component",
+        "ui",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/app-context.ts",
+      "type": "file",
+      "name": "app-context.ts",
+      "filePath": "src/app/apps/adev-docs/app-context.ts",
+      "summary": "Defines the AI-generated application context for the adev-docs demo, registering all documentation UI components (API reference, callout, code snippet, etc.) that the SDUI engine can dynamically render.",
+      "tags": [
+        "configuration",
+        "entry-point",
+        "component",
+        "sdui",
+        "adev-docs"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/api-reference.component.ts",
+      "type": "file",
+      "name": "api-reference.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/api-reference.component.ts",
+      "summary": "Angular component that renders a structured API reference entry for a documentation item, using the FormatInlineCodePipe to highlight inline code fragments in the output.",
+      "tags": [
+        "component",
+        "documentation",
+        "api-handler",
+        "markup"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/callout.component.ts",
+      "type": "file",
+      "name": "callout.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/callout.component.ts",
+      "summary": "Angular component that renders a styled callout block (e.g., note, warning, tip) with a dynamically computed CSS class based on its type input.",
+      "tags": [
+        "component",
+        "documentation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "type": "file",
+      "name": "code-snippet.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "summary": "Angular component that displays a syntax-highlighted code snippet with a copy-to-clipboard action, injecting MagicAiService for potential AI-assisted interactions.",
+      "tags": [
+        "component",
+        "documentation",
+        "utility",
+        "clipboard"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "type": "file",
+      "name": "component-showcase.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "summary": "Orchestrating showcase component for the adev-docs demo that imports and wires together all nine documentation UI components, composing them into a single interactive documentation page.",
+      "tags": [
+        "component",
+        "entry-point",
+        "documentation",
+        "sdui",
+        "adev-docs"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/concept-explanation.component.ts",
+      "type": "file",
+      "name": "concept-explanation.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/concept-explanation.component.ts",
+      "summary": "Angular component that renders a prose explanation block for a documentation concept, accepting a content input and displaying it as formatted text.",
+      "tags": [
+        "component",
+        "documentation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "type": "file",
+      "name": "full-code-example.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "summary": "Angular component that renders a complete, self-contained code example using CodeSnippetComponent and applies FormatInlineCodePipe for inline code formatting in accompanying descriptions.",
+      "tags": [
+        "component",
+        "documentation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "type": "file",
+      "name": "learn-more-button.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "summary": "Angular component that renders a configurable 'Learn More' button; on click it injects a topic-based prompt into the ChatService to trigger an AI conversation about that topic.",
+      "tags": [
+        "component",
+        "documentation",
+        "event-handler",
+        "ai-integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/section-title.component.ts",
+      "type": "file",
+      "name": "section-title.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/section-title.component.ts",
+      "summary": "Minimal Angular component that renders a documentation section heading, applying FormatInlineCodePipe to the title string to highlight any inline code.",
+      "tags": [
+        "component",
+        "documentation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "type": "file",
+      "name": "subsection-title.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "summary": "Minimal Angular component that renders a documentation subsection heading, applying FormatInlineCodePipe to the title string for inline code formatting.",
+      "tags": [
+        "component",
+        "documentation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/components/topic-card.component.ts",
+      "type": "file",
+      "name": "topic-card.component.ts",
+      "filePath": "src/app/apps/adev-docs/components/topic-card.component.ts",
+      "summary": "Angular component that renders a clickable topic card for the adev-docs UI; clicking the card submits the topic as a user prompt to the ChatService to initiate an AI-powered discussion.",
+      "tags": [
+        "component",
+        "documentation",
+        "event-handler",
+        "ai-integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "file",
+      "name": "format-inline-code.pipe.ts",
+      "filePath": "src/app/pipes/format-inline-code.pipe.ts",
+      "summary": "Angular pipe that transforms a string by wrapping backtick-delimited inline code fragments with HTML <code> tags, used across multiple documentation components to highlight inline code in text.",
+      "tags": [
+        "utility",
+        "pipe",
+        "serialization",
+        "documentation"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Implements Angular's PipeTransform interface with a single transform() method using a regex replace for backtick-to-<code> conversion."
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/api-reference.component.ts:ApiReferenceComponent",
+      "type": "class",
+      "name": "ApiReferenceComponent",
+      "filePath": "src/app/apps/adev-docs/components/api-reference.component.ts",
+      "lineRange": [
+        157,
+        159
+      ],
+      "summary": "Standalone Angular component that accepts an apiItem input and renders a detailed API reference section with inline code formatting.",
+      "tags": [
+        "component",
+        "documentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/callout.component.ts:CalloutComponent",
+      "type": "class",
+      "name": "CalloutComponent",
+      "filePath": "src/app/apps/adev-docs/components/callout.component.ts",
+      "lineRange": [
+        73,
+        80
+      ],
+      "summary": "Angular component that renders callout blocks with type-driven CSS class selection (note, warning, tip) and formatted content.",
+      "tags": [
+        "component",
+        "documentation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/code-snippet.component.ts:CodeSnippetComponent",
+      "type": "class",
+      "name": "CodeSnippetComponent",
+      "filePath": "src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "lineRange": [
+        85,
+        95
+      ],
+      "summary": "Angular component for displaying code snippets with syntax language support and a copyCode action that writes the code to the clipboard.",
+      "tags": [
+        "component",
+        "documentation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/component-showcase.component.ts:AdevDocsComponentShowcaseComponent",
+      "type": "class",
+      "name": "AdevDocsComponentShowcaseComponent",
+      "filePath": "src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "lineRange": [
+        126,
+        165
+      ],
+      "summary": "Main showcase component for the adev-docs SDUI demo that orchestrates the full documentation page layout by composing all nine specialized documentation sub-components.",
+      "tags": [
+        "component",
+        "entry-point",
+        "documentation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/concept-explanation.component.ts:ConceptExplanationComponent",
+      "type": "class",
+      "name": "ConceptExplanationComponent",
+      "filePath": "src/app/apps/adev-docs/components/concept-explanation.component.ts",
+      "lineRange": [
+        80,
+        82
+      ],
+      "summary": "Angular component that renders a prose concept explanation block accepting a content string input.",
+      "tags": [
+        "component",
+        "documentation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/full-code-example.component.ts:FullCodeExampleComponent",
+      "type": "class",
+      "name": "FullCodeExampleComponent",
+      "filePath": "src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "lineRange": [
+        64,
+        66
+      ],
+      "summary": "Angular component that renders a complete code example block, embedding CodeSnippetComponent and applying FormatInlineCodePipe to descriptions.",
+      "tags": [
+        "component",
+        "documentation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/learn-more-button.component.ts:LearnMoreButtonComponent",
+      "type": "class",
+      "name": "LearnMoreButtonComponent",
+      "filePath": "src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "lineRange": [
+        40,
+        51
+      ],
+      "summary": "Angular component providing a 'Learn More' button that dispatches a topic prompt to ChatService when clicked, bridging the documentation UI with the AI chat system.",
+      "tags": [
+        "component",
+        "event-handler",
+        "ai-integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/section-title.component.ts:SectionTitleComponent",
+      "type": "class",
+      "name": "SectionTitleComponent",
+      "filePath": "src/app/apps/adev-docs/components/section-title.component.ts",
+      "lineRange": [
+        31,
+        33
+      ],
+      "summary": "Angular component that renders a top-level section heading with inline code formatting applied via FormatInlineCodePipe.",
+      "tags": [
+        "component",
+        "documentation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/subsection-title.component.ts:SubsectionTitleComponent",
+      "type": "class",
+      "name": "SubsectionTitleComponent",
+      "filePath": "src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "lineRange": [
+        31,
+        33
+      ],
+      "summary": "Angular component that renders a subsection heading with inline code formatting applied via FormatInlineCodePipe.",
+      "tags": [
+        "component",
+        "documentation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/apps/adev-docs/components/topic-card.component.ts:TopicCardComponent",
+      "type": "class",
+      "name": "TopicCardComponent",
+      "filePath": "src/app/apps/adev-docs/components/topic-card.component.ts",
+      "lineRange": [
+        52,
+        63
+      ],
+      "summary": "Angular component rendering a topic card that dispatches an updatePrompt call to ChatService, enabling users to interactively explore documentation topics via AI chat.",
+      "tags": [
+        "component",
+        "event-handler",
+        "ai-integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/pipes/format-inline-code.pipe.ts:FormatInlineCodePipe",
+      "type": "class",
+      "name": "FormatInlineCodePipe",
+      "filePath": "src/app/pipes/format-inline-code.pipe.ts",
+      "lineRange": [
+        14,
+        22
+      ],
+      "summary": "Angular pipe implementing PipeTransform that converts backtick-wrapped inline code in strings to HTML <code> tags for display in documentation components.",
+      "tags": [
+        "utility",
+        "pipe",
+        "serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.routes.ts",
+      "type": "file",
+      "name": "app.routes.ts",
+      "filePath": "src/app/app.routes.ts",
+      "summary": "Defines the application route configuration, placing the Base layout as the root shell with magic-AI-driven UI routes under '/magic/:index', a favorites route, and lazy-loaded showcase sub-routes.",
+      "tags": [
+        "entry-point",
+        "configuration",
+        "routing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/base-components/base.component.ts",
+      "type": "file",
+      "name": "base.component.ts",
+      "filePath": "src/app/base-components/base.component.ts",
+      "summary": "Provides the Base layout shell component that wraps the main app scaffold — combining the app header (with AI-driven app name and theme), a router-outlet for AI content, and the persistent chat sidebar.",
+      "tags": [
+        "component",
+        "layout",
+        "entry-point",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/app/base-components/base.component.ts:Base",
+      "type": "class",
+      "name": "Base",
+      "filePath": "src/app/base-components/base.component.ts",
+      "lineRange": [
+        105,
+        108
+      ],
+      "summary": "Layout shell component that reads app name and theme from APP_CONTEXT, hosting the router-outlet and chat panel in a two-column grid.",
+      "tags": [
+        "component",
+        "layout",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/chat/chat.component.ts",
+      "type": "file",
+      "name": "chat.component.ts",
+      "filePath": "src/app/chat/chat.component.ts",
+      "summary": "Implements the persistent AI chat sidebar component that displays conversation history, formats inline code via a pipe, auto-scrolls on new messages, and dispatches user prompts through ChatService while gating send on stream completion.",
+      "tags": [
+        "component",
+        "chat",
+        "ai-handler",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/app/chat/chat.component.ts:ChatComponent",
+      "type": "class",
+      "name": "ChatComponent",
+      "filePath": "src/app/chat/chat.component.ts",
+      "lineRange": [
+        165,
+        228
+      ],
+      "summary": "Angular component managing the chat UI: renders conversation history, auto-scrolls to new messages via an effect, sends user messages through ChatService, and auto-resizes the textarea up to 5 lines.",
+      "tags": [
+        "component",
+        "chat",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/magic-ai/app-context.ts",
+      "type": "file",
+      "name": "app-context.ts",
+      "filePath": "src/app/magic-ai/app-context.ts",
+      "summary": "Central configuration hub that selects the active SDUI app context (adev-docs, vacation-rentals, or magic-bookstore) by name, exporting the resolved APP_CONTEXT and APP_NAME for use across the magic-ai module.",
+      "tags": [
+        "configuration",
+        "service",
+        "factory"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses a lookup map pattern (APP_CONTEXT_MAP) to select the active AppContext by a string key, enabling compile-time switching of the active demo app without modifying downstream consumers."
+    },
+    {
+      "id": "file:src/app/magic-ai/magic-ai-container.component.ts",
+      "type": "file",
+      "name": "magic-ai-container.component.ts",
+      "filePath": "src/app/magic-ai/magic-ai-container.component.ts",
+      "summary": "Container component for the AI-driven SDUI view: manages a paginated list of AI-generated component schemas from MagicAiService, shows a loading spinner while waiting for the stream, and renders the active schema through MagicAiRenderer.",
+      "tags": [
+        "component",
+        "middleware",
+        "ai-handler",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/app/magic-ai/magic-ai-container.component.ts:MagicAiComponent",
+      "type": "class",
+      "name": "MagicAiComponent",
+      "filePath": "src/app/magic-ai/magic-ai-container.component.ts",
+      "lineRange": [
+        99,
+        135
+      ],
+      "summary": "Orchestrates the SDUI rendering lifecycle: reads ':index' from the route, maps it to an entry in the componentSchemaList from MagicAiService, passes the resolved schema to MagicAiRenderer, and navigates to a valid index when out-of-bounds.",
+      "tags": [
+        "component",
+        "middleware",
+        "ai-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/magic-ai/magic-ai-renderer.component.ts",
+      "type": "file",
+      "name": "magic-ai-renderer.component.ts",
+      "filePath": "src/app/magic-ai/magic-ai-renderer.component.ts",
+      "summary": "The core SDUI rendering engine: recursively traverses a DynamicSchema tree and imperatively instantiates Angular components, HTML elements, or text nodes — creating components with input bindings via createComponent and attaching them to Angular's change detection.",
+      "tags": [
+        "component",
+        "middleware",
+        "factory",
+        "event-handler"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses Angular's imperative createComponent API with inputBinding, ApplicationRef.attachView, and a reactive effect to tear down and re-render the entire subtree whenever the schema signal changes — a rare low-level pattern that bypasses the template compiler."
+    },
+    {
+      "id": "class:src/app/magic-ai/magic-ai-renderer.component.ts:MagicAiRenderer",
+      "type": "class",
+      "name": "MagicAiRenderer",
+      "filePath": "src/app/magic-ai/magic-ai-renderer.component.ts",
+      "lineRange": [
+        35,
+        124
+      ],
+      "summary": "Accepts a DynamicSchema input signal and imperatively renders a tree of Angular components ('componentSchema'), HTML elements ('elementSchema'), or text nodes ('textSchema'), cleaning up destroyed views on schema change.",
+      "tags": [
+        "component",
+        "factory",
+        "middleware"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/app/magic-ai/magic-ai.service.ts",
+      "type": "file",
+      "name": "magic-ai.service.ts",
+      "filePath": "src/app/magic-ai/magic-ai.service.ts",
+      "summary": "Root-level Angular service that drives the SDUI AI loop: streams component schemas from the Genkit 'generateUI' flow using Angular's resource API, maintains a paginated componentSchemaList via linkedSignal, and rotates loading placeholder text during generation.",
+      "tags": [
+        "service",
+        "ai-handler",
+        "data-model",
+        "singleton"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses Angular 21's experimental resource() with streaming and linkedSignal() — advanced reactive primitives that keep the schema list incrementally updated as the Genkit stream emits partial responses."
+    },
+    {
+      "id": "class:src/app/magic-ai/magic-ai.service.ts:MagicAiService",
+      "type": "class",
+      "name": "MagicAiService",
+      "filePath": "src/app/magic-ai/magic-ai.service.ts",
+      "lineRange": [
+        26,
+        127
+      ],
+      "summary": "Injectable service providing the SDUI prompt signal, the streaming componentResource backed by Genkit, and derived signals (componentSchemaList, isStreamComplete, loadingText) consumed by the container and chat components.",
+      "tags": [
+        "service",
+        "ai-handler",
+        "singleton"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/app/showcase/showcase-directory.component.ts",
+      "type": "file",
+      "name": "showcase-directory.component.ts",
+      "filePath": "src/app/showcase/showcase-directory.component.ts",
+      "summary": "Simple directory component at the '/showcase' route that renders a navigation list linking to each demo app's static component showcase (adev-docs, vacation-rentals, magic-bookstore).",
+      "tags": [
+        "component",
+        "entry-point",
+        "navigation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/app/showcase/showcase-directory.component.ts:ShowcaseDirectoryComponent",
+      "type": "class",
+      "name": "ShowcaseDirectoryComponent",
+      "filePath": "src/app/showcase/showcase-directory.component.ts",
+      "lineRange": [
+        55,
+        55
+      ],
+      "summary": "Standalone Angular component that displays a bulleted list of routerLink anchors pointing to the three showcase sub-routes.",
+      "tags": [
+        "component",
+        "navigation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.config.server.ts",
+      "type": "file",
+      "name": "app.config.server.ts",
+      "filePath": "src/app/app.config.server.ts",
+      "summary": "Merges the base client application config with server-specific providers (SSR via provideServerRendering and server route config), producing the unified config used to bootstrap the Angular SSR application.",
+      "tags": [
+        "configuration",
+        "ssr",
+        "entry-point",
+        "bootstrap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/app.config.ts",
+      "type": "file",
+      "name": "app.config.ts",
+      "filePath": "src/app/app.config.ts",
+      "summary": "Defines the root Angular ApplicationConfig for the browser, wiring up the router with component input binding, client hydration with event replay, ngx-markdown, and ngx-highlightjs with lazy-loaded language packs.",
+      "tags": [
+        "configuration",
+        "bootstrap",
+        "router",
+        "hydration"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses withComponentInputBinding and withEventReplay for Angular 17+ enhanced router and hydration features; highlight.js languages are lazy-loaded via dynamic import() to reduce initial bundle size."
+    },
+    {
+      "id": "file:src/app/app.routes.server.ts",
+      "type": "file",
+      "name": "app.routes.server.ts",
+      "filePath": "src/app/app.routes.server.ts",
+      "summary": "Declares the SSR server route configuration, setting all routes to Client render mode so Angular SSR defers rendering to the browser rather than pre-rendering on the server.",
+      "tags": [
+        "configuration",
+        "ssr",
+        "routing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/base-components/app.component.ts",
+      "type": "file",
+      "name": "app.component.ts",
+      "filePath": "src/app/base-components/app.component.ts",
+      "summary": "Root Angular shell component (selector `app-root`) that renders only a `<router-outlet>`, serving as the top-level host for all routed views in the application.",
+      "tags": [
+        "component",
+        "entry-point",
+        "shell",
+        "router",
+        "tested"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Standalone component using OnPush change detection — the minimal root shell pattern common in Angular 17+ standalone application setups."
+    },
+    {
+      "id": "file:src/main.server.ts",
+      "type": "file",
+      "name": "main.server.ts",
+      "filePath": "src/main.server.ts",
+      "summary": "Server-side entry point that exports a default bootstrap function, bootstrapping the App component with the merged SSR application config for Angular Universal / SSR execution.",
+      "tags": [
+        "entry-point",
+        "ssr",
+        "bootstrap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.ts",
+      "type": "file",
+      "name": "main.ts",
+      "filePath": "src/main.ts",
+      "summary": "Browser-side entry point that calls bootstrapApplication with the root App component and the client application config, kicking off the Angular application in the browser.",
+      "tags": [
+        "entry-point",
+        "bootstrap",
+        "browser"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apps/adev-docs/data-store.ts",
+      "type": "file",
+      "name": "data-store.ts",
+      "filePath": "src/app/apps/adev-docs/data-store.ts",
+      "summary": "Exports a large markdown knowledge-base string (`DATA`) containing Angular framework documentation used as the AI's contextual data source for the adev-docs demo app.",
+      "tags": [
+        "data-model",
+        "documentation",
+        "ai-context"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/apps/vacation-rentals/data-store.ts",
+      "type": "file",
+      "name": "data-store.ts",
+      "filePath": "src/app/apps/vacation-rentals/data-store.ts",
+      "summary": "Defines TypeScript interfaces (Host, Amenity, Rule, Listing, etc.) and exports a large typed dataset (`DATA`) of vacation rental listings plus a `SUBSET_LISTINGS` slice, serving as the primary data model for the vacation-rentals demo app.",
+      "tags": [
+        "data-model",
+        "schema-definition",
+        "fixture-data"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Combines interface definitions with large inline typed data arrays — functions as both a schema and a seed data source."
+    },
+    {
+      "id": "file:src/genkit-utils/data-store.ts",
+      "type": "file",
+      "name": "data-store.ts",
+      "filePath": "src/genkit-utils/data-store.ts",
+      "summary": "Aggregates data from all three demo app data-stores and re-exports the dataset matching the currently active app name (`APP_NAME`), acting as a runtime data selector for the Genkit backend.",
+      "tags": [
+        "data-model",
+        "service",
+        "barrel"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses a dictionary lookup (`DATA_MAP[APP_NAME]`) to select and re-export the correct per-app dataset at import time."
+    },
+    {
+      "id": "file:src/genkit-utils/flows.ts",
+      "type": "file",
+      "name": "flows.ts",
+      "filePath": "src/genkit-utils/flows.ts",
+      "summary": "Defines the core Executor AI Genkit flow (`generateUIFlow`) that streams AI-generated Server-Driven UI schemas from Gemini 2.5 Flash, including session history management and Zod-based output schema definitions (`UiSchema`).",
+      "tags": [
+        "service",
+        "ai-handler",
+        "entry-point"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses Genkit's `ai.defineFlow` and `ai.generateStream` with Zod schemas for structured output, enabling streaming JSON conforming to the SDUI component schema."
+    },
+    {
+      "id": "function:src/genkit-utils/flows.ts:generateUIFlow",
+      "type": "function",
+      "name": "generateUIFlow",
+      "filePath": "src/genkit-utils/flows.ts",
+      "lineRange": [
+        81,
+        137
+      ],
+      "summary": "Genkit flow that receives a user message, app description, session ID, and component registry, streams AI-generated UI schemas from Gemini 2.5 Flash with conversation history, and emits `endOfStream` signals for client consumption.",
+      "tags": [
+        "ai-handler",
+        "service",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/genkit-utils/prompts.ts",
+      "type": "file",
+      "name": "prompts.ts",
+      "filePath": "src/genkit-utils/prompts.ts",
+      "summary": "Exports `systemInstructions`, a detailed multi-section system prompt string that directs the AI on how to generate dense, component-registry-driven SDUI layouts including layout primitives, styling rules, and output schema requirements.",
+      "tags": [
+        "ai-context",
+        "configuration",
+        "data-model"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "The prompt is a 164-line template literal covering a 6-section instruction set: role, inputs, generation process, layout primitives, styling guidelines, and output schema."
+    },
+    {
+      "id": "file:src/server.ts",
+      "type": "file",
+      "name": "server.ts",
+      "filePath": "src/server.ts",
+      "summary": "Express server that registers the `generateUIFlow` Genkit endpoint at `POST /generateUI`, serves Angular SSR-rendered pages, and exports a `reqHandler` compatible with the Angular CLI dev-server and Firebase Cloud Functions.",
+      "tags": [
+        "entry-point",
+        "api-handler",
+        "service"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Combines Genkit's `expressHandler` adapter with Angular's `AngularNodeAppEngine` for SSR in a single Express process, enabling both AI API calls and SSR from one server."
+    },
+    {
+      "id": "endpoint:src/server.ts:POST-/generateUI",
+      "type": "endpoint",
+      "name": "POST /generateUI",
+      "filePath": "src/server.ts",
+      "lineRange": [
+        27,
+        27
+      ],
+      "summary": "HTTP endpoint that accepts POST requests and delegates to the `generateUIFlow` Genkit flow, streaming AI-generated SDUI component schemas back to the client.",
+      "tags": [
+        "api-handler",
+        "streaming",
+        "ai-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.postcssrc.json",
+      "type": "config",
+      "name": ".postcssrc.json",
+      "filePath": ".postcssrc.json",
+      "summary": "PostCSS configuration that enables Tailwind CSS v4 via the @tailwindcss/postcss plugin, wiring Tailwind into the Angular build pipeline.",
+      "tags": [
+        "configuration",
+        "css",
+        "tailwindcss",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Primary project documentation covering the two-AI architecture (Generator AI via MCP server and Executor AI via Genkit), the app-context.ts manifest pattern, three sample applications, installation steps, and project structure overview.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "architecture"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:angular.json",
+      "type": "config",
+      "name": "angular.json",
+      "filePath": "angular.json",
+      "summary": "Angular workspace configuration defining the dynamic-sdui-app project with SSR-enabled build targets, Tailwind CSS and highlight.js stylesheet integration, and Karma-based test runner configuration.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "angular",
+        "deployment"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Node.js project manifest declaring Angular 21 next, Genkit AI (googleai/vertexai), Tailwind CSS 4, and ngx-markdown as dependencies, along with pnpm overrides to pin Angular pre-release versions consistently across the workspace.",
+      "tags": [
+        "configuration",
+        "dependencies",
+        "build-system",
+        "angular"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Root TypeScript configuration enabling strict mode with Angular-specific strict template and injection parameter checks, targeting ES2022 with module:preserve, and referencing tsconfig.app.json and tsconfig.spec.json as project references.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system",
+        "angular"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses TypeScript project references (composite mode via 'references') to separate app and spec compilation contexts, which is Angular CLI's recommended setup."
+    },
+    {
+      "id": "config:tsconfig.app.json",
+      "type": "config",
+      "name": "tsconfig.app.json",
+      "filePath": "tsconfig.app.json",
+      "summary": "Application-specific TypeScript configuration extending tsconfig.json, including all src TypeScript files while excluding spec files, targeting the out-tsc/app output directory.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.spec.json",
+      "type": "config",
+      "name": "tsconfig.spec.json",
+      "filePath": "tsconfig.spec.json",
+      "summary": "Test-specific TypeScript configuration extending tsconfig.json, adding Jasmine type definitions and including all src TypeScript files for Karma test runner compilation.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "test",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:mcp-server/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "mcp-server/README.md",
+      "summary": "Setup and usage guide for the FastMCP-based Generator-AI server, explaining how to install FastMCP, integrate with Gemini CLI, and invoke the two available scaffolding prompts for generating new SDUI apps or individual components.",
+      "tags": [
+        "documentation",
+        "mcp",
+        "setup",
+        "developer-guide"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:mcp-server/server.py",
+      "type": "file",
+      "name": "server.py",
+      "filePath": "mcp-server/server.py",
+      "summary": "The Generator-AI half of the two-AI architecture: a FastMCP server that exposes two interactive scaffolding prompts to a Gemini CLI user, guiding them step-by-step through either generating a complete new SDUI application (app-context, Angular components, showcase, and global registry updates) or adding a single new component to an existing SDUI app, including design guidelines, code-generation rules, and an automated build-verify-fix loop.",
+      "tags": [
+        "mcp",
+        "code-generation",
+        "service",
+        "ai-tooling",
+        "entry-point"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Uses FastMCP's @mcp.prompt decorator pattern — each decorated function returns a large multi-step instruction string rather than executing logic directly; the LLM (Gemini CLI) interprets and executes those instructions against the project files."
+    },
+    {
+      "id": "function:mcp-server/server.py:generate_dynamic_sdui_app",
+      "type": "function",
+      "name": "generate_dynamic_sdui_app",
+      "filePath": "mcp-server/server.py",
+      "lineRange": [
+        14,
+        363
+      ],
+      "summary": "MCP prompt that orchestrates a 5-step interactive workflow to scaffold a complete new SDUI application: gathering user requirements, proposing a component registry and app description, generating all Angular components and the app-context.ts, updating global registries (magic-ai/app-context.ts, genkit-utils/data-store.ts, app.routes.ts, showcase-directory), and running an ng build verify-and-fix loop.",
+      "tags": [
+        "code-generation",
+        "scaffolding",
+        "mcp",
+        "workflow"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:mcp-server/server.py:create_dynamic_component",
+      "type": "function",
+      "name": "create_dynamic_component",
+      "filePath": "mcp-server/server.py",
+      "lineRange": [
+        366,
+        611
+      ],
+      "summary": "MCP prompt that guides a 4-step interactive workflow to add a single new Angular component to an existing SDUI application: gathering the target app name and component description, proposing the component design, generating the component files and updating app-context.ts and the showcase component, then running a build-verify-fix loop.",
+      "tags": [
+        "code-generation",
+        "scaffolding",
+        "mcp",
+        "component"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/app/app.spec.ts",
+      "type": "file",
+      "name": "app.spec.ts",
+      "filePath": "src/app/app.spec.ts",
+      "summary": "Root-level Angular unit test that verifies the top-level App component can be instantiated via TestBed, serving as a smoke test for the application bootstrap.",
+      "tags": [
+        "test",
+        "unit-test",
+        "smoke-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "src/index.html",
+      "summary": "Angular application host HTML page that sets the document title to 'ContextTestApp', loads the Material Icons font from Google Fonts, and mounts the root Angular component via the <app-root> element.",
+      "tags": [
+        "markup",
+        "entry-point",
+        "host-page"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/styles.css",
+      "type": "file",
+      "name": "styles.css",
+      "filePath": "src/styles.css",
+      "summary": "Global stylesheet that imports Tailwind CSS and a syntax-highlighting theme, then defines per-app CSS custom property namespaces (haven, adev-docs, magic-bookstore, vacation-rentals) with full design token sets, plus corresponding theme classes that map the namespaced tokens to generic CSS variables consumed by all dynamic components.",
+      "tags": [
+        "global-styles",
+        "design-tokens",
+        "theming",
+        "markup"
+      ],
+      "complexity": "complex",
+      "languageNotes": "The per-app theme variables (e.g., --haven-primary) are namespaced to avoid collisions, then remapped to generic --primary, --background, etc. inside scoped theme classes; this is the CSS-variable theming contract that all generated components depend on."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/empty-state.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/listing-description.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/location-map.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/site-footer.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/empty-state.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/listing-description.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/location-map.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/pagination.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/site-footer.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/favorites.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/favorites.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/chat/chat.service.ts",
+      "target": "file:src/app/magic-ai/magic-ai.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/alert-banner.component.ts:AlertBannerComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/alert-banner.component.ts:AlertBannerComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/amenity-list.component.ts:AmenityListComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/amenity-list.component.ts:AmenityListComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/booking-widget.component.ts:BookingWidgetComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/booking-widget.component.ts:BookingWidgetComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/component-showcase.component.ts:ComponentShowcaseComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/component-showcase.component.ts:ComponentShowcaseComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/destination-card.component.ts:DestinationCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/destination-card.component.ts:DestinationCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/empty-state.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/empty-state.component.ts:EmptyStateComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/empty-state.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/empty-state.component.ts:EmptyStateComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/favorites-list.component.ts:FavoritesListComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/favorites-list.component.ts:FavoritesListComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/filter-chip.component.ts:FilterChipComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/filter-chip.component.ts:FilterChipComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/host-profile-card.component.ts:HostProfileCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/host-profile-card.component.ts:HostProfileCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/listing-description.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/listing-description.component.ts:ListingDescriptionComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/listing-description.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/listing-description.component.ts:ListingDescriptionComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/listing-header.component.ts:ListingHeaderComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/listing-header.component.ts:ListingHeaderComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/location-map.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/location-map.component.ts:LocationMapComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/location-map.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/location-map.component.ts:LocationMapComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/pagination.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/pagination.component.ts:PaginationComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/pagination.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/pagination.component.ts:PaginationComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts:PhotoGalleryGridComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts:PhotoGalleryGridComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/property-card.component.ts:PropertyCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/property-card.component.ts:PropertyCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/rating-stars.component.ts:RatingStarsComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/rating-stars.component.ts:RatingStarsComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/review-card.component.ts:ReviewCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/review-card.component.ts:ReviewCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts:RulesAndPoliciesComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts:RulesAndPoliciesComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/site-footer.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/site-footer.component.ts:SiteFooterComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/site-footer.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/site-footer.component.ts:SiteFooterComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/user-booking-card.component.ts:UserBookingCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/user-booking-card.component.ts:UserBookingCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/view-details-button.component.ts:ViewDetailsButtonComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+      "target": "class:src/app/apps/vacation-rentals/components/view-details-button.component.ts:ViewDetailsButtonComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/favorites.service.ts",
+      "target": "class:src/app/apps/vacation-rentals/favorites.service.ts:FavoritesService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/vacation-rentals/favorites.service.ts",
+      "target": "class:src/app/apps/vacation-rentals/favorites.service.ts:FavoritesService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/chat/chat.service.ts",
+      "target": "class:src/app/chat/chat.service.ts:ChatService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/chat/chat.service.ts",
+      "target": "class:src/app/chat/chat.service.ts:ChatService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/apps/vacation-rentals/components/destination-card.component.ts:DestinationCardComponent",
+      "target": "class:src/app/chat/chat.service.ts:ChatService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/apps/vacation-rentals/components/property-card.component.ts:PropertyCardComponent",
+      "target": "class:src/app/chat/chat.service.ts:ChatService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/apps/vacation-rentals/components/view-details-button.component.ts:ViewDetailsButtonComponent",
+      "target": "class:src/app/chat/chat.service.ts:ChatService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/apps/vacation-rentals/components/favorites-list.component.ts:FavoritesListComponent",
+      "target": "class:src/app/apps/vacation-rentals/favorites.service.ts:FavoritesService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/apps/vacation-rentals/components/listing-header.component.ts:ListingHeaderComponent",
+      "target": "class:src/app/apps/vacation-rentals/favorites.service.ts:FavoritesService",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/chat/chat.service.ts:ChatService",
+      "target": "file:src/app/magic-ai/magic-ai.service.ts",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/author-bio-card.component.ts:AuthorBioCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/author-bio-card.component.ts:AuthorBioCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/award-badge.component.ts:AwardBadgeComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/award-badge.component.ts:AwardBadgeComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts:BestsellerRibbonComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts:BestsellerRibbonComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/book-cover-card.component.ts:BookCoverCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/book-cover-card.component.ts:BookCoverCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/book-description-panel.component.ts:BookDescriptionPanelComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/book-description-panel.component.ts:BookDescriptionPanelComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts:BookDetailHeroComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts:BookDetailHeroComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/book-specifications.component.ts:BookSpecificationsComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/book-specifications.component.ts:BookSpecificationsComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/full-review-card.component.ts:FullReviewCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/full-review-card.component.ts:FullReviewCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts:GenreTagCloudComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts:GenreTagCloudComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/rating-stars.component.ts:RatingStarsComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/rating-stars.component.ts:RatingStarsComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts:RelatedBooksCarouselComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts:RelatedBooksCarouselComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/review-summary.component.ts:ReviewSummaryComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/review-summary.component.ts:ReviewSummaryComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/series-info-card.component.ts:SeriesInfoCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/series-info-card.component.ts:SeriesInfoCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/stock-availability.component.ts:StockAvailabilityComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/components/stock-availability.component.ts:StockAvailabilityComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts:MagicBookstoreShowcaseComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "class:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts:MagicBookstoreShowcaseComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/api-reference.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/callout.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/concept-explanation.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/section-title.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/components/topic-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/app-context.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/api-reference.component.ts",
+      "target": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/callout.component.ts",
+      "target": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "target": "file:src/app/magic-ai/magic-ai.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/api-reference.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/callout.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/concept-explanation.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/section-title.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/topic-card.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "target": "file:src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "target": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "target": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/section-title.component.ts",
+      "target": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "target": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/topic-card.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/topic-card.component.ts",
+      "target": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/api-reference.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/api-reference.component.ts:ApiReferenceComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/api-reference.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/api-reference.component.ts:ApiReferenceComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/callout.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/callout.component.ts:CalloutComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/callout.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/callout.component.ts:CalloutComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/code-snippet.component.ts:CodeSnippetComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/code-snippet.component.ts:CodeSnippetComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/component-showcase.component.ts:AdevDocsComponentShowcaseComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/component-showcase.component.ts:AdevDocsComponentShowcaseComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/concept-explanation.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/concept-explanation.component.ts:ConceptExplanationComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/concept-explanation.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/concept-explanation.component.ts:ConceptExplanationComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/full-code-example.component.ts:FullCodeExampleComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/full-code-example.component.ts:FullCodeExampleComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/learn-more-button.component.ts:LearnMoreButtonComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/learn-more-button.component.ts:LearnMoreButtonComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/section-title.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/section-title.component.ts:SectionTitleComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/section-title.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/section-title.component.ts:SectionTitleComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/subsection-title.component.ts:SubsectionTitleComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/subsection-title.component.ts:SubsectionTitleComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/topic-card.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/topic-card.component.ts:TopicCardComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apps/adev-docs/components/topic-card.component.ts",
+      "target": "class:src/app/apps/adev-docs/components/topic-card.component.ts:TopicCardComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "target": "class:src/app/pipes/format-inline-code.pipe.ts:FormatInlineCodePipe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "target": "class:src/app/pipes/format-inline-code.pipe.ts:FormatInlineCodePipe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/apps/adev-docs/components/learn-more-button.component.ts:LearnMoreButtonComponent",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/apps/adev-docs/components/topic-card.component.ts:TopicCardComponent",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/apps/adev-docs/components/code-snippet.component.ts:CodeSnippetComponent",
+      "target": "file:src/app/magic-ai/magic-ai.service.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/base-components/base.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/magic-ai/magic-ai-container.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.routes.ts",
+      "target": "file:src/app/showcase/showcase-directory.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/base-components/base.component.ts",
+      "target": "file:src/app/chat/chat.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/base-components/base.component.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/chat/chat.component.ts",
+      "target": "file:src/app/chat/chat.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/chat/chat.component.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/chat/chat.component.ts",
+      "target": "file:src/app/magic-ai/magic-ai.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/chat/chat.component.ts",
+      "target": "file:src/app/pipes/format-inline-code.pipe.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/app-context.ts",
+      "target": "file:src/app/apps/adev-docs/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/app-context.ts",
+      "target": "file:src/app/apps/magic-bookstore/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/app-context.ts",
+      "target": "file:src/app/apps/vacation-rentals/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-container.component.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-container.component.ts",
+      "target": "file:src/app/magic-ai/magic-ai-renderer.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-container.component.ts",
+      "target": "file:src/app/magic-ai/magic-ai.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-renderer.component.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-renderer.component.ts",
+      "target": "file:src/app/magic-ai/magic-ai.service.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai.service.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/base-components/base.component.ts",
+      "target": "class:src/app/base-components/base.component.ts:Base",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/base-components/base.component.ts",
+      "target": "class:src/app/base-components/base.component.ts:Base",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/chat/chat.component.ts",
+      "target": "class:src/app/chat/chat.component.ts:ChatComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/chat/chat.component.ts",
+      "target": "class:src/app/chat/chat.component.ts:ChatComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-container.component.ts",
+      "target": "class:src/app/magic-ai/magic-ai-container.component.ts:MagicAiComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-container.component.ts",
+      "target": "class:src/app/magic-ai/magic-ai-container.component.ts:MagicAiComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-renderer.component.ts",
+      "target": "class:src/app/magic-ai/magic-ai-renderer.component.ts:MagicAiRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai-renderer.component.ts",
+      "target": "class:src/app/magic-ai/magic-ai-renderer.component.ts:MagicAiRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai.service.ts",
+      "target": "class:src/app/magic-ai/magic-ai.service.ts:MagicAiService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/magic-ai/magic-ai.service.ts",
+      "target": "class:src/app/magic-ai/magic-ai.service.ts:MagicAiService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/showcase/showcase-directory.component.ts",
+      "target": "class:src/app/showcase/showcase-directory.component.ts:ShowcaseDirectoryComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/showcase/showcase-directory.component.ts",
+      "target": "class:src/app/showcase/showcase-directory.component.ts:ShowcaseDirectoryComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/app/chat/chat.component.ts:ChatComponent",
+      "target": "class:src/app/magic-ai/magic-ai.service.ts:MagicAiService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:src/app/magic-ai/magic-ai-container.component.ts:MagicAiComponent",
+      "target": "class:src/app/magic-ai/magic-ai.service.ts:MagicAiService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:src/app/magic-ai/magic-ai-renderer.component.ts:MagicAiRenderer",
+      "target": "class:src/app/magic-ai/magic-ai.service.ts:MagicAiService",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:src/app/magic-ai/magic-ai-container.component.ts:MagicAiComponent",
+      "target": "class:src/app/magic-ai/magic-ai-renderer.component.ts:MagicAiRenderer",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.config.server.ts",
+      "target": "file:src/app/app.routes.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/app.config.ts",
+      "target": "file:src/app/app.routes.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/app.config.server.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.server.ts",
+      "target": "file:src/app/base-components/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/app.config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.ts",
+      "target": "file:src/app/base-components/app.component.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/genkit-utils/data-store.ts",
+      "target": "file:src/app/apps/adev-docs/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/genkit-utils/data-store.ts",
+      "target": "file:src/app/apps/magic-bookstore/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/genkit-utils/data-store.ts",
+      "target": "file:src/app/apps/vacation-rentals/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/genkit-utils/data-store.ts",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/genkit-utils/flows.ts",
+      "target": "file:src/genkit-utils/data-store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/genkit-utils/flows.ts",
+      "target": "file:src/genkit-utils/prompts.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "file:src/genkit-utils/flows.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/genkit-utils/flows.ts",
+      "target": "function:src/genkit-utils/flows.ts:generateUIFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/genkit-utils/flows.ts",
+      "target": "function:src/genkit-utils/flows.ts:generateUIFlow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/server.ts",
+      "target": "endpoint:src/server.ts:POST-/generateUI",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "endpoint:src/server.ts:POST-/generateUI",
+      "target": "function:src/genkit-utils/flows.ts:generateUIFlow",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/genkit-utils/flows.ts:generateUIFlow",
+      "target": "file:src/genkit-utils/prompts.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:src/genkit-utils/flows.ts:generateUIFlow",
+      "target": "file:src/genkit-utils/data-store.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "config:tsconfig.app.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "config:tsconfig.spec.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.spec.json",
+      "target": "file:src/app/app.spec.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/main.server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "file:src/server.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:angular.json",
+      "target": "config:tsconfig.app.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.postcssrc.json",
+      "target": "file:src/styles.css",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/genkit-utils/flows.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/genkit-utils/prompts.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/app/magic-ai/magic-ai-renderer.component.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/app/magic-ai/app-context.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:mcp-server/server.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:mcp-server/server.py",
+      "target": "function:mcp-server/server.py:generate_dynamic_sdui_app",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:mcp-server/server.py",
+      "target": "function:mcp-server/server.py:generate_dynamic_sdui_app",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:mcp-server/server.py",
+      "target": "function:mcp-server/server.py:create_dynamic_component",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:mcp-server/server.py",
+      "target": "function:mcp-server/server.py:create_dynamic_component",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:mcp-server/README.md",
+      "target": "file:mcp-server/server.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/base-components/app.component.ts",
+      "target": "file:src/app/app.spec.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5,
+      "description": "Direction corrected (was test → production)"
+    },
+    {
+      "source": "file:src/styles.css",
+      "target": "file:src/index.html",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:sdui-runtime-core",
+      "name": "SDUI Runtime Core",
+      "description": "The Angular 21 client-side engine that streams AI-generated component schemas, imperatively instantiates registered components via createComponent, and manages the persistent AI chat sidebar — the heart of the server-driven UI loop.",
+      "nodeIds": [
+        "file:src/app/magic-ai/app-context.ts",
+        "file:src/app/magic-ai/magic-ai-container.component.ts",
+        "file:src/app/magic-ai/magic-ai-renderer.component.ts",
+        "file:src/app/magic-ai/magic-ai.service.ts",
+        "file:src/app/chat/chat.component.ts",
+        "file:src/app/chat/chat.service.ts",
+        "file:src/app/pipes/format-inline-code.pipe.ts",
+        "file:src/app/showcase/showcase-directory.component.ts",
+        "file:src/app/base-components/base.component.ts"
+      ]
+    },
+    {
+      "id": "layer:executor-ai-backend",
+      "name": "Executor AI Backend (Genkit)",
+      "description": "The Node.js/Express server and Genkit utilities that run the Executor AI: defines the generateUIFlow Genkit flow streaming Gemini-generated SDUI schemas over HTTP, manages session history, aggregates per-app data for AI context, and exposes the POST /generateUI endpoint consumed by the Angular client.",
+      "nodeIds": [
+        "file:src/server.ts",
+        "file:src/genkit-utils/flows.ts",
+        "file:src/genkit-utils/prompts.ts",
+        "file:src/genkit-utils/data-store.ts",
+        "endpoint:src/server.ts:POST-/generateUI"
+      ]
+    },
+    {
+      "id": "layer:generator-ai-mcp",
+      "name": "Generator AI (MCP Server)",
+      "description": "The Python FastMCP server that acts as the dev-time Generator AI, exposing scaffolding prompts to a Gemini CLI user for interactively creating new SDUI demo apps or adding individual components, including automated build-verify-fix loops.",
+      "nodeIds": [
+        "file:mcp-server/server.py",
+        "document:mcp-server/README.md"
+      ]
+    },
+    {
+      "id": "layer:demo-vacation-rentals",
+      "name": "Demo App: Vacation Rentals",
+      "description": "Self-contained SDUI demo application simulating a vacation rental marketplace with 19 standalone Angular components (property cards, booking widget, listing headers, gallery, reviews, etc.), a signal-based favorites service, and typed fixture data — all registered in the app-context so the AI can instantiate them dynamically.",
+      "nodeIds": [
+        "file:src/app/apps/vacation-rentals/app-context.ts",
+        "file:src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+        "file:src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+        "file:src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+        "file:src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+        "file:src/app/apps/vacation-rentals/components/destination-card.component.ts",
+        "file:src/app/apps/vacation-rentals/components/empty-state.component.ts",
+        "file:src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+        "file:src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+        "file:src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+        "file:src/app/apps/vacation-rentals/components/listing-description.component.ts",
+        "file:src/app/apps/vacation-rentals/components/listing-header.component.ts",
+        "file:src/app/apps/vacation-rentals/components/location-map.component.ts",
+        "file:src/app/apps/vacation-rentals/components/pagination.component.ts",
+        "file:src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+        "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+        "file:src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+        "file:src/app/apps/vacation-rentals/components/review-card.component.ts",
+        "file:src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+        "file:src/app/apps/vacation-rentals/components/site-footer.component.ts",
+        "file:src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+        "file:src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+        "file:src/app/apps/vacation-rentals/favorites.service.ts",
+        "file:src/app/apps/vacation-rentals/data-store.ts"
+      ]
+    },
+    {
+      "id": "layer:demo-magic-bookstore",
+      "name": "Demo App: Magic Bookstore",
+      "description": "Self-contained SDUI demo application for an AI-powered bookstore with 14 standalone Angular components (book covers, author bios, reviews, carousels, genre tags, stock availability, etc.), a comprehensive catalog data-store, and a showcase component — all registered in the app-context for dynamic AI rendering.",
+      "nodeIds": [
+        "file:src/app/apps/magic-bookstore/app-context.ts",
+        "file:src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+        "file:src/app/apps/magic-bookstore/components/award-badge.component.ts",
+        "file:src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+        "file:src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+        "file:src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+        "file:src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+        "file:src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+        "file:src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+        "file:src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+        "file:src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+        "file:src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+        "file:src/app/apps/magic-bookstore/components/review-summary.component.ts",
+        "file:src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+        "file:src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+        "file:src/app/apps/magic-bookstore/data-store.ts",
+        "file:src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts"
+      ]
+    },
+    {
+      "id": "layer:demo-adev-docs",
+      "name": "Demo App: Angular Dev Docs",
+      "description": "Self-contained SDUI demo application that renders AI-generated Angular documentation pages using 10 standalone Angular components (API reference, callouts, code snippets, concept explanations, topic cards, etc.), a markdown knowledge-base data-store, and a showcase — illustrating how SDUI can drive interactive documentation experiences.",
+      "nodeIds": [
+        "file:src/app/apps/adev-docs/app-context.ts",
+        "file:src/app/apps/adev-docs/components/api-reference.component.ts",
+        "file:src/app/apps/adev-docs/components/callout.component.ts",
+        "file:src/app/apps/adev-docs/components/code-snippet.component.ts",
+        "file:src/app/apps/adev-docs/components/component-showcase.component.ts",
+        "file:src/app/apps/adev-docs/components/concept-explanation.component.ts",
+        "file:src/app/apps/adev-docs/components/full-code-example.component.ts",
+        "file:src/app/apps/adev-docs/components/learn-more-button.component.ts",
+        "file:src/app/apps/adev-docs/components/section-title.component.ts",
+        "file:src/app/apps/adev-docs/components/subsection-title.component.ts",
+        "file:src/app/apps/adev-docs/components/topic-card.component.ts",
+        "file:src/app/apps/adev-docs/data-store.ts"
+      ]
+    },
+    {
+      "id": "layer:app-bootstrap-config",
+      "name": "App Bootstrap & Configuration",
+      "description": "Angular application entry points, SSR configuration, route declarations, global styles, build tooling configs, and project documentation that wire together the full application — including browser and server bootstrap files, Angular workspace config, TypeScript project references, and the Tailwind PostCSS pipeline.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/main.server.ts",
+        "file:src/app/base-components/app.component.ts",
+        "file:src/app/app.config.ts",
+        "file:src/app/app.config.server.ts",
+        "file:src/app/app.routes.ts",
+        "file:src/app/app.routes.server.ts",
+        "file:src/app/app.spec.ts",
+        "file:src/index.html",
+        "file:src/styles.css",
+        "config:angular.json",
+        "config:package.json",
+        "config:tsconfig.json",
+        "config:tsconfig.app.json",
+        "config:tsconfig.spec.json",
+        "config:.postcssrc.json",
+        "document:README.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "The README introduces this experimental framework for AI-powered Server-Driven UI. It describes the two-AI architecture: a Python-based Generator AI (MCP CLI) that scaffolds app assets at dev time, and a Genkit Executor AI that renders UIs dynamically at runtime from user chat intent. Reading this first gives you the mental model for everything that follows.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "App Bootstrap & Shell",
+      "description": "Bootstrap begins in `main.ts`, which calls `bootstrapApplication` with `AppComponent` and the provider config from `app.config.ts`. `AppComponent` is a thin shell with a `<router-outlet>`, and `app.routes.ts` maps URL paths to lazy-loaded components — including the critical `/magic-ai` route that hosts the SDUI engine. These three files together define the application's outer frame.",
+      "nodeIds": [
+        "file:src/main.ts",
+        "file:src/app/base-components/app.component.ts",
+        "file:src/app/app.config.ts",
+        "file:src/app/app.routes.ts"
+      ],
+      "languageLesson": "Angular 21 uses standalone components throughout — there are no NgModules. `bootstrapApplication` wires providers directly, and routes lazy-load standalone components with `loadComponent`, keeping bundles small."
+    },
+    {
+      "order": 3,
+      "title": "Layout & Persistent Chat Sidebar",
+      "description": "`base.component.ts` is the layout wrapper that wraps every demo app route. It renders the main content area alongside a persistent AI chat sidebar, ensuring the chat UI is always visible regardless of which demo app is active. This is the structural container that makes the 'ambient AI' experience possible.",
+      "nodeIds": [
+        "file:src/app/base-components/base.component.ts"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Chat UI & Chat Service",
+      "description": "`chat.component.ts` renders the conversation panel — displaying message history and the user's text input. `chat.service.ts` is the hub that bridges component-level user interactions to the AI layer: it calls `MagicAiService.setPrompt()`, appends to the conversation history, and navigates the router to the chat view. Any component anywhere in the app can call `ChatService.addUserPrompt()` to kick off an AI interaction.",
+      "nodeIds": [
+        "file:src/app/chat/chat.component.ts",
+        "file:src/app/chat/chat.service.ts"
+      ],
+      "languageLesson": "With fan-in of 12, `chat.service.ts` is the most-imported file in the codebase. Demo app components (PropertyCard, DestinationCard, ViewDetailsButton) all call `addUserPrompt()` to inject AI prompts from user clicks — a clean inversion of control."
+    },
+    {
+      "order": 5,
+      "title": "MagicAiService: Streaming Schemas from the Backend",
+      "description": "`magic-ai.service.ts` is the Angular client that communicates with the Executor AI backend. It uses Angular's reactive `resource()` API to stream the AI-generated component schema from `POST /generateUI` as the user's prompt changes. The streamed response is a structured JSON array describing which SDUI components to render and with what inputs — the core runtime contract of the entire framework.",
+      "nodeIds": [
+        "file:src/app/magic-ai/magic-ai.service.ts"
+      ],
+      "languageLesson": "Angular 21's `resource()` function is a signals-native async primitive that handles loading, error, and data states automatically. Unlike RxJS `HttpClient`, it re-fetches reactively when its request signal changes — perfect for streaming AI responses tied to a chat prompt signal."
+    },
+    {
+      "order": 6,
+      "title": "MagicAiRenderer: Imperative Component Instantiation",
+      "description": "`magic-ai-renderer.component.ts` takes the schema array emitted by `MagicAiService` and imperatively instantiates real Angular components using `createComponent`. It looks up each schema entry's `componentType` in the app context registry, creates the component in a `ViewContainerRef`, and sets its `@Input()` properties from the schema's `inputs` object. This is where the AI's abstract specification becomes live Angular UI.",
+      "nodeIds": [
+        "file:src/app/magic-ai/magic-ai-renderer.component.ts"
+      ],
+      "languageLesson": "Angular's `createComponent()` API allows fully imperative, dynamic component creation at runtime without a template. Combined with `setInput()`, it enables a generic renderer that can instantiate any registered component the AI specifies — the key capability making SDUI possible."
+    },
+    {
+      "order": 7,
+      "title": "MagicAiContainer: Routing & Pagination",
+      "description": "`magic-ai-container.component.ts` is the routed view that hosts `MagicAiRenderer`. It manages pagination across multi-page AI responses and coordinates the top-level layout of the AI-rendered content area. It imports both `MagicAiRenderer` and `MagicAiService`, acting as the orchestration layer between the router, the renderer, and the streaming service.",
+      "nodeIds": [
+        "file:src/app/magic-ai/magic-ai-container.component.ts"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Executor AI Entry Point: server.ts & POST /generateUI",
+      "description": "`server.ts` is the Node.js/Express server that runs alongside the Angular SSR app. It exposes the `POST /generateUI` endpoint that Angular's `MagicAiService` calls. When a request arrives, this endpoint delegates to the `generateUIFlow` Genkit flow — the actual AI logic — and streams the response back to the client.",
+      "nodeIds": [
+        "file:src/server.ts",
+        "endpoint:src/server.ts:POST-/generateUI"
+      ],
+      "languageLesson": "Angular's `angular.json` configures `server.ts` as the SSR server entry. This means the same process that serves Angular SSR pages also runs the Express AI endpoint, eliminating the need for a separate backend deployment."
+    },
+    {
+      "order": 9,
+      "title": "Executor AI Logic: generateUIFlow & Prompts",
+      "description": "`flows.ts` defines `generateUIFlow`, the Genkit flow that calls Gemini to produce the SDUI schema. It receives the user's intent and the app's component registry, constructs the context using `prompts.ts`, calls Gemini, and streams back a structured JSON array of `{componentType, inputs}` objects. `prompts.ts` contains the system prompt templates that instruct Gemini on the output format and available component types.",
+      "nodeIds": [
+        "file:src/genkit-utils/flows.ts",
+        "file:src/genkit-utils/prompts.ts"
+      ],
+      "languageLesson": "Genkit flows are typed, observable AI pipelines. `defineFlow` wraps the Gemini call with input/output schema validation (Zod), streaming support, and built-in tracing — making the AI call debuggable and type-safe end to end."
+    },
+    {
+      "order": 10,
+      "title": "Executor AI Data Store: Aggregating Context",
+      "description": "`src/genkit-utils/data-store.ts` aggregates the fixture data from all three demo apps and the component registry from `app-context.ts`. This aggregated context is injected into the Gemini prompt so the AI knows what real data exists and what components are available to render it. It is the bridge between the frontend component catalog and the backend AI prompt.",
+      "nodeIds": [
+        "file:src/genkit-utils/data-store.ts"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "App Context: The Component Registry Contract",
+      "description": "`src/app/magic-ai/app-context.ts` is the central runtime registry that aggregates all three demo apps' component catalogs into a single lookup map. Each entry maps a string component type name to the actual Angular component class and its JSON schema. `MagicAiRenderer` reads this registry at render time; `genkit-utils/data-store.ts` reads it at prompt-construction time — it is the shared contract between the AI and the renderer.",
+      "nodeIds": [
+        "file:src/app/magic-ai/app-context.ts"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Demo App: Vacation Rentals",
+      "description": "The vacation-rentals demo illustrates the complete SDUI pattern end to end. `vacation-rentals/app-context.ts` registers 19 standalone components with their JSON schemas, making them available to the AI. `data-store.ts` provides typed fixture listings, hosts, and reviews that the Executor AI uses as grounded context. Representative components like `property-card.component.ts` and `booking-widget.component.ts` show how components call `ChatService.addUserPrompt()` to trigger further AI navigation — creating an AI-native interactive loop.",
+      "nodeIds": [
+        "file:src/app/apps/vacation-rentals/app-context.ts",
+        "file:src/app/apps/vacation-rentals/data-store.ts",
+        "file:src/app/apps/vacation-rentals/components/property-card.component.ts",
+        "file:src/app/apps/vacation-rentals/components/booking-widget.component.ts"
+      ]
+    },
+    {
+      "order": 13,
+      "title": "Generator AI: MCP Scaffolding Server",
+      "description": "`mcp-server/server.py` is the Python FastMCP server that acts as the dev-time Generator AI. It exposes scaffolding prompts (`generate_dynamic_sdui_app`, `create_dynamic_component`) to a Gemini CLI user, automating the creation of new SDUI demo apps with build-verify-fix loops. This is how the vacation-rentals and bookstore demo apps were themselves generated — completing the two-AI story.",
+      "nodeIds": [
+        "file:mcp-server/server.py",
+        "document:mcp-server/README.md"
+      ],
+      "languageLesson": "FastMCP exposes Python functions as MCP tools consumable by any MCP-compatible AI client (e.g., Gemini CLI). The `@mcp.tool()` decorator registers a function with its docstring as the tool description, making the Generator AI a purely declarative scaffolding interface."
+    },
+    {
+      "order": 14,
+      "title": "Build Config & Global Theming",
+      "description": "`angular.json` and `package.json` define the build pipeline: the Angular CLI compiles the browser bundle and the SSR server bundle together, with `server.ts` as the custom server entry. `styles.css` establishes the Tailwind CSS baseline and any global CSS custom properties that define the visual theming contract shared across all demo apps — the styling foundation the AI-rendered components inherit.",
+      "nodeIds": [
+        "config:angular.json",
+        "config:package.json",
+        "file:src/styles.css",
+        "config:.postcssrc.json"
+      ],
+      "languageLesson": "Tailwind with PostCSS (`.postcssrc.json`) processes `styles.css` at build time, purging unused utility classes from the final bundle. Since SDUI components are instantiated dynamically, component template strings must reference complete Tailwind class names (not dynamically constructed strings) to survive the purge step."
+    }
+  ]
+}

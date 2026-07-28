@@ -1,0 +1,3746 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "9982461bd221376931f4c602e1497db3297e7f51",
+  "generatedAt": "2026-07-28T01:23:21.775Z",
+  "files": {
+    ".postcssrc.json": {
+      "filePath": ".postcssrc.json",
+      "contentHash": "6c96a7becce80948b52897a8968a815644d70dbe647227ae627a9cca0edcbabb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "e4e67c2a1799d3102d64b0285d0c56377fcf634c5bef08128cfc33f70d76a862",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 93,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "9435814ad3ebf0dcfb11269f96eb15e08d37d01a37760e33f565c5a82851a2d4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 121,
+      "hasStructuralAnalysis": true
+    },
+    "angular.json": {
+      "filePath": "angular.json",
+      "contentHash": "a56abd231f0b8292ae45791f3962f440ee7d3f45429b054f8f6c6e1a100c0d12",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 102,
+      "hasStructuralAnalysis": true
+    },
+    "mcp-server/README.md": {
+      "filePath": "mcp-server/README.md",
+      "contentHash": "06fd05287bbf182dc3fb8973326ef844eddbc7e818cd27ec835058905cebc789",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    "mcp-server/server.py": {
+      "filePath": "mcp-server/server.py",
+      "contentHash": "d2eaf5346b9bd75c21c0b2d4c9ce2da1f51ac4d429d927945696f98fe4c424b0",
+      "functions": [
+        {
+          "name": "generate_dynamic_sdui_app",
+          "params": [],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 350
+        },
+        {
+          "name": "create_dynamic_component",
+          "params": [],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 246
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "fastmcp",
+          "specifiers": [
+            "FastMCP"
+          ]
+        }
+      ],
+      "exports": [
+        "generate_dynamic_sdui_app",
+        "create_dynamic_component"
+      ],
+      "totalLines": 615,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "b5281622b2748f3b64fcb7ff084eece8b7414c2c04636345eba511a86d5cb14b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 86,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.server.ts": {
+      "filePath": "src/app/app.config.server.ts",
+      "contentHash": "cc4879aa1313500b0b1f83b04b498bceb4553b0d028571b1942b8f6ab767299a",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "mergeApplicationConfig",
+            "ApplicationConfig"
+          ]
+        },
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "provideServerRendering",
+            "withRoutes"
+          ]
+        },
+        {
+          "source": "./app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app.routes.server",
+          "specifiers": [
+            "serverRoutes"
+          ]
+        }
+      ],
+      "exports": [
+        "config"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.config.ts": {
+      "filePath": "src/app/app.config.ts",
+      "contentHash": "972c746bd9f4c8479cf9c499b9d87356ce786fb1add7ac3f8bac53f8d3786225",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ApplicationConfig",
+            "provideBrowserGlobalErrorListeners"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "provideRouter",
+            "withComponentInputBinding"
+          ]
+        },
+        {
+          "source": "ngx-highlightjs",
+          "specifiers": [
+            "provideHighlightOptions"
+          ]
+        },
+        {
+          "source": "ngx-markdown",
+          "specifiers": [
+            "provideMarkdown"
+          ]
+        },
+        {
+          "source": "./app.routes",
+          "specifiers": [
+            "routes"
+          ]
+        },
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "provideClientHydration",
+            "withEventReplay"
+          ]
+        }
+      ],
+      "exports": [
+        "appConfig"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.server.ts": {
+      "filePath": "src/app/app.routes.server.ts",
+      "contentHash": "8dbf7f3f7fbdf5c6f9ebb943306746373bfac37d75638f59f486addc706189ce",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr",
+          "specifiers": [
+            "RenderMode",
+            "ServerRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "serverRoutes"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.routes.ts": {
+      "filePath": "src/app/app.routes.ts",
+      "contentHash": "e5d807def096c42b666fc0629ea3c8c337e43e59d9333311c6d5a5112d39ddc3",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "Routes"
+          ]
+        },
+        {
+          "source": "./base-components/base.component",
+          "specifiers": [
+            "Base"
+          ]
+        },
+        {
+          "source": "./magic-ai/magic-ai-container.component",
+          "specifiers": [
+            "MagicAiComponent"
+          ]
+        },
+        {
+          "source": "./apps/vacation-rentals/components/favorites-list.component",
+          "specifiers": [
+            "FavoritesListComponent"
+          ]
+        },
+        {
+          "source": "./showcase/showcase-directory.component",
+          "specifiers": [
+            "ShowcaseDirectoryComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "routes"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/app.spec.ts": {
+      "filePath": "src/app/app.spec.ts",
+      "contentHash": "5edc189e611e4cacb3dca614a6659b0ef55c0f9ffd0fd9ea400ead671abd43ff",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core/testing",
+          "specifiers": [
+            "TestBed"
+          ]
+        },
+        {
+          "source": "./base-components/app",
+          "specifiers": [
+            "App"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/app-context.ts": {
+      "filePath": "src/app/apps/adev-docs/app-context.ts",
+      "contentHash": "e62639f8b4c73bb706be62a2b5f763d4a78113a9e30a61efad1dae73733d1dec",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Type"
+          ]
+        },
+        {
+          "source": "./components/learn-more-button.component",
+          "specifiers": [
+            "LearnMoreButtonComponent"
+          ]
+        },
+        {
+          "source": "./components/section-title.component",
+          "specifiers": [
+            "SectionTitleComponent"
+          ]
+        },
+        {
+          "source": "./components/subsection-title.component",
+          "specifiers": [
+            "SubsectionTitleComponent"
+          ]
+        },
+        {
+          "source": "./components/concept-explanation.component",
+          "specifiers": [
+            "ConceptExplanationComponent"
+          ]
+        },
+        {
+          "source": "./components/api-reference.component",
+          "specifiers": [
+            "ApiReferenceComponent"
+          ]
+        },
+        {
+          "source": "./components/code-snippet.component",
+          "specifiers": [
+            "CodeSnippetComponent"
+          ]
+        },
+        {
+          "source": "./components/full-code-example.component",
+          "specifiers": [
+            "FullCodeExampleComponent"
+          ]
+        },
+        {
+          "source": "./components/callout.component",
+          "specifiers": [
+            "CalloutComponent"
+          ]
+        },
+        {
+          "source": "./components/topic-card.component",
+          "specifiers": [
+            "TopicCardComponent"
+          ]
+        },
+        {
+          "source": "../../magic-ai/app-context",
+          "specifiers": [
+            "ComponentContext"
+          ]
+        }
+      ],
+      "exports": [
+        "GENERATED_APP_CONTEXT"
+      ],
+      "totalLines": 243,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/api-reference.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/api-reference.component.ts",
+      "contentHash": "94f15348765ba14e1dee1eb5848c4ab85075e52af13cb6b9c7817fe189c66420",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ApiReferenceComponent",
+          "methods": [],
+          "properties": [
+            "apiItem"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../../../pipes/format-inline-code.pipe",
+          "specifiers": [
+            "FormatInlineCodePipe"
+          ]
+        }
+      ],
+      "exports": [
+        "ApiReferenceComponent"
+      ],
+      "totalLines": 160,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/callout.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/callout.component.ts",
+      "contentHash": "db528d9dbb4fc8b58dc67bbf65f4ab5b961c2509c45c757859a31a1b5262b759",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CalloutComponent",
+          "methods": [
+            "calloutClass"
+          ],
+          "properties": [
+            "type",
+            "content"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../../../pipes/format-inline-code.pipe",
+          "specifiers": [
+            "FormatInlineCodePipe"
+          ]
+        }
+      ],
+      "exports": [
+        "CalloutComponent"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/code-snippet.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/code-snippet.component.ts",
+      "contentHash": "8ef45a2515be8f1a71aa005b34ac5ca74b53589b6239f590eb0b2539a52a8089",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CodeSnippetComponent",
+          "methods": [
+            "copyCode"
+          ],
+          "properties": [
+            "magicAiService",
+            "code",
+            "language"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "ngx-highlightjs",
+          "specifiers": [
+            "Highlight"
+          ]
+        },
+        {
+          "source": "@angular/material/icon",
+          "specifiers": [
+            "MatIconModule"
+          ]
+        },
+        {
+          "source": "../../../magic-ai/magic-ai.service",
+          "specifiers": [
+            "MagicAiService"
+          ]
+        }
+      ],
+      "exports": [
+        "CodeSnippetComponent"
+      ],
+      "totalLines": 96,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/component-showcase.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/component-showcase.component.ts",
+      "contentHash": "d151dbfe4a8e51fa54c443ef4370f0af5a2e9b3673179c1655fc9213cced6811",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AdevDocsComponentShowcaseComponent",
+          "methods": [],
+          "properties": [
+            "conceptExplanationContent",
+            "apiItem",
+            "codeSnippet",
+            "fullCodeExample"
+          ],
+          "exported": true,
+          "lineCount": 40
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "./learn-more-button.component",
+          "specifiers": [
+            "LearnMoreButtonComponent"
+          ]
+        },
+        {
+          "source": "./section-title.component",
+          "specifiers": [
+            "SectionTitleComponent"
+          ]
+        },
+        {
+          "source": "./subsection-title.component",
+          "specifiers": [
+            "SubsectionTitleComponent"
+          ]
+        },
+        {
+          "source": "./concept-explanation.component",
+          "specifiers": [
+            "ConceptExplanationComponent"
+          ]
+        },
+        {
+          "source": "./api-reference.component",
+          "specifiers": [
+            "ApiReferenceComponent"
+          ]
+        },
+        {
+          "source": "./code-snippet.component",
+          "specifiers": [
+            "CodeSnippetComponent"
+          ]
+        },
+        {
+          "source": "./full-code-example.component",
+          "specifiers": [
+            "FullCodeExampleComponent"
+          ]
+        },
+        {
+          "source": "./callout.component",
+          "specifiers": [
+            "CalloutComponent"
+          ]
+        },
+        {
+          "source": "./topic-card.component",
+          "specifiers": [
+            "TopicCardComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "AdevDocsComponentShowcaseComponent"
+      ],
+      "totalLines": 166,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/concept-explanation.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/concept-explanation.component.ts",
+      "contentHash": "54196bcc2ebbaf111fa15a51d33f13e8f02a9002330f3c1d71c8da70be135723",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ConceptExplanationComponent",
+          "methods": [],
+          "properties": [
+            "content"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input",
+            "ViewEncapsulation"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "ngx-markdown",
+          "specifiers": [
+            "MarkdownComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "ConceptExplanationComponent"
+      ],
+      "totalLines": 82,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/full-code-example.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/full-code-example.component.ts",
+      "contentHash": "2a2130bc76908eee55c0aeff526321ef7be67918a6ab8144b73d69825f7db90a",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FullCodeExampleComponent",
+          "methods": [],
+          "properties": [
+            "example"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "./code-snippet.component",
+          "specifiers": [
+            "CodeSnippetComponent"
+          ]
+        },
+        {
+          "source": "../../../pipes/format-inline-code.pipe",
+          "specifiers": [
+            "FormatInlineCodePipe"
+          ]
+        }
+      ],
+      "exports": [
+        "FullCodeExampleComponent"
+      ],
+      "totalLines": 67,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/learn-more-button.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/learn-more-button.component.ts",
+      "contentHash": "6587ab3083136d8822159c7ac579e0e86429a0480e0bfbcee7b13f60b0e9e835",
+      "functions": [],
+      "classes": [
+        {
+          "name": "LearnMoreButtonComponent",
+          "methods": [
+            "learnMore"
+          ],
+          "properties": [
+            "chatService",
+            "buttonText",
+            "topic"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "inject",
+            "input"
+          ]
+        },
+        {
+          "source": "../../../chat/chat.service",
+          "specifiers": [
+            "ChatService"
+          ]
+        },
+        {
+          "source": "../../../pipes/format-inline-code.pipe",
+          "specifiers": [
+            "FormatInlineCodePipe"
+          ]
+        }
+      ],
+      "exports": [
+        "LearnMoreButtonComponent"
+      ],
+      "totalLines": 52,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/section-title.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/section-title.component.ts",
+      "contentHash": "fe2f46f2f81f098c48619bbcb0f930d6f64271989376b309cf3134c9a5867dea",
+      "functions": [],
+      "classes": [
+        {
+          "name": "SectionTitleComponent",
+          "methods": [],
+          "properties": [
+            "title"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../../../pipes/format-inline-code.pipe",
+          "specifiers": [
+            "FormatInlineCodePipe"
+          ]
+        }
+      ],
+      "exports": [
+        "SectionTitleComponent"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/subsection-title.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/subsection-title.component.ts",
+      "contentHash": "7d5bdd005eb7681d614bd2670ba66bd2a774e03261896e3264d876649aa555df",
+      "functions": [],
+      "classes": [
+        {
+          "name": "SubsectionTitleComponent",
+          "methods": [],
+          "properties": [
+            "title"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../../../pipes/format-inline-code.pipe",
+          "specifiers": [
+            "FormatInlineCodePipe"
+          ]
+        }
+      ],
+      "exports": [
+        "SubsectionTitleComponent"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/components/topic-card.component.ts": {
+      "filePath": "src/app/apps/adev-docs/components/topic-card.component.ts",
+      "contentHash": "71a4bf1dcf8aafdb8bb8962c04ef0baa75f3ff06cf849a84a636ff7127c024c4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TopicCardComponent",
+          "methods": [
+            "updatePrompt"
+          ],
+          "properties": [
+            "topic",
+            "description",
+            "chatService"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "input",
+            "ChangeDetectionStrategy"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../../../chat/chat.service",
+          "specifiers": [
+            "ChatService"
+          ]
+        },
+        {
+          "source": "../../../pipes/format-inline-code.pipe",
+          "specifiers": [
+            "FormatInlineCodePipe"
+          ]
+        }
+      ],
+      "exports": [
+        "TopicCardComponent"
+      ],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/adev-docs/data-store.ts": {
+      "filePath": "src/app/apps/adev-docs/data-store.ts",
+      "contentHash": "2a5000ea28371be8a63c4350afa8a6ee912a3873351133d207cee9cab955965b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "DATA"
+      ],
+      "totalLines": 450,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/app-context.ts": {
+      "filePath": "src/app/apps/magic-bookstore/app-context.ts",
+      "contentHash": "5e185a9203cfecae11511160755df978d2bb74ccfa290e23268e38782b35b512",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Type"
+          ]
+        },
+        {
+          "source": "../../magic-ai/app-context",
+          "specifiers": [
+            "AppContext",
+            "ComponentContext"
+          ]
+        },
+        {
+          "source": "./components/book-cover-card.component",
+          "specifiers": [
+            "BookCoverCardComponent"
+          ]
+        },
+        {
+          "source": "./components/book-detail-hero.component",
+          "specifiers": [
+            "BookDetailHeroComponent"
+          ]
+        },
+        {
+          "source": "./components/author-bio-card.component",
+          "specifiers": [
+            "AuthorBioCardComponent"
+          ]
+        },
+        {
+          "source": "./components/review-summary.component",
+          "specifiers": [
+            "ReviewSummaryComponent"
+          ]
+        },
+        {
+          "source": "./components/full-review-card.component",
+          "specifiers": [
+            "FullReviewCardComponent"
+          ]
+        },
+        {
+          "source": "./components/genre-tag-cloud.component",
+          "specifiers": [
+            "GenreTagCloudComponent"
+          ]
+        },
+        {
+          "source": "./components/book-specifications.component",
+          "specifiers": [
+            "BookSpecificationsComponent"
+          ]
+        },
+        {
+          "source": "./components/award-badge.component",
+          "specifiers": [
+            "AwardBadgeComponent"
+          ]
+        },
+        {
+          "source": "./components/series-info-card.component",
+          "specifiers": [
+            "SeriesInfoCardComponent"
+          ]
+        },
+        {
+          "source": "./components/book-description-panel.component",
+          "specifiers": [
+            "BookDescriptionPanelComponent"
+          ]
+        },
+        {
+          "source": "./components/stock-availability.component",
+          "specifiers": [
+            "StockAvailabilityComponent"
+          ]
+        },
+        {
+          "source": "./components/related-books-carousel.component",
+          "specifiers": [
+            "RelatedBooksCarouselComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "GENERATED_APP_CONTEXT"
+      ],
+      "totalLines": 277,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/author-bio-card.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/author-bio-card.component.ts",
+      "contentHash": "406b9fd416fc3a40dec8ecfb0c795c35902da6185c4bee3afbf3c286839a591e",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AuthorBioCardComponent",
+          "methods": [
+            "getInitials"
+          ],
+          "properties": [
+            "author"
+          ],
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../data-store",
+          "specifiers": [
+            "Author"
+          ]
+        }
+      ],
+      "exports": [
+        "AuthorBioCardComponent"
+      ],
+      "totalLines": 103,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/award-badge.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/award-badge.component.ts",
+      "contentHash": "8529bafb9c1a92e997a2abceac09d4e36001d46addc53a0fbd80c1164abed112",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AwardBadgeComponent",
+          "methods": [],
+          "properties": [
+            "award"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "@angular/material/icon",
+          "specifiers": [
+            "MatIconModule"
+          ]
+        },
+        {
+          "source": "../data-store",
+          "specifiers": [
+            "Award"
+          ]
+        }
+      ],
+      "exports": [
+        "AwardBadgeComponent"
+      ],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/bestseller-ribbon.component.ts",
+      "contentHash": "41d9e907112f34e4972a7c3a74b7bde843503063ea3c56a56eddfa9cebf1100d",
+      "functions": [],
+      "classes": [
+        {
+          "name": "BestsellerRibbonComponent",
+          "methods": [],
+          "properties": [
+            "rank"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        }
+      ],
+      "exports": [
+        "BestsellerRibbonComponent"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/book-cover-card.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/book-cover-card.component.ts",
+      "contentHash": "5b60130ecc15cd7c8ad1f762347a77644dd61a998d64196538816988205defb2",
+      "functions": [],
+      "classes": [
+        {
+          "name": "BookCoverCardComponent",
+          "methods": [
+            "viewDetails"
+          ],
+          "properties": [
+            "chatService",
+            "book"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../data-store",
+          "specifiers": [
+            "Book"
+          ]
+        },
+        {
+          "source": "../../../chat/chat.service",
+          "specifiers": [
+            "ChatService"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        },
+        {
+          "source": "./bestseller-ribbon.component",
+          "specifiers": [
+            "BestsellerRibbonComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "BookCoverCardComponent"
+      ],
+      "totalLines": 157,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/book-description-panel.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/book-description-panel.component.ts",
+      "contentHash": "2af4dbbf0650779be4ac18de8c9fe386925f0dbebde3779ba9ae3c2ee7ed3c82",
+      "functions": [],
+      "classes": [
+        {
+          "name": "BookDescriptionPanelComponent",
+          "methods": [
+            "toggleExpand",
+            "displayDescription",
+            "showToggle"
+          ],
+          "properties": [
+            "description",
+            "isExpanded",
+            "maxLength"
+          ],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input",
+            "signal"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        }
+      ],
+      "exports": [
+        "BookDescriptionPanelComponent"
+      ],
+      "totalLines": 95,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/book-detail-hero.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/book-detail-hero.component.ts",
+      "contentHash": "2dc6e6aabc3e8b27e0de0cad4302081466b0947d93e41d1bb16cf3b1b7bc5a30",
+      "functions": [],
+      "classes": [
+        {
+          "name": "BookDetailHeroComponent",
+          "methods": [
+            "addToCart"
+          ],
+          "properties": [
+            "book",
+            "authorNames"
+          ],
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input",
+            "computed"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../data-store",
+          "specifiers": [
+            "Book"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        },
+        {
+          "source": "./bestseller-ribbon.component",
+          "specifiers": [
+            "BestsellerRibbonComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "BookDetailHeroComponent"
+      ],
+      "totalLines": 199,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/book-specifications.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/book-specifications.component.ts",
+      "contentHash": "2a064649b1bcb96cf13ab91875f131fefef59447a3d24f004ee04f25110373b4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "BookSpecificationsComponent",
+          "methods": [],
+          "properties": [
+            "book"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../data-store",
+          "specifiers": [
+            "Book"
+          ]
+        }
+      ],
+      "exports": [
+        "BookSpecificationsComponent"
+      ],
+      "totalLines": 98,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/full-review-card.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/full-review-card.component.ts",
+      "contentHash": "1afc478e1728f58c35a07a6b95b4306f504f135c946b3063492dca83645399e5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FullReviewCardComponent",
+          "methods": [],
+          "properties": [
+            "review"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../data-store",
+          "specifiers": [
+            "Review"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "FullReviewCardComponent"
+      ],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/genre-tag-cloud.component.ts",
+      "contentHash": "ee7decf05b8fa3b380c5e07d9162aa27b3e877075f4e5da30a0e2e29a9e19fc2",
+      "functions": [],
+      "classes": [
+        {
+          "name": "GenreTagCloudComponent",
+          "methods": [
+            "searchByTerm"
+          ],
+          "properties": [
+            "chatService",
+            "genres",
+            "tags"
+          ],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "inject",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../../../chat/chat.service",
+          "specifiers": [
+            "ChatService"
+          ]
+        }
+      ],
+      "exports": [
+        "GenreTagCloudComponent"
+      ],
+      "totalLines": 82,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/rating-stars.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/rating-stars.component.ts",
+      "contentHash": "ffb0beaa9039e9ef5a63b08abe40109da656b71391014b4f7506a51d2dcb8b90",
+      "functions": [],
+      "classes": [
+        {
+          "name": "RatingStarsComponent",
+          "methods": [
+            "getStarIcon"
+          ],
+          "properties": [
+            "rating",
+            "maxStars",
+            "fullStars",
+            "hasHalfStar",
+            "emptyStars"
+          ],
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input",
+            "computed"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "@angular/material/icon",
+          "specifiers": [
+            "MatIconModule"
+          ]
+        }
+      ],
+      "exports": [
+        "RatingStarsComponent"
+      ],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/related-books-carousel.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/related-books-carousel.component.ts",
+      "contentHash": "81daafedcd8762df7b9b6350003d4ed14c2058c333ed912062240a1704565a61",
+      "functions": [],
+      "classes": [
+        {
+          "name": "RelatedBooksCarouselComponent",
+          "methods": [
+            "scroll"
+          ],
+          "properties": [
+            "books",
+            "carouselContainer"
+          ],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input",
+            "ElementRef",
+            "ViewChild"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "@angular/material/icon",
+          "specifiers": [
+            "MatIconModule"
+          ]
+        },
+        {
+          "source": "../data-store",
+          "specifiers": [
+            "Book"
+          ]
+        },
+        {
+          "source": "./book-cover-card.component",
+          "specifiers": [
+            "BookCoverCardComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "RelatedBooksCarouselComponent"
+      ],
+      "totalLines": 132,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/review-summary.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/review-summary.component.ts",
+      "contentHash": "26bbdcfaf85f5ba48ded2e11bef5ca709da486add874daae81d36ca2c570272c",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ReviewSummaryComponent",
+          "methods": [],
+          "properties": [
+            "averageRating",
+            "reviewCount"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "ReviewSummaryComponent"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/series-info-card.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/series-info-card.component.ts",
+      "contentHash": "a3c7e84246a898b4d935829ee5bc347ad57e74e66f9b204ecd8262823f274f3f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "SeriesInfoCardComponent",
+          "methods": [],
+          "properties": [
+            "series"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "@angular/material/icon",
+          "specifiers": [
+            "MatIconModule"
+          ]
+        }
+      ],
+      "exports": [
+        "SeriesInfoCardComponent"
+      ],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/components/stock-availability.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/components/stock-availability.component.ts",
+      "contentHash": "253087e4f4be095b79b281fa4295eb6c7c59a12277ed39f7fc73ba9973b528b7",
+      "functions": [],
+      "classes": [
+        {
+          "name": "StockAvailabilityComponent",
+          "methods": [
+            "addToCart"
+          ],
+          "properties": [
+            "stock",
+            "price",
+            "salePrice",
+            "isInStock"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input",
+            "computed"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        }
+      ],
+      "exports": [
+        "StockAvailabilityComponent"
+      ],
+      "totalLines": 128,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/data-store.ts": {
+      "filePath": "src/app/apps/magic-bookstore/data-store.ts",
+      "contentHash": "2663359d8c38b485dc903df79c7f6c9490e8f0f8376862550b0eead8ea2d2d06",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "DATA"
+      ],
+      "totalLines": 1597,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts": {
+      "filePath": "src/app/apps/magic-bookstore/magic-bookstore-showcase.component.ts",
+      "contentHash": "550132fd3340dfeb20101c6720f80ea4706eaf6cfb500f82643864f3880c8758",
+      "functions": [],
+      "classes": [
+        {
+          "name": "MagicBookstoreShowcaseComponent",
+          "methods": [],
+          "properties": [
+            "sampleBooks",
+            "sampleBookDetail"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "@angular/material/progress-spinner",
+          "specifiers": [
+            "MatProgressSpinnerModule"
+          ]
+        },
+        {
+          "source": "./data-store",
+          "specifiers": [
+            "Book",
+            "DATA"
+          ]
+        },
+        {
+          "source": "./components/book-cover-card.component",
+          "specifiers": [
+            "BookCoverCardComponent"
+          ]
+        },
+        {
+          "source": "./components/book-detail-hero.component",
+          "specifiers": [
+            "BookDetailHeroComponent"
+          ]
+        },
+        {
+          "source": "./components/author-bio-card.component",
+          "specifiers": [
+            "AuthorBioCardComponent"
+          ]
+        },
+        {
+          "source": "./components/review-summary.component",
+          "specifiers": [
+            "ReviewSummaryComponent"
+          ]
+        },
+        {
+          "source": "./components/full-review-card.component",
+          "specifiers": [
+            "FullReviewCardComponent"
+          ]
+        },
+        {
+          "source": "./components/genre-tag-cloud.component",
+          "specifiers": [
+            "GenreTagCloudComponent"
+          ]
+        },
+        {
+          "source": "./components/book-specifications.component",
+          "specifiers": [
+            "BookSpecificationsComponent"
+          ]
+        },
+        {
+          "source": "./components/award-badge.component",
+          "specifiers": [
+            "AwardBadgeComponent"
+          ]
+        },
+        {
+          "source": "./components/bestseller-ribbon.component",
+          "specifiers": [
+            "BestsellerRibbonComponent"
+          ]
+        },
+        {
+          "source": "./components/series-info-card.component",
+          "specifiers": [
+            "SeriesInfoCardComponent"
+          ]
+        },
+        {
+          "source": "./components/book-description-panel.component",
+          "specifiers": [
+            "BookDescriptionPanelComponent"
+          ]
+        },
+        {
+          "source": "./components/stock-availability.component",
+          "specifiers": [
+            "StockAvailabilityComponent"
+          ]
+        },
+        {
+          "source": "./components/related-books-carousel.component",
+          "specifiers": [
+            "RelatedBooksCarouselComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "MagicBookstoreShowcaseComponent"
+      ],
+      "totalLines": 195,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/app-context.ts": {
+      "filePath": "src/app/apps/vacation-rentals/app-context.ts",
+      "contentHash": "fdcaf0d40f90ab678ec89bd07da4fc5e5adf1263f110a8fa9f70f74c67ad1268",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Type"
+          ]
+        },
+        {
+          "source": "./components/view-details-button.component",
+          "specifiers": [
+            "ViewDetailsButtonComponent"
+          ]
+        },
+        {
+          "source": "./components/host-profile-card.component",
+          "specifiers": [
+            "HostProfileCardComponent"
+          ]
+        },
+        {
+          "source": "./components/alert-banner.component",
+          "specifiers": [
+            "AlertBannerComponent"
+          ]
+        },
+        {
+          "source": "./components/listing-header.component",
+          "specifiers": [
+            "ListingHeaderComponent"
+          ]
+        },
+        {
+          "source": "./components/destination-card.component",
+          "specifiers": [
+            "DestinationCardComponent"
+          ]
+        },
+        {
+          "source": "./components/location-map.component",
+          "specifiers": [
+            "LocationMapComponent"
+          ]
+        },
+        {
+          "source": "./components/filter-chip.component",
+          "specifiers": [
+            "FilterChipComponent"
+          ]
+        },
+        {
+          "source": "./components/rules-and-policies.component",
+          "specifiers": [
+            "RulesAndPoliciesComponent"
+          ]
+        },
+        {
+          "source": "./components/booking-widget.component",
+          "specifiers": [
+            "BookingWidgetComponent"
+          ]
+        },
+        {
+          "source": "./components/review-card.component",
+          "specifiers": [
+            "ReviewCardComponent"
+          ]
+        },
+        {
+          "source": "./components/property-card.component",
+          "specifiers": [
+            "PropertyCardComponent"
+          ]
+        },
+        {
+          "source": "./components/user-booking-card.component",
+          "specifiers": [
+            "UserBookingCardComponent"
+          ]
+        },
+        {
+          "source": "./components/listing-description.component",
+          "specifiers": [
+            "ListingDescriptionComponent"
+          ]
+        },
+        {
+          "source": "./components/amenity-list.component",
+          "specifiers": [
+            "AmenityListComponent"
+          ]
+        },
+        {
+          "source": "./components/rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        },
+        {
+          "source": "./components/empty-state.component",
+          "specifiers": [
+            "EmptyStateComponent"
+          ]
+        },
+        {
+          "source": "./components/site-footer.component",
+          "specifiers": [
+            "SiteFooterComponent"
+          ]
+        },
+        {
+          "source": "./components/photo-gallery-grid.component",
+          "specifiers": [
+            "PhotoGalleryGridComponent"
+          ]
+        },
+        {
+          "source": "./components/favorites-list.component",
+          "specifiers": [
+            "FavoritesListComponent"
+          ]
+        },
+        {
+          "source": "../../magic-ai/app-context",
+          "specifiers": [
+            "ComponentContext"
+          ]
+        }
+      ],
+      "exports": [
+        "GENERATED_APP_CONTEXT"
+      ],
+      "totalLines": 546,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/alert-banner.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/alert-banner.component.ts",
+      "contentHash": "59c9055fd7146d54842ba35f9189bc8a7bd87aac4631f5c20b972d744525e108",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AlertBannerComponent",
+          "methods": [
+            "iconName",
+            "dismiss"
+          ],
+          "properties": [
+            "message",
+            "status",
+            "isDismissible"
+          ],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "AlertBannerComponent"
+      ],
+      "totalLines": 110,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/amenity-list.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/amenity-list.component.ts",
+      "contentHash": "f67f57679b1a18c340c27463540f73deaa3d57a460836ef43220ccc87971eba4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AmenityListComponent",
+          "methods": [
+            "toggleVisibility"
+          ],
+          "properties": [
+            "amenities",
+            "showAll",
+            "visibleAmenities",
+            "hiddenAmenitiesCount"
+          ],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "signal",
+            "computed",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "AmenityListComponent"
+      ],
+      "totalLines": 128,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/booking-widget.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/booking-widget.component.ts",
+      "contentHash": "2b17cb49f2492d066b9a4151f5f1f4844f5bf7d57730f4b0e72ea00918ea198f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "BookingWidgetComponent",
+          "methods": [
+            "reserve",
+            "onCheckInChange",
+            "onCheckOutChange",
+            "onGuestsChange",
+            "formatDate"
+          ],
+          "properties": [
+            "pricePerNight",
+            "cleaningFee",
+            "serviceFeePercent",
+            "rating",
+            "reviewCount",
+            "maxGuests",
+            "selectedGuests",
+            "selectedCheckInDate",
+            "selectedCheckOutDate",
+            "checkInDate",
+            "checkOutDate",
+            "guestCount",
+            "checkInDateString",
+            "checkOutDateString",
+            "numberOfNights",
+            "basePrice",
+            "serviceFee",
+            "totalPrice"
+          ],
+          "exported": true,
+          "lineCount": 93
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "computed",
+            "input",
+            "linkedSignal"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        },
+        {
+          "source": "@angular/forms",
+          "specifiers": [
+            "FormsModule"
+          ]
+        }
+      ],
+      "exports": [
+        "BookingWidgetComponent"
+      ],
+      "totalLines": 291,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/component-showcase.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/component-showcase.component.ts",
+      "contentHash": "78edd13190aeaa023103e51889a962cc04e5dc561a7b527ae8a222c551f6ad86",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ComponentShowcaseComponent",
+          "methods": [],
+          "properties": [
+            "destinations",
+            "superhost",
+            "alerts",
+            "amenities",
+            "reviews",
+            "propertyImages",
+            "properties",
+            "listingDescription",
+            "houseRules",
+            "housePolicies",
+            "mapLocation",
+            "userBookings",
+            "footerColumns",
+            "socials"
+          ],
+          "exported": true,
+          "lineCount": 154
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        },
+        {
+          "source": "./destination-card.component",
+          "specifiers": [
+            "DestinationCardComponent"
+          ]
+        },
+        {
+          "source": "./host-profile-card.component",
+          "specifiers": [
+            "HostProfileCardComponent",
+            "Host"
+          ]
+        },
+        {
+          "source": "./filter-chip.component",
+          "specifiers": [
+            "FilterChipComponent"
+          ]
+        },
+        {
+          "source": "./alert-banner.component",
+          "specifiers": [
+            "AlertBannerComponent",
+            "AlertStatus"
+          ]
+        },
+        {
+          "source": "./amenity-list.component",
+          "specifiers": [
+            "AmenityListComponent",
+            "Amenity"
+          ]
+        },
+        {
+          "source": "./review-card.component",
+          "specifiers": [
+            "ReviewCardComponent",
+            "Review"
+          ]
+        },
+        {
+          "source": "./photo-gallery-grid.component",
+          "specifiers": [
+            "PhotoGalleryGridComponent"
+          ]
+        },
+        {
+          "source": "./property-card.component",
+          "specifiers": [
+            "PropertyCardComponent"
+          ]
+        },
+        {
+          "source": "./booking-widget.component",
+          "specifiers": [
+            "BookingWidgetComponent"
+          ]
+        },
+        {
+          "source": "./listing-header.component",
+          "specifiers": [
+            "ListingHeaderComponent"
+          ]
+        },
+        {
+          "source": "./listing-description.component",
+          "specifiers": [
+            "ListingDescriptionComponent"
+          ]
+        },
+        {
+          "source": "./rules-and-policies.component",
+          "specifiers": [
+            "RulesAndPoliciesComponent",
+            "Rule",
+            "Policy"
+          ]
+        },
+        {
+          "source": "./location-map.component",
+          "specifiers": [
+            "LocationMapComponent",
+            "Coordinates"
+          ]
+        },
+        {
+          "source": "./pagination.component",
+          "specifiers": [
+            "PaginationComponent"
+          ]
+        },
+        {
+          "source": "./empty-state.component",
+          "specifiers": [
+            "EmptyStateComponent"
+          ]
+        },
+        {
+          "source": "./user-booking-card.component",
+          "specifiers": [
+            "UserBookingCardComponent",
+            "Booking"
+          ]
+        },
+        {
+          "source": "./site-footer.component",
+          "specifiers": [
+            "SiteFooterComponent",
+            "FooterColumn",
+            "SocialLink"
+          ]
+        }
+      ],
+      "exports": [
+        "ComponentShowcaseComponent"
+      ],
+      "totalLines": 456,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/destination-card.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/destination-card.component.ts",
+      "contentHash": "025bc857aa629d06ce07a0f5a07ff23343172134537dffb17680d6b06751cdda",
+      "functions": [],
+      "classes": [
+        {
+          "name": "DestinationCardComponent",
+          "methods": [
+            "findListings"
+          ],
+          "properties": [
+            "chatService",
+            "imageUrl",
+            "destinationName",
+            "averagePrice"
+          ],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "inject",
+            "input"
+          ]
+        },
+        {
+          "source": "../../../chat/chat.service",
+          "specifiers": [
+            "ChatService"
+          ]
+        }
+      ],
+      "exports": [
+        "DestinationCardComponent"
+      ],
+      "totalLines": 105,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/empty-state.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/empty-state.component.ts",
+      "contentHash": "77105f577c5d202948370b3021614559a44269f1490635ee325bfdf23991611f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "EmptyStateComponent",
+          "methods": [
+            "performAction"
+          ],
+          "properties": [
+            "icon",
+            "title",
+            "message",
+            "actionButtonText"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "EmptyStateComponent"
+      ],
+      "totalLines": 87,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/favorites-list.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/favorites-list.component.ts",
+      "contentHash": "207e2ebe839fcee73fca0065ac9b252a8d30843eda1cf7c2d4f104e0ee9aaa21",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FavoritesListComponent",
+          "methods": [
+            "toggleFavorite"
+          ],
+          "properties": [
+            "favoritesService",
+            "favorites"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "inject"
+          ]
+        },
+        {
+          "source": "../favorites.service",
+          "specifiers": [
+            "FavoritesService",
+            "PropertyListing"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "DecimalPipe"
+          ]
+        }
+      ],
+      "exports": [
+        "FavoritesListComponent"
+      ],
+      "totalLines": 131,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/filter-chip.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/filter-chip.component.ts",
+      "contentHash": "4e43e8cbfae86e5131ca9d7d272b41f85d4a6b353d1618abdfe80a6d1379aa6d",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FilterChipComponent",
+          "methods": [
+            "toggleSelection"
+          ],
+          "properties": [
+            "filterName",
+            "icon",
+            "isSelected"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "FilterChipComponent"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/host-profile-card.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/host-profile-card.component.ts",
+      "contentHash": "5744ae6719ee3501a43b460e956ec722e9b2b9054b5a88fbf635e5aa7a014594",
+      "functions": [],
+      "classes": [
+        {
+          "name": "HostProfileCardComponent",
+          "methods": [],
+          "properties": [
+            "host"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "HostProfileCardComponent"
+      ],
+      "totalLines": 99,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/listing-description.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/listing-description.component.ts",
+      "contentHash": "497eda214dbdaa4084a97ec35ea1ca97e425dce5680aebf3e4f21bb6ffa55b8e",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ListingDescriptionComponent",
+          "methods": [
+            "toggleExpanded"
+          ],
+          "properties": [
+            "description",
+            "maxVisibleLines",
+            "isExpanded"
+          ],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input",
+            "signal"
+          ]
+        }
+      ],
+      "exports": [
+        "ListingDescriptionComponent"
+      ],
+      "totalLines": 92,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/listing-header.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/listing-header.component.ts",
+      "contentHash": "c895098ca6b9201cfe2a3f152654fe9c0a5a683b6c9516e52668efafdacc9563",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ListingHeaderComponent",
+          "methods": [
+            "toggleFavorite"
+          ],
+          "properties": [
+            "listingTitle",
+            "location",
+            "rating",
+            "reviewCount",
+            "favoritesService",
+            "isFavorite"
+          ],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "computed",
+            "inject",
+            "input"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        },
+        {
+          "source": "../favorites.service",
+          "specifiers": [
+            "FavoritesService",
+            "PropertyListing"
+          ]
+        }
+      ],
+      "exports": [
+        "ListingHeaderComponent"
+      ],
+      "totalLines": 144,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/location-map.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/location-map.component.ts",
+      "contentHash": "5f377acbd32f94eda2dccc4a87ac917480734cf9e336eef0ff4f300d3bad5182",
+      "functions": [],
+      "classes": [
+        {
+          "name": "LocationMapComponent",
+          "methods": [],
+          "properties": [
+            "coordinates",
+            "locationDescription",
+            "mapImageUrl"
+          ],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "computed",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "LocationMapComponent"
+      ],
+      "totalLines": 87,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/pagination.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/pagination.component.ts",
+      "contentHash": "fde4f6d3d2e7750b839122f766c36d68d849eeb5b0e5389fcde87ab4fdde9270",
+      "functions": [],
+      "classes": [
+        {
+          "name": "PaginationComponent",
+          "methods": [
+            "goToPage",
+            "previousPage",
+            "nextPage"
+          ],
+          "properties": [
+            "Math",
+            "currentPage",
+            "totalPages",
+            "itemsPerPage",
+            "totalItems"
+          ],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "PaginationComponent"
+      ],
+      "totalLines": 142,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/photo-gallery-grid.component.ts",
+      "contentHash": "b52f9c9cfb4d692bc42e65b38998477868d91dd960a07cb500acb900e109f88f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "PhotoGalleryGridComponent",
+          "methods": [],
+          "properties": [
+            "imageUrls",
+            "propertyTitle"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "PhotoGalleryGridComponent"
+      ],
+      "totalLines": 107,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/property-card.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/property-card.component.ts",
+      "contentHash": "1fef42ae36512435e0cf80d46c4bba6b38b32e3cf4f7d193c498d141d44f65e3",
+      "functions": [],
+      "classes": [
+        {
+          "name": "PropertyCardComponent",
+          "methods": [
+            "viewDetail"
+          ],
+          "properties": [
+            "chatService",
+            "imageUrls",
+            "location",
+            "title",
+            "pricePerNight",
+            "rating",
+            "reviewCount",
+            "imgUrl"
+          ],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "computed",
+            "inject",
+            "input"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        },
+        {
+          "source": "../../../chat/chat.service",
+          "specifiers": [
+            "ChatService"
+          ]
+        }
+      ],
+      "exports": [
+        "PropertyCardComponent"
+      ],
+      "totalLines": 133,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/rating-stars.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/rating-stars.component.ts",
+      "contentHash": "edb3fc222f96ee5a20e7d761664ed7de7685794b56a0e7187d50af984db3efdb",
+      "functions": [],
+      "classes": [
+        {
+          "name": "RatingStarsComponent",
+          "methods": [],
+          "properties": [
+            "rating",
+            "reviewCount",
+            "fullStars",
+            "hasHalfStar",
+            "emptyStars"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "computed",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "RatingStarsComponent"
+      ],
+      "totalLines": 70,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/review-card.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/review-card.component.ts",
+      "contentHash": "99bf4df176371c5bc6d8f60a34924035e74b9d8aa485965386ec3203ba6a33d5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ReviewCardComponent",
+          "methods": [],
+          "properties": [
+            "review"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        },
+        {
+          "source": "./rating-stars.component",
+          "specifiers": [
+            "RatingStarsComponent"
+          ]
+        }
+      ],
+      "exports": [
+        "ReviewCardComponent"
+      ],
+      "totalLines": 116,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/rules-and-policies.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/rules-and-policies.component.ts",
+      "contentHash": "bef27e44ffde65c56e4f4c71ffa4b19ebb735baffe503bb5e4eb1cda5b5ffbf1",
+      "functions": [],
+      "classes": [
+        {
+          "name": "RulesAndPoliciesComponent",
+          "methods": [],
+          "properties": [
+            "rules",
+            "policies"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "RulesAndPoliciesComponent"
+      ],
+      "totalLines": 121,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/site-footer.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/site-footer.component.ts",
+      "contentHash": "e778e8aec2825e118970926686e5753319f476dd3ac69cf7e9594d2976779971",
+      "functions": [],
+      "classes": [
+        {
+          "name": "SiteFooterComponent",
+          "methods": [],
+          "properties": [
+            "linkColumns",
+            "socialLinks"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "SiteFooterComponent"
+      ],
+      "totalLines": 145,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/user-booking-card.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/user-booking-card.component.ts",
+      "contentHash": "264816206406c8db049a4935a21d11d3f0ea209a9e3c9da0d970cf03eb3b503c",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UserBookingCardComponent",
+          "methods": [],
+          "properties": [
+            "booking"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        "UserBookingCardComponent"
+      ],
+      "totalLines": 171,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/components/view-details-button.component.ts": {
+      "filePath": "src/app/apps/vacation-rentals/components/view-details-button.component.ts",
+      "contentHash": "42ecbdea2cdcd882c47224190c43bcb0cd7caedc160e4ba0c4d1f848d657fc3c",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ViewDetailsButtonComponent",
+          "methods": [
+            "viewDetails"
+          ],
+          "properties": [
+            "listingName",
+            "chatService"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "input",
+            "inject"
+          ]
+        },
+        {
+          "source": "../../../chat/chat.service",
+          "specifiers": [
+            "ChatService"
+          ]
+        }
+      ],
+      "exports": [
+        "ViewDetailsButtonComponent"
+      ],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/data-store.ts": {
+      "filePath": "src/app/apps/vacation-rentals/data-store.ts",
+      "contentHash": "83e57e97461e6dcfc0b10cdfde30888a58508da72573537f5413bb693eb52046",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "DATA",
+        "SUBSET_LISTINGS"
+      ],
+      "totalLines": 1959,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apps/vacation-rentals/favorites.service.ts": {
+      "filePath": "src/app/apps/vacation-rentals/favorites.service.ts",
+      "contentHash": "ed28e15b3243c048786cce143be085a985a5d754ae916d5001b4ef9dfc791390",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FavoritesService",
+          "methods": [
+            "addFavorite",
+            "removeFavorite"
+          ],
+          "properties": [
+            "favorites"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Injectable",
+            "signal",
+            "WritableSignal"
+          ]
+        }
+      ],
+      "exports": [
+        "FavoritesService"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/base-components/app.component.ts": {
+      "filePath": "src/app/base-components/app.component.ts",
+      "contentHash": "34addd8abf30f9e2c1466abc314889d187bec7016aeee1c5cfa9d6ef88aef6f4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "App",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "ChangeDetectionStrategy"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "RouterOutlet"
+          ]
+        }
+      ],
+      "exports": [
+        "App"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/base-components/base.component.ts": {
+      "filePath": "src/app/base-components/base.component.ts",
+      "contentHash": "ad386ff7e1b834f4504d4dbfccde55a86a81e53fcd755cb8669059acd20f8df8",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Base",
+          "methods": [],
+          "properties": [
+            "appName",
+            "theme"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "ChangeDetectionStrategy"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "../chat/chat.component",
+          "specifiers": [
+            "ChatComponent"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "RouterOutlet"
+          ]
+        },
+        {
+          "source": "../magic-ai/app-context",
+          "specifiers": [
+            "APP_CONTEXT"
+          ]
+        }
+      ],
+      "exports": [
+        "Base"
+      ],
+      "totalLines": 109,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/chat/chat.component.ts": {
+      "filePath": "src/app/chat/chat.component.ts",
+      "contentHash": "49b5fa5eb7f045e8389524b6353a9403318f5ffdc5758d91d747ad6b38cb3743",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ChatComponent",
+          "methods": [
+            "themeClass",
+            "constructor",
+            "scrollToBottom",
+            "sendMessage",
+            "onInput"
+          ],
+          "properties": [
+            "chatService",
+            "magicAiService",
+            "isStreamComplete",
+            "newMessage",
+            "conversationHistory",
+            "theme",
+            "welcomeText"
+          ],
+          "exported": true,
+          "lineCount": 64
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component",
+            "effect",
+            "ElementRef",
+            "inject",
+            "HostBinding"
+          ]
+        },
+        {
+          "source": "./chat.service",
+          "specifiers": [
+            "ChatService"
+          ]
+        },
+        {
+          "source": "../magic-ai/magic-ai.service",
+          "specifiers": [
+            "MagicAiService"
+          ]
+        },
+        {
+          "source": "@angular/forms",
+          "specifiers": [
+            "FormsModule"
+          ]
+        },
+        {
+          "source": "../magic-ai/app-context",
+          "specifiers": [
+            "APP_CONTEXT"
+          ]
+        },
+        {
+          "source": "../pipes/format-inline-code.pipe",
+          "specifiers": [
+            "FormatInlineCodePipe"
+          ]
+        }
+      ],
+      "exports": [
+        "ChatComponent"
+      ],
+      "totalLines": 229,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/chat/chat.service.ts": {
+      "filePath": "src/app/chat/chat.service.ts",
+      "contentHash": "8171a3d3fc0570014893f244e40ae99e31123f0c20c4525e6ac3b43e77c9f3b4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ChatService",
+          "methods": [
+            "addUserPrompt",
+            "addToConversation"
+          ],
+          "properties": [
+            "router",
+            "magicAiService",
+            "conversationHistory",
+            "nextIndex"
+          ],
+          "exported": true,
+          "lineCount": 47
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Injectable",
+            "inject",
+            "computed",
+            "linkedSignal"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "Router"
+          ]
+        },
+        {
+          "source": "../magic-ai/magic-ai.service",
+          "specifiers": [
+            "MagicAiService"
+          ]
+        }
+      ],
+      "exports": [
+        "ChatService"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/magic-ai/app-context.ts": {
+      "filePath": "src/app/magic-ai/app-context.ts",
+      "contentHash": "4e317503f15c1580c71298475c070be7e4af45bfcfeace1283a091bcf69190c4",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Type"
+          ]
+        },
+        {
+          "source": "../apps/adev-docs/app-context",
+          "specifiers": [
+            "ADEV_APP_CONTEXT"
+          ]
+        },
+        {
+          "source": "../apps/vacation-rentals/app-context",
+          "specifiers": [
+            "VACATION_APP_CONTEXT"
+          ]
+        },
+        {
+          "source": "../apps/magic-bookstore/app-context",
+          "specifiers": [
+            "MAGIC_BOOKSTORE_APP_CONTEXT"
+          ]
+        }
+      ],
+      "exports": [
+        "APP_NAME",
+        "APP_CONTEXT"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/magic-ai/magic-ai-container.component.ts": {
+      "filePath": "src/app/magic-ai/magic-ai-container.component.ts",
+      "contentHash": "6ee77b85218424415ea47cc1a1ad35957dda0d23fb70fbcc4dfd08f300ed55e0",
+      "functions": [],
+      "classes": [
+        {
+          "name": "MagicAiComponent",
+          "methods": [
+            "constructor",
+            "themeClass"
+          ],
+          "properties": [
+            "router",
+            "magicAiService",
+            "componentResource",
+            "loadingText",
+            "isUiLoading",
+            "theme",
+            "index",
+            "schemaIndex",
+            "activeSchema"
+          ],
+          "exported": true,
+          "lineCount": 37
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "effect",
+            "inject",
+            "computed",
+            "input",
+            "HostBinding"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "Router"
+          ]
+        },
+        {
+          "source": "./magic-ai-renderer.component",
+          "specifiers": [
+            "MagicAiRenderer"
+          ]
+        },
+        {
+          "source": "./magic-ai.service",
+          "specifiers": [
+            "MagicAiService"
+          ]
+        },
+        {
+          "source": "./app-context",
+          "specifiers": [
+            "APP_CONTEXT"
+          ]
+        },
+        {
+          "source": "@angular/material/progress-spinner",
+          "specifiers": [
+            "MatProgressSpinnerModule"
+          ]
+        },
+        {
+          "source": "@angular/material/icon",
+          "specifiers": [
+            "MatIconModule"
+          ]
+        }
+      ],
+      "exports": [
+        "MagicAiComponent"
+      ],
+      "totalLines": 137,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/magic-ai/magic-ai-renderer.component.ts": {
+      "filePath": "src/app/magic-ai/magic-ai-renderer.component.ts",
+      "contentHash": "0e04cb2545e853d040c3d960ebd6f2add2b0964a6779fc7c1aa9152ffcdf1cad",
+      "functions": [],
+      "classes": [
+        {
+          "name": "MagicAiRenderer",
+          "methods": [
+            "constructor",
+            "render",
+            "getComponentType"
+          ],
+          "properties": [
+            "schema",
+            "componentMap",
+            "injector",
+            "appRef",
+            "host"
+          ],
+          "exported": true,
+          "lineCount": 90
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "ChangeDetectionStrategy",
+            "Component",
+            "effect",
+            "inject",
+            "ElementRef",
+            "ViewRef",
+            "createComponent",
+            "EnvironmentInjector",
+            "ApplicationRef",
+            "input",
+            "untracked",
+            "inputBinding",
+            "Type"
+          ]
+        },
+        {
+          "source": "./magic-ai.service",
+          "specifiers": [
+            "DynamicSchema"
+          ]
+        },
+        {
+          "source": "./app-context",
+          "specifiers": [
+            "APP_CONTEXT"
+          ]
+        }
+      ],
+      "exports": [
+        "MagicAiRenderer"
+      ],
+      "totalLines": 125,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/magic-ai/magic-ai.service.ts": {
+      "filePath": "src/app/magic-ai/magic-ai.service.ts",
+      "contentHash": "bf072ed7b94ae3383de0e0fd5e5263af98bb922d06e45bcb2d0f23fba7423061",
+      "functions": [],
+      "classes": [
+        {
+          "name": "MagicAiService",
+          "methods": [
+            "randomLoadingIndex",
+            "constructor"
+          ],
+          "properties": [
+            "appContext",
+            "sessionId",
+            "prompt",
+            "agentResponse",
+            "loadingText",
+            "componentSchemaList",
+            "isStreamComplete",
+            "componentResource"
+          ],
+          "exported": true,
+          "lineCount": 102
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "effect",
+            "computed",
+            "signal",
+            "resource",
+            "linkedSignal",
+            "ResourceStreamItem",
+            "Injectable"
+          ]
+        },
+        {
+          "source": "genkit/beta/client",
+          "specifiers": [
+            "streamFlow"
+          ]
+        },
+        {
+          "source": "./app-context",
+          "specifiers": [
+            "APP_CONTEXT"
+          ]
+        }
+      ],
+      "exports": [
+        "MagicAiService"
+      ],
+      "totalLines": 165,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/pipes/format-inline-code.pipe.ts": {
+      "filePath": "src/app/pipes/format-inline-code.pipe.ts",
+      "contentHash": "9323cefc53c6ad481c934bde38a5076f194e7afb1430695e9160b03d27455ef4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FormatInlineCodePipe",
+          "methods": [
+            "transform"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Pipe",
+            "PipeTransform"
+          ]
+        }
+      ],
+      "exports": [
+        "FormatInlineCodePipe"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/showcase/showcase-directory.component.ts": {
+      "filePath": "src/app/showcase/showcase-directory.component.ts",
+      "contentHash": "1a54c3838e2bd43f31ef377598877040713bbc533aaaff5ea20b1d7664214174",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ShowcaseDirectoryComponent",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@angular/core",
+          "specifiers": [
+            "Component"
+          ]
+        },
+        {
+          "source": "@angular/common",
+          "specifiers": [
+            "CommonModule"
+          ]
+        },
+        {
+          "source": "@angular/router",
+          "specifiers": [
+            "RouterLink"
+          ]
+        }
+      ],
+      "exports": [
+        "ShowcaseDirectoryComponent"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "src/genkit-utils/data-store.ts": {
+      "filePath": "src/genkit-utils/data-store.ts",
+      "contentHash": "2fe8db5b4ba16d8def1c16e7649a391b4e90468bf30b78b218f79b2b5ff078b7",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../app/magic-ai/app-context",
+          "specifiers": [
+            "APP_NAME"
+          ]
+        },
+        {
+          "source": "../app/apps/adev-docs/data-store",
+          "specifiers": [
+            "ADEV_DATA"
+          ]
+        },
+        {
+          "source": "../app/apps/vacation-rentals/data-store",
+          "specifiers": [
+            "VACATION_DATA"
+          ]
+        },
+        {
+          "source": "../app/apps/magic-bookstore/data-store",
+          "specifiers": [
+            "MAGIC_BOOKSTORE_DATA"
+          ]
+        }
+      ],
+      "exports": [
+        "DATA"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/genkit-utils/flows.ts": {
+      "filePath": "src/genkit-utils/flows.ts",
+      "contentHash": "3c89cac44723d5c8aef5b54eae8905441eb8bcd8ba918dbf7fe5267a13a0b790",
+      "functions": [
+        {
+          "name": "loadHistory",
+          "params": [
+            "sessionId"
+          ],
+          "returnType": "Promise<MessageData[]>",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "saveHistory",
+          "params": [
+            "sessionId",
+            "history"
+          ],
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "genkit/beta",
+          "specifiers": [
+            "genkit",
+            "MessageData"
+          ]
+        },
+        {
+          "source": "zod",
+          "specifiers": [
+            "z"
+          ]
+        },
+        {
+          "source": "@genkit-ai/googleai",
+          "specifiers": [
+            "googleAI"
+          ]
+        },
+        {
+          "source": "@genkit-ai/vertexai",
+          "specifiers": [
+            "vertexAI"
+          ]
+        },
+        {
+          "source": "./prompts",
+          "specifiers": [
+            "systemInstructions"
+          ]
+        },
+        {
+          "source": "./data-store",
+          "specifiers": [
+            "DATA"
+          ]
+        }
+      ],
+      "exports": [
+        "UiSchema",
+        "generateUIFlow"
+      ],
+      "totalLines": 138,
+      "hasStructuralAnalysis": true
+    },
+    "src/genkit-utils/prompts.ts": {
+      "filePath": "src/genkit-utils/prompts.ts",
+      "contentHash": "9cc8d3bc34c16d3b2994c42eddca0019adc78f7601f15eaa23c35c6800e822f7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "systemInstructions"
+      ],
+      "totalLines": 173,
+      "hasStructuralAnalysis": true
+    },
+    "src/index.html": {
+      "filePath": "src/index.html",
+      "contentHash": "931fe9c96a17289caa950b6350cae5dd524866d7ef3e80cbcb95ab031545755a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": false
+    },
+    "src/main.server.ts": {
+      "filePath": "src/main.server.ts",
+      "contentHash": "555e00e686507307cc0115413ff8d6ed826aa0261f438ea8892db734d3c4311d",
+      "functions": [
+        {
+          "name": "bootstrap",
+          "params": [
+            "context"
+          ],
+          "exported": false,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "BootstrapContext",
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/base-components/app.component",
+          "specifiers": [
+            "App"
+          ]
+        },
+        {
+          "source": "./app/app.config.server",
+          "specifiers": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "src/main.ts": {
+      "filePath": "src/main.ts",
+      "contentHash": "8fd497e8adb71badd59212bc164afb1e2dc02bdd08c07bd7e7b68bf97487eebd",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/platform-browser",
+          "specifiers": [
+            "bootstrapApplication"
+          ]
+        },
+        {
+          "source": "./app/app.config",
+          "specifiers": [
+            "appConfig"
+          ]
+        },
+        {
+          "source": "./app/base-components/app.component",
+          "specifiers": [
+            "App"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/server.ts": {
+      "filePath": "src/server.ts",
+      "contentHash": "7493aadf30b876fd3d62426b7bd10dc45dc6e77374ca8b0a31febc3c7a804cd3",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@angular/ssr/node",
+          "specifiers": [
+            "AngularNodeAppEngine",
+            "createNodeRequestHandler",
+            "isMainModule",
+            "writeResponseToNodeResponse"
+          ]
+        },
+        {
+          "source": "express",
+          "specifiers": [
+            "express"
+          ]
+        },
+        {
+          "source": "@genkit-ai/express",
+          "specifiers": [
+            "expressHandler"
+          ]
+        },
+        {
+          "source": "./genkit-utils/flows",
+          "specifiers": [
+            "generateUIFlow"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "join"
+          ]
+        }
+      ],
+      "exports": [
+        "reqHandler"
+      ],
+      "totalLines": 71,
+      "hasStructuralAnalysis": true
+    },
+    "src/styles.css": {
+      "filePath": "src/styles.css",
+      "contentHash": "93bdba6d8a3b8626574b9f65875b8c2ae0f4a80211f79b1472615285d8f055f3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 349,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.app.json": {
+      "filePath": "tsconfig.app.json",
+      "contentHash": "b46615438d1762cd73feff332253962848b2e7f28cd0a61ad7e5f634cf480a17",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "b6445b51aafffbe2fed1026bbe83c8bdf1f9194c928f6bad0db9bad66fa10b4a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.spec.json": {
+      "filePath": "tsconfig.spec.json",
+      "contentHash": "e152888a28f664ba59eef9583fd7377df22e6e4d6de5bfcd577c0d6456a0229f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    }
+  }
+}
