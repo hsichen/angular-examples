@@ -48,3 +48,7 @@ mcp-server/__pycache__/
 .DS_Store
 Thumbs.db
 
+
+# Understand-Anything: keep the knowledge graph, ignore regenerable scratch
+.ua/.trash-*/
+.ua/intermediate/
